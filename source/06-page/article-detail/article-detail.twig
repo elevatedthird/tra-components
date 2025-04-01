@@ -1,0 +1,77 @@
+{{ attach_library('aries/page--article-detail') }}
+{{ attach_library('aries/plugable--js--sticky') }}
+{{ attach_library('aries/plugable--scss--sticky') }}
+<div class="layout page--article-detail top-margin--small bottom-margin--medium">
+{#  <div class="grid-container full">#}
+{#    {% include '@organism/hero/hero.twig' with {#}
+{#      heading: label,#}
+{#      alignment: block.field_image_alignment.0.value,#}
+{#      height_variation:block.field_height_variation.entity.machine_name.value,#}
+{#      mobile_image_position: block.field_mobile_image_position.0.value,#}
+{#      shape: block.field_shape.entity.machine_name.value,#}
+{#      shape_position: block.field_shape_position.entity.machine_name.value,#}
+{#      background_color: block.field_background_color.entity.machine_name.value|replace({'_': '-'}),#}
+{#      shape_color: block.field_shape_color.entity.machine_name.value|replace({'_': '-'}),#}
+{#    }%}#}
+{#  </div>#}
+  <div class="grid-container">
+    {{ include('@molecule/back/back.twig', { url: back_url, title: 'Back to topic'|t }, with_context = false) }}
+  </div>
+  <div class="grid-container">
+    <div class="grid-x extra-wide-grid-margin-x extra-wide-grid-margin-y">
+      <div class="cell small-12 large-8">
+        {% if media %}
+          <div class="position-relative responsive-embed three-by-two">
+            {{ include('@molecule/background-media/background-media.twig', {
+              media,
+            }, with_context = false) }}
+          </div>
+        {% endif %}
+        <h1 class="h2">{{ heading }}</h1>
+        {% if author %}
+          <div class="author fw--normal-plus body-m">
+            {{ author }}
+          </div>
+        {% endif %}
+        {% if piped_meta %}
+          <div class="page--article-detail--date-read">
+            {{ include('@molecule/piped-meta/piped-meta.twig', {meta: piped_meta}, with_context = false) }}
+          </div>
+        {% endif %}
+        <div class="page--article-detail--social-icons">
+          {% include '@molecule/addtoany/addtoany.twig' with {
+            buttons_size: 24,
+            page_url: url,
+            link_title: label,
+          }%}
+        </div>
+        <div class="page--article-detail--content body-l" id="article-content">
+          {% if body %}
+            {{ body }}
+          {% endif %}
+        </div>
+      </div>
+      <div  class="cell small-12 large-4" >
+        {% if tag_cloud %}
+          <div class="page--article-detail--tags">
+            <h3>{{ "Tags"|t }}</h3>
+            {{ include('@molecule/tag-cloud/tag-cloud.twig', {items: tag_cloud, type: tag_type|default('@atom/pill/pill.twig')}, with_context = false) }}
+          </div>
+        {% endif %}
+        {% if topic_cloud %}
+          <div class="page--article-detail--topics">
+            <h3>{{ "Article topics"|t }}</h3>
+            {{ include('@molecule/piped-meta/piped-meta.twig', {meta: topic_cloud, classes: ['body-l']}, with_context = false) }}
+          </div>
+        {% endif %}
+        {% if related_content.0 %}
+          <div id="related_content" data-sticky-container>
+            <div class="related-content " data-sticky data-sticky-on="large" data-margin-top="12" data-top-anchor="related_content" data-btm-anchor="article-content:bottom">
+              {{ related_content }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+{{ attach_library('aries/plugable--js--magellan') }}
+{{ attach_library('aries/organism--secondary-nav') }}
+
+<div id="sec-nav-anchor"></div>
+<div class="organism--secondary-nav" data-sticky-container >
+  <nav class="secondary-nav" data-sticky data-margin-top="0" data-sticky-on="large" data-top-anchor="sec-nav-anchor">
+    <div class="secondary-nav-wrapper grid-container">
+      <div class="nav-header">
+        <span class="page-title">{{ page_title }}</span>
+        <ul class="navigation menu" data-magellan data-smooth-scroll data-active-class="active" data-offset="150">
+          {% for section_label in section_labels %}
+            <li><a href="#{{ 's-' ~ section_label|clean_id }}">{{ section_label }}</a></li>
+          {% endfor %}
+          {% for internal_link in internal_links %}
+            <li class="internal-link"><a href="{{ internal_link.url }}">{{ internal_link.title }}</a></li>
+          {% endfor %}
+          {% for external_link in external_links %}
+            <li class="external-link"><a href="{{ external_link.url }}" target="_blank">{{ external_link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <span class="active-marker"></span>
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,30 @@
+{{ attach_library('aries/molecule--teaser-card-row') }}
+<div class="molecule--teaser-card-row flex-container flex-dir-row flex-row">
+  {#
+  Render things.
+  #}
+  <div class="teaser-card-horizontal-col-1">
+    <h3 class="molecule--teaser-card-row--title">
+      {{ title }}
+    </h3>
+    {% include '@molecule/header-meta/header-meta.twig' with {
+      meta: meta,
+    } %}
+    {{ body }}
+  </div>
+  <div class="teaser-card-horizontal-col-2">
+    {#    TODO not sure what format the image is going to be passed in, assuming render array #}
+    {#
+          TODO <a> tag here is necessary to link entire div, if we decide to conditionally not render image,
+          need to move it somewhere else
+    #}
+    {% if link %}
+      <a href="{{ link }}" class="stretched-link-tag-before">
+        {{ image.0 }}
+      </a>
+    {% else %}
+      {{ image }}
+    {% endif %}
+
+  </div>
+</div>

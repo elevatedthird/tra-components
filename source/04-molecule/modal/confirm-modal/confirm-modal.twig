@@ -1,0 +1,17 @@
+{{ attach_library('aries/molecule--modal--confirm-modal') }}
+<div class="molecule--modal--confirm-modal">
+  {% embed '@molecule/modal/modal.twig' with {
+    id: id,
+    trigger_classes: 'button button--primary',
+  }%}
+
+    {% block modal_content %}
+      {{ modal_content }}
+    {% endblock %}
+
+    {% block trigger %}
+      {{ trigger_label }}
+    {% endblock %}
+
+  {% endembed %}
+</div>

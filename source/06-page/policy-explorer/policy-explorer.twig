@@ -1,0 +1,51 @@
+{{ attach_library('aries/molecule--icon-card') }}
+{{ attach_library('aries/molecule--tabbed-info-card') }}
+{{ attach_library('aries/page--policy-explorer') }}
+<div class="page--policy-explorer">
+  <div class="grid-container layout top-margin--default bottom-margin--default">
+    <div class="{{ is_overview_page == 1 ? 'grid-x grid-margin-x mid-extra-wide-grid-margin-y' : 'width-mid' }}">
+      {% if is_overview_page == 1 %}
+        <div class="cell xsmall-12 margin-bottom--24">
+          <h1 class="margin-bottom--none">
+            Transamerica Life Insurance Policy Explorer
+          </h1>
+          <p class="margin-top--16 body-l">
+            We want to help you find the best life insurance policy for you. By simply answering some questions about your family, finances, health, and budget, you could be well on your way to helping to protect your family’s future.
+          </p>
+        </div>
+        {% for item in overview_page_data %}
+          <div class="cell xsmall-12 small-12 large-4">
+            {% set link %}
+              {{ include('@atom/button/button.twig', { url: item.link_url, title: item.link_text, classes: ['button--primary stretched-link-tag-before'] }, with_context = false) }}
+            {% endset %}
+            {{ include('@molecule/card-two/card-two.twig', {
+              media: item.image,
+              heading: item.title,
+              description: item.description,
+              link
+            }, with_context = false) }}
+          </div>
+        {% endfor %}
+      {% else %}
+        {{ page.content }}
+      {% endif %}
+    </div>
+  </div>
+  {% if disclosure %}
+    <div class="grid-container layout bottom-margin--default">
+      {% include '@organism/disclaimer/disclaimer.twig' with {
+        title: "About this tool"|t,
+        description: disclosure,
+        disclaimer_expanded: 0,
+        narrow: 0
+      }%}
+    </div>
+  {% endif %}
+  {% if agent_locator %}
+    {{ include('@molecule/modal/modal-content.twig', {
+      modal_content: agent_locator,
+      id: "contact-an-agent-modal",
+      resetOnClose: 0,
+    }, with_context = false) }}
+  {% endif %}
+</div>

@@ -1,0 +1,55 @@
+{{ attach_library('aries/molecule--contact-card--long') }}
+<div class="molecule--contact-card--long">
+  {% if media.0 %}
+    <div class="molecule--contact-card--long--media position-relative responsive-embed one-fortytwo-by-one">
+      {% include '@molecule/background-media/background-media.twig' with {
+        media: media,
+        position: 'center'
+      } %}
+    </div>
+  {% endif %}
+  <div class="name">
+    <h3 class="h3-plus">
+      {{ first_name }} {{ last_name }}
+      <span class="body-l">
+        {{ name_suffix }}
+      </span>
+    </h3>
+  </div>
+  {% if address %}
+    <div class="address body-l">
+      {{ address }}
+    </div>
+  {% endif %}
+  {% if email or phone or website %}
+    <div class="contact-icons">
+      {% if email %}
+        <div class="email">
+          {{ include('@atom/icon-link/icon-link.twig', {icon_string_name: 'email', link: email}, with_context = false) }}
+        </div>
+      {% endif %}
+      {% if phone %}
+        <div class="phone">
+          {{ include('@atom/icon-link/icon-link.twig', {icon_string_name: 'call', link: phone}, with_context = false) }}
+        </div>
+      {% endif %}
+      {% if website %}
+        <div class="website">
+          {{ include('@atom/icon-link/icon-link.twig', {icon_string_name: 'language', link: website}, with_context = false) }}
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+  {% if body %}
+    <div class="body-content body-l">
+      {{ body }}
+    </div>
+  {% endif %}
+  {% if link %}
+    <div class="link">
+      <div class="link--inner-wrapper">
+        {{ link }}
+      </div>
+    </div>
+  {% endif %}
+</div>

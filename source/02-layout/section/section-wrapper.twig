@@ -1,0 +1,37 @@
+{{ attach_library('aries/layout--section') }}
+{% if background_color == 'theme--primary' %}
+  {% set background_color = 'theme--vibrant color-vibrant-white' %}
+{% endif %}
+
+  {%
+    set wrapper_classes = [
+    layout_id,
+    'layout-section',
+    'position-relative',
+    layout_id != 'banner' ? background_color|default('bg-color--transparent') : '',
+    section_theme,
+    expand ? 'expand-section' : '',
+    as ? 'has-angled-shape' : '',
+    spacing ? 'spacing--' ~ spacing|clean_class : 'spacing--default',
+    block_id ? 'banner-block--' ~ block_id : '',
+  ]
+  %}
+<div {{ attributes.addClass(wrapper_classes) }}>
+  <div class="grid-container full layout-section-background-wrapper">
+    {% if has_background_media %}
+      <div class="responsive-background-object--{{ background_position|replace({' ': '-'}) }}">
+        {{ background_media }}
+      </div>
+    {% endif %}
+    <div class="grid-container {{ inner_wrapper_classes }} layout-section-inner-wrapper position-relative">
+      {% block wrapper_content %}
+        {{ wrapper_content }}
+      {% endblock %}
+    </div>
+  </div>
+  {% if breadcrumb == 1 %}
+    <div class="grid-container theme--vibrant color-vibrant-white show-for-large">
+       {{ drupal_breadcrumb() }}
+    </div>
+  {% endif %}
+</div>

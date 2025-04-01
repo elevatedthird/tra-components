@@ -1,0 +1,9 @@
+{{ attach_library('aries/atom--badge') }}
+<div class="atom--badge">
+  {% if icon %}
+    <div class="icon">
+      {{ icon }}
+    </div>
+  {% endif %}
+  <div class="label body-s margin-bottom-0">{{ label }}</div>
+</div>

@@ -1,0 +1,66 @@
+{{ attach_library('aries/molecule--copy') }}
+{{ attach_library('aries/atom--table') }}
+
+{% set subhead_tag_lookup = {
+  'h2': 'h3', 
+  'h3': 'h4',
+  'h4': 'h5',
+} %}
+{% set subhead_tag = subhead_tag ?? heading_tag ? subhead_tag_lookup[heading_tag] : 'h3' %}
+{% set subhead_font_size = subhead_font_size ?? heading_tag ? subhead_tag_lookup[heading_tag] : 'h3' %}
+
+<div class="molecule--copy">
+  {% if microTitle %}
+    <{{ microTitle_tag|default('h4') }} class="micro-title {{ microTitle_font_size|default('h4')}}">{{ microTitle }}</{{ microTitle_tag|default('h4') }}>
+  {% endif %}
+  {% if heading %}
+    <{{ heading_tag|default('h2') }} class="heading {{ heading_font_size|default('h2')}}" 
+      {% if heading_id %}
+        id="{{ heading_id }}"
+      {% endif %}
+    >{{ heading }}</{{ heading_tag|default('h2') }}>
+  {% endif %}
+  {% if subhead %}
+    <{{ subhead_tag|default('h3') }} class="subhead {{ subhead_font_size|default('h3')}}">{{ subhead }}</{{ subhead_tag|default('h3') }}>
+  {% endif %}
+  {% if description %}
+    <div class="description {{ description_font_size|default('body-l')}}">{{ description }}</div>
+  {% endif %}
+  {% if subhead_2 %}
+    <{{ subhead_tag|default('h3') }} class="subhead subhead-2 {{ subhead_font_size|default('h3')}}">{{ subhead_2 }}</{{ subhead_tag|default('h3') }}>
+  {% endif %}
+  {% if columns %}
+    <div class="columns {{ column_font_size|default('body-l')}}">
+      {% for column in columns %}
+        {{ column }}
+      {% endfor %}
+    </div>
+  {% endif %}
+  {% if attribution %}
+    <div class="attribution {{ attribution_font_size|default('body-xl')}}">
+      {{ attribution }}
+    </div>
+  {% endif %}
+  <div class="disclosure-wrapper"> 
+    {% if disclosure %}
+      <div class="tooltip-admin tooltip-admin-hidden" aria-hidden="true">{{ disclosure }}</div>
+    {% endif %}  
+    {% if disclosure %}
+      <div class="disclosure">
+        {% include '@atom/tooltip/tooltip.twig' with {
+          text: disclosure,
+        } %}
+      </div>
+    {% endif %}  
+  </div>
+  {% if links %}
+    <div class="links p"> 
+      {% for link in links %}
+        {% include '@atom/button/button--link-field.twig' with {
+          link: link,
+          classes: [theme|default('vibrant')],
+        } %}
+      {% endfor %}   
+    </div>
+  {% endif %}
+</div>

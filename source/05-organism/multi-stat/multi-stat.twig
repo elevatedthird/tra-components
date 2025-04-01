@@ -1,0 +1,42 @@
+{{ attach_library('aries/organism--multi-stat') }}
+
+{% if background_color is empty %}
+  {% set background_color = 'contrasting-night-blue' %}
+{% endif %}
+
+{% set left_content_copy %}
+  <div class="organism--multi-stat--copy-wrapper">
+    {% include '@molecule/copy/copy.twig' with {
+      microTitle: microTitle,
+      microTitle_font_size: 'body-m',
+      heading: title,
+      heading_tag: 'h2',
+      heading_id:heading_id,
+      heading_font_size: 'h1',
+      description: description,
+      disclosure: disclosure
+    }%}
+  </div>
+{% endset %}
+
+{% set left_content_media %}
+  <div class="organism--multi-stat--media-wrapper">
+    <div class="organism--multi-stat--media {{ shape ? 'shape' }} {{ shape_position ? shape ~ '--' ~  shape_position : shape }} {{ shape_color ? 'bg-color-' ~ shape_color }}">
+      {{ media }}
+    </div>
+  </div>
+{% endset %}
+
+<div class="organism--multi-stat default sections-{{ rightSectionsCount }}">
+  <div class="column left cell xsmall-12 large-6 media {{ background_color ? 'bg-color-' ~ background_color }}">
+    {{ left_content_copy }}
+    {{ left_content_media }}
+  </div>
+  <div class="column right cell xsmall-12 large-6 copy">
+    <div class="main-section {{ background_color ? 'sub-bg-color-' ~ background_color }}">
+      {% include '@plugable/twig/render-items.twig' with {
+        items: rightSections,
+      }%}
+    </div>
+  </div>
+</div>

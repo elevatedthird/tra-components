@@ -1,0 +1,35 @@
+{{ attach_library('aries/molecule--menu-item--search') }}
+{{ attach_library('aries/atom--form--search-input') }}
+<div class="molecule--menu-item--search">
+  {#
+    For passed vars see the
+    docroot/themes/custom/aries/source/04-molecule/menu-item/menu-item.twig
+
+    You can just build out the search funcitonality in this molecule.
+  #}
+
+  <div class="sr-only">
+  </div>
+
+  <button id="site-search" aria-label="Search" class="icon-gea site-search-btn">
+    <svg aria-hidden="true" class=" site-search-btn__icon">
+      <use xlink:href="/themes/custom/aries/source/assets/images/svg/img.svg#icon-magnifier"></use>
+    </svg>
+  </button>
+
+  <div class="site-search-div">
+
+    <div class="site-search-bar-overlay"></div>
+
+    <div class="site-search-bar-wrapper">
+      <div class="container">
+        <div class="site-search-inner flex-container align-center">
+         <div class="search-background">
+          {{ drupal_block('views_exposed_filter_block:acquia_search-page_aries', wrapper=false) }}
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

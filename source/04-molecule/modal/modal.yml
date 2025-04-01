@@ -1,0 +1,16 @@
+args:
+  modal_content:
+    required: true
+    type: 'block content'
+    default_value: ''
+    notes: 'This is where the content of the modal gets passed in using an embed'
+  trigger:
+    required: true
+    type: 'block content'
+    default_value: ''
+    notes: 'This is where the trigger button text for the modal gets passed in using an embed'
+  trigger_classes:
+    required: false
+    type: array
+    default_value: ''
+    notes: 'Add only one class. Available classes: button--primary, button--secondary, button--tertiary, button--media'

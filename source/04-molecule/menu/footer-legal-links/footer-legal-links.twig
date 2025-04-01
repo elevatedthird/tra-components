@@ -1,0 +1,7 @@
+{{ attach_library('aries/molecule--menu--footer-legal-links') }}
+
+<div class="molecule--menu--footer-legal-links">
+  {% include '@molecule/menu/menu.twig' with {
+    items: footer_legal_links.items,
+  }%}
+</div>

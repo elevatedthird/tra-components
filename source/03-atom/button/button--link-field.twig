@@ -1,0 +1,11 @@
+{# Button #}
+{{ attach_library('aries/atom--button') }}
+{% if link %}
+    {% if links_is_array %}
+        <a href="{{ link.url }}" aria-label="{{ link.text }}"
+           class="button {{ theme }} button--{{ link.style }}-{{ theme }}" target="_blank"
+           rel="nofollow">{{ link.text }}</a>
+    {% else %}
+        {{ link|with(['#attributes', 'class'], 'button ' ~ classes|join(' ')) }}
+    {% endif %}
+{% endif %}

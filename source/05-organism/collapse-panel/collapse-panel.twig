@@ -1,0 +1,24 @@
+{{ attach_library('aries/organism--collapse-panel') }}
+<div class="organism--collapse-panel {{ date.0 ? 'has-date' }}">
+  {% set title %}
+    <div class="heading">{{ heading|render|striptags|trim }}</div>
+    {% if date.0 %}
+      <div class="date body-m-all">{{ date|render|striptags|trim }}</div>
+    {% endif %}
+  {% endset %}
+
+  {% set rendered_item %}
+{#  TODO maybe use a plain text field instead of the copy field?  #}
+    {% include '@molecule/accordion-item/accordion-item.twig' with {
+      rendered_title: title,
+      rendered_description: copy,
+      title_typography: 'h4',
+      description_typography: 'body-m-all',
+      active_no_bold: 'active-no-bold'
+    }%}
+  {% endset %}
+  {% include '@organism/accordion/accordion.twig' with {
+    rendered_items: rendered_item,
+    narrow: 0
+  } only %}
+</div>

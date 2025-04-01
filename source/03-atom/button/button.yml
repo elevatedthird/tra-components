@@ -1,0 +1,32 @@
+variations:
+  default:
+    args:
+      classes:
+        required: true
+        type: string
+        default_value: ''
+        notes: 'Add only one class. Available classes: button--primary, button--secondary, button--tertiary, button--media'
+      url:
+        required: true
+        type: string
+        default_value: ''
+      target:
+        required: false
+        type: string
+        default_value: '_self'
+      title:
+        required: true
+        type: string
+        default_value: ''
+  button-field:
+    args:
+      link:
+        required: true
+        type: array
+        default_value: ''
+        notes: 'the field array item "content.field_link.0"'
+      classes:
+        required: false
+        type: array
+        default_value: ['button--primary']
+        notes: 'Add only one class. Available classes: button--primary, button--secondary, button--tertiary, button--media'

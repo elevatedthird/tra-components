@@ -1,0 +1,13 @@
+{{ attach_library('aries/organism--footer') }}
+
+<div class="organism--footer">
+  {# Footer menu #}
+  <nav class="organism--footer--menu" aria-label="footer primary navigation">
+    {% include '@molecule/menu/footer/footer.twig' %}
+  </nav>
+
+  {# Footer Legal Menu Links #}
+  <nav class="organism--footer-legal-links--menu" aria-label="footer legal links">
+    {% include '@molecule/menu/footer-legal-links/footer-legal-links.twig' %}
+  </nav>
+</div>

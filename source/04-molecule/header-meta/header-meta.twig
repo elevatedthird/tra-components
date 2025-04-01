@@ -1,0 +1,6 @@
+{{ attach_library('aries/molecule--header-meta') }}
+<div class="molecule--header-meta flex-container flex-dir-row grid-container--narrow">
+  {% for key,value in meta %}
+    <div class="meta-item {{ key }}">{{ value }}</div>
+  {% endfor %}
+</div>

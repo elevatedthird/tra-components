@@ -1,0 +1,8 @@
+{{ attach_library('aries/molecule--back') }}
+<div class="molecule--back">
+  {% include '@atom/button/button.twig' with {
+    url: url,
+    title: title,
+    classes: ['button--tertiary']
+  } %}
+</div>

@@ -1,0 +1,64 @@
+{{ attach_library('aries/atom--form--search-input') }}
+
+{%
+  set classes = [
+  'js-form-item',
+  'form-item',
+  'js-form-type-' ~ type|clean_class,
+  'form-type-' ~ type|clean_class,
+  'js-form-item-' ~ name|clean_class,
+  'form-item-' ~ name|clean_class,
+  title_display not in ['after', 'before'] ? 'form-no-label',
+  disabled == 'disabled' ? 'form-disabled',
+  errors ? 'form-item--error',
+]
+%}
+{%
+  set description_classes = [
+  'description',
+  description_display == 'invisible' ? 'visually-hidden',
+]
+%}
+<div{{ attributes.addClass(classes) }} tabindex="0">
+{#  <input class="facade-trigger search-button image-button search-icon-button" alt="Search Button" type="image" value="Search" src="/themes/custom/aries/source/assets/images/svg/search.svg">#}
+  <button class="facade-trigger search-button image-button search-icon-button" type="submit" name="submit">
+    <span class="sr-only">Search</span>
+    <span class="material-symbols-outlined">search</span>
+  </button>
+  {% if label_display in ['before', 'invisible'] %}
+    {{ label }}
+  {% endif %}
+  {% if prefix is not empty %}
+    <span class="field-prefix">{{ prefix }}</span>
+  {% endif %}
+  {% if description_display == 'before' and description.content %}
+    <div{{ description.attributes }}>
+      {{ description.content }}
+    </div>
+  {% endif %}
+  {{ children }}
+  {% if suffix is not empty %}
+    <span class="field-suffix">{{ suffix }}</span>
+  {% endif %}
+  {% if label_display == 'after' %}
+    {{ label }}
+  {% endif %}
+  {% if errors %}
+    <div class="form-item--error-message">
+      <strong>{{ errors }}</strong>
+    </div>
+  {% endif %}
+  {% if description_display in ['after', 'invisible'] and description.content %}
+    <div{{ description.attributes.addClass(description_classes) }}>
+      {{ description.content }}
+    </div>
+  {% endif %}
+  <button type="button" aria-label="Close search bar" class="site-search-bar__close button--primary-link"><span class="material-symbols-outlined">close</span></button>
+  <div class="toggle-filters ">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+

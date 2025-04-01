@@ -1,0 +1,6 @@
+args:
+  media:
+    required: true
+    type: field
+    default_value: ''
+    notes: 'Image'

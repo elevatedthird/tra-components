@@ -1,0 +1,20 @@
+{{ attach_library('aries/molecule--modal') }}
+{{ attach_library('aries/plugable--js--reveal') }}
+{{ attach_library('aries/plugable--scss--reveal') }}
+
+{% set hash = random(0, 1000) %}
+
+<div class="molecule--modal">
+  {{ include('@molecule/modal/modal-content.twig', {
+    id: 'modal--' ~ hash,
+    modal_content,
+  }, with_context = false) }}
+  {# Trigger Button #}
+  <div class="molecule--modal--trigger">
+    {{ include('@molecule/modal/modal-trigger.twig', {
+      id: 'modal--' ~ hash,
+      trigger: trigger ?? trigger_label,
+      trigger_classes: [trigger_classes|join(' '), 'language-selector__flag-button'],
+    }, with_context = false) }}
+  </div>
+</div>

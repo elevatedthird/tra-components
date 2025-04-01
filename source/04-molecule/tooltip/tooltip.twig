@@ -1,0 +1,18 @@
+{{ attach_library('aries/plugable--js--tippy') }}
+{{ attach_library('aries/molecule--tooltip') }}
+  {% autoescape false %}
+<button class="molecule--tooltip tippy" type="button">
+  <span class="material-symbols-outlined">
+    help
+  </span>
+  <template>
+    <div class="molecule--tooltip--template">
+      {% if tooltip_label %}
+        <div class="tippy-label body-m">{{ tooltip_label }}</div>
+      {% endif %}
+      <div class="tippy-inner-content body-s">{{ tooltip_content }}</div>
+    </div>
+  </template>
+</button>
+{% endautoescape %}
+

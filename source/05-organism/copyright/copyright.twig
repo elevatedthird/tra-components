@@ -1,0 +1,11 @@
+{{ attach_library('aries/organism--copyright') }}
+<div class="organism--copyright">
+  <div class="grid-x grid-margin-x">
+    <nav class="organism--footer--menu cell medium-10" aria-label="footer secondary navigation">
+      {% include '@molecule/menu/footer-meta/footer-meta.twig' %}
+    </nav>
+    <div class="cell auto shrink copyright-date medium-2">
+      {{ copyright|t }} {{ '©' ~ 'now'|date('Y') }}
+    </div>
+  </div>
+</div>

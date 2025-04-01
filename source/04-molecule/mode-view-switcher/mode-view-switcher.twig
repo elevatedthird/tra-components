@@ -1,0 +1,6 @@
+{{ attach_library('aries/molecule--mode-view-switcher') }}
+
+<div class="view-mode-switcher">
+  <button class="grid-view {{ view_mode == 'teaser' ? 'is-active' : '' }}" data-view="teaser"><span class="material-symbols-outlined">grid_view</span></button>
+  <button class="list-view {{ view_mode == 'horizontal-teaser' or view_mode == 'teaser-horizontal' ? 'is-active' : '' }}" data-view="teaser-horizontal"><span class="material-symbols-outlined">list</span></button>
+</div>

@@ -1,0 +1,35 @@
+{{ attach_library('aries/organism--news') }}
+
+{#
+  media
+  heading
+  press_releases
+  links
+  background_color
+#}
+
+{% set theme = ('contrasting' in background_color ? 'contrasting' : 'vibrant') %}
+
+<div class="organism--news default">
+  <div class="grid-x align-center organism--news--grid">
+    <div class="cell">
+      {{ title_prefix }}
+      <h2 class="component-title">{{ heading }}</h2>
+      {{ title_suffix }}
+    </div>
+    <div class="cell news-items grid-x align-center">
+      <div class="left cell mobile_menu-auto {{ background_color ? 'bg-color-' ~ background_color }} {{ theme }}">
+        {{ media }}
+        {{ press_releases.0 }}
+      </div>
+      <div class="right cell mobile_menu-auto">
+        {{ press_releases.1 }}
+        {{ press_releases.2 }}
+        {{ press_releases.3 }}
+        <div class="organism--news--links grid-x">
+          {{ links }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

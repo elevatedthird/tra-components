@@ -1,0 +1,10 @@
+{{ attach_library('aries/layout--block') }}
+{% if no_wrapper is empty %}
+  <div{{ attributes.addClass('block', classes) }}>
+{% endif %}
+  {% block block_content %}
+    {{ block_content }}
+  {% endblock %}
+{% if no_wrapper is empty %}
+  </div>
+{% endif %}

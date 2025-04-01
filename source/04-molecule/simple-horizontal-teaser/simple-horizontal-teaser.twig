@@ -1,0 +1,13 @@
+{{ attach_library('aries/molecule--simple-horizontal-teaser') }}
+<div class="molecule--simple-horizontal-teaser position-relative">
+  <div class="media-wrapper">
+    <div class="position-relative responsive-embed three-by-two">
+      {% include '@molecule/background-media/background-media.twig' with {
+        media: media,
+      } %}
+    </div>
+  </div>
+  <div class="content">
+    <h3 class="h4"><a href="{{ url }}" class="stretched-link-tag-before" rel="nofollow">{{ title }}</a></h3>  
+  </div>
+</div>

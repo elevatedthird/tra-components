@@ -1,0 +1,21 @@
+{{ attach_library('aries/layout--portal-footer-wrapper') }}
+<div class="layout--portal-footer-wrapper flex-container grid-x grid-margin-x grid-padding-y">
+  <div class="left cell xsmall-12 large-8">
+    {% if block('legal') is not empty %}
+      {% block legal %}
+
+      {% endblock %}
+    {% endif %}
+    {% if block('tracking') is not empty %}
+      {% block tracking %}
+
+      {% endblock %}
+    {% endif %}
+  </div>
+  <div class="right cell xsmall-12 large-4">
+    {% if block('menu') is not empty %}
+      {% block menu %}
+      {% endblock %}
+    {% endif %}
+  </div>
+</div>

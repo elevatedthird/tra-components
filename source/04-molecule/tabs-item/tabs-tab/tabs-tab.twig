@@ -1,0 +1,10 @@
+{{ attach_library('aries/molecule--tabs-item--tabs-tab') }}
+{% if item %}
+  {% set entity_id = item.entity ? item.entity.id() : '' %}
+  {% set heading = item.target_id ? drupal_field('field_heading', 'paragraph', item.target_id) : 'Tab label placeholder' %}
+  <li class="molecule--tabs-item--tabs-tab tabs-title {{ active }}">
+    <a href="{{ '#tab-panel-' ~ entity_id }}">
+      {{ heading }}
+    </a>
+  </li>
+{% endif %}

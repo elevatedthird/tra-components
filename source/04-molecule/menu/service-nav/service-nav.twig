@@ -1,0 +1,25 @@
+{# Service nav menu #}
+{{ attach_library('aries/molecule--menu--service-nav') }}
+
+<div class="molecule--menu--service-nav grid-container grid-x align-justify align-middle">
+  <div class="service-nav-menu--inner-wrapper cell mobile_menu-shrink" id="service-nav--user-type-selector">
+    {% include '@molecule/menu/menu.twig' with {
+      items: service_nav__user_type_selector.items,
+    } %}
+  </div>
+
+  <div class="service-nav-menu--inner-wrapper cell mobile_menu-shrink mobile_menu-order-2" id="service-nav--account-links">
+    {% include '@molecule/menu/menu.twig' with {
+      items: service_nav__account_links.items,
+      options: {
+        main_ul_classes: ['grid-x', 'align-center']
+      }
+    } %}
+  </div>
+
+  <div class="service-nav-menu--inner-wrapper cell mobile_menu-shrink mobile_menu-order-1" id="service-nav--buttons">
+    {% include '@molecule/menu/menu.twig' with {
+      items: service_nav__buttons.items,
+    } %}
+  </div>
+</div>

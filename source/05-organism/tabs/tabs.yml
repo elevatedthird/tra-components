@@ -1,0 +1,6 @@
+args:
+  example_argument:
+    required: true|false
+    type: string
+    default_value: 'example-string'
+    notes: any helpful notes about this input

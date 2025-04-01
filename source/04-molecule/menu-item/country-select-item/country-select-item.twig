@@ -1,0 +1,21 @@
+
+<ul{{attributes.addClass(menu_classes).removeClass(options.main_ul_classes,'root').removeAttribute('data-responsive-menu')}}>
+  {% for item in countries.links %}
+    {% set item_attributes = create_attribute() %}
+    {%
+      set item_classes = [
+        'country-link-item',
+      ]
+    %}
+    <li{{item_attributes.addClass(item_classes)}}>
+      <a href="{{ item.url }}" {{ item.attributes }}>
+        <div class="language-menu-select__flag">
+          <div class="svg-container">
+            <img src="{{ file_url(item.icon) }}" alt="country flag"/>
+          </div>
+        </div>
+        {{ item.title }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>

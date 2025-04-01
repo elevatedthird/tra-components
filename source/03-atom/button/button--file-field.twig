@@ -1,0 +1,4 @@
+{{ attach_library('aries/atom--button') }}
+{% if link %}
+<a class="{{ 'button ' ~ classes|join(' ') }}" href="{{ link }}" aria-label="{{ alttext }}" >{{ title }}</a>
+{% endif %}

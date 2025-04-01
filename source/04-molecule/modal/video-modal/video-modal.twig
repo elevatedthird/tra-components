@@ -1,0 +1,16 @@
+{{ attach_library('aries/molecule--modal--video-modal') }}
+<div class="molecule--modal--video-modal">
+  {% embed '@molecule/modal/modal.twig' with {
+    trigger_classes: 'button--media button ' ~ classes|join(' '),
+  }%}
+
+    {% block modal_content %}
+      {{ modal_content }}
+    {% endblock %}
+
+    {% block trigger %}
+      {{ trigger_label }}
+    {% endblock %}
+
+  {% endembed %}
+</div>

@@ -1,0 +1,13 @@
+{{ attach_library('aries/molecule--background-media-with-badge') }}
+<div class="molecule--background-media-with-badge position-relative">
+  {% include '@molecule/background-media/background-media.twig' with {
+    media: media,
+    position: 'center'
+  } %}
+  {% if icon and label %}
+    <div class="badge-wrapper position-absolute">
+      {{ include('@atom/badge/badge.twig', {icon, label}, with_context = false) }}
+    </div>
+  {% endif %}
+</div>
+

@@ -1,0 +1,7 @@
+{% for i in items['#items']|keys %}
+  {% if tag %}
+    <{{ tag }}>{{ items[i] }}</{{ tag }}>
+  {% else %}
+    {{ items[i] }}
+  {% endif %}
+{% endfor %}

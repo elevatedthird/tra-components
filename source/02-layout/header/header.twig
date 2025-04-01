@@ -1,0 +1,15 @@
+{# Header #}
+{{ attach_library('aries/layout--header') }}
+{{ attach_library('aries/plugable--js--sticky') }}
+{{ attach_library('aries/plugable--scss--sticky') }}
+<div class="layout--header">
+  {# Top Bar #}
+  <div id="header-content--wrapper" class="header-content--wrapper" data-sticky-container>
+    <div class="header-content" data-sticky data-sticky-on="xsmall" data-margin-top="0"
+         data-top-anchor="header-content--wrapper">
+      {% include '@organism/header/header.twig' %}
+    </div>
+  </div>
+</div>
+<div class="open-dropdown-menu-overlay" style="display:none;">
+</div>

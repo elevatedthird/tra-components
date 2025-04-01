@@ -1,0 +1,13 @@
+{{ attach_library('aries/atom--icon-link') }}
+<div class="atom--icon-link flex-container body-l">
+  {% if icon_string_name %}
+    <div class="material-symbols-outlined fw--normal-plus flex-container align-center-middle">
+      {{ icon_string_name }}
+    </div>
+  {% endif %}
+  {% if link %}
+    <div class="link fw--normal-plus">
+      {{ link }}
+    </div>
+  {% endif %}
+</div>

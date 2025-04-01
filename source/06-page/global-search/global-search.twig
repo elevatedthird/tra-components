@@ -1,0 +1,52 @@
+{{ attach_library('aries/page--global-search') }}
+{{ attach_library('aries/atom--form-controls--checkboxes') }}
+{{ attach_library('aries/organism--facet-checkbox') }}
+{{ attach_library('aries/plugable--js--accordion') }}
+{{ attach_library('aries/plugable--scss--accordion') }}
+
+<div class="page--global-search ">
+  {% set banner  %}
+    {% embed '@layout/section/section-wrapper.twig' with {
+      'layout_id': 'banner',
+      'section_theme': banner_section_theme,
+      'inner_wrapper_classes': 'full',
+      'attributes': create_attribute(),
+    } %}
+      {% block wrapper_content %}
+        {% include "@organism/simple-header/simple-header.twig" with {
+          node_title: "Search"|t
+        } %}
+      {% endblock %}
+    {% endembed %}
+  {% endset %}
+  {{ banner }}
+  {% embed '@layout/section/section-wrapper.twig' with {
+    'layout_id': 'left_sidebar',
+    'section_theme': banner_section_theme,
+    'inner_wrapper_classes': 'facade-form-wrapper',
+    'attributes': create_attribute(),
+  } %}
+    {% block wrapper_content %}
+      <div class="grid-x grid-margin-x grid-margin-y ">
+        <div id="filterModal" class="layout-column cell sidebars--sidebar-left xsmall-12 large-3 grid-container--narrow">
+          <div class="view-filters side-filters main-filters shadow--text-card-light flex-container flex-dir-column"  aria-labelledby="filterModal">
+            <div class="view-controls">
+
+            </div>
+            <div class="facet-container">
+              {{ drupal_entity('block', 'global_search_type_filter',  check_access=false) }}
+              {{ drupal_entity('block', 'global_article_type_filter',  check_access=false) }}
+              {{ drupal_entity('block', 'global_search_business_topic_filter',  check_access=false) }}
+              {{ drupal_entity('block', 'global_search_document_category_filter',  check_access=false) }}
+              {{ drupal_entity('block', 'global_search_filter_by_year_facet',  check_access=false) }}
+            </div>
+          </div>
+        </div>
+        <div id="overlay"></div>
+        <div class="layout-column cell sidebars--main-content xsmall-12 large-9 grid-container--narrow">
+          {{ content }}
+        </div>
+      </div>
+    {% endblock %}
+  {% endembed %}
+</div>

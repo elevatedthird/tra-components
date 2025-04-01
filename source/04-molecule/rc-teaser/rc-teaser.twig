@@ -1,0 +1,60 @@
+{{ attach_library('aries/molecule--rc-teaser') }}
+<div class="molecule--rc-teaser flex-container flex-column flex-dir-column align-justify height-100 position-relative {{ classes|join(' ') }}">
+  <div>
+    {% if media %}
+      <div class="molecule--rc-teaser--media position-relative">
+        {% include '@molecule/background-media-with-badge/background-media-with-badge.twig' with {
+          media: media,
+          label: badge_label,
+          icon: badge_icon
+        } %}
+      </div>
+    {% endif %}
+
+    {% if eyebrow %}
+      <div class="eyebrow {{ eyebrow_size|default('body-m') }}">
+        {{ eyebrow }}
+      </div>
+    {% endif %}
+
+    {% if tag_cloud %}
+      <div class="tag-cloud-wrapper">
+        {{ include('@molecule/tag-cloud/tag-cloud.twig', {items: tag_cloud, type: tag_type|default('@atom/pill/pill.twig')}, with_context = false) }}
+      </div>
+    {% endif %}
+
+    {% if piped_meta %}
+      <div class="piped-meta-wrapper">
+        {{ include('@molecule/piped-meta/piped-meta.twig', {meta: piped_meta, classes: ['body-m']}, with_context = false) }}
+      </div>
+    {% endif %}
+
+    {% if heading %}
+      <h3 class="molecule--rc-teaser--heading {{ heading_size|default('h4') }}">
+        {{ heading }}
+      </h3>
+    {% endif %}
+    {% if description %}
+      <div class="molecule--rc-teaser--description {{ body_size|default('p') }}">
+        {{ description }}
+      </div>
+    {% endif %}
+  </div>
+  {% if link|render %}
+    <div class="molecule--rc-teaser--link-wrapper">
+      {% if link['#items'] %}
+        {% include '@atom/button/button--link-field.twig' with {
+          link: link.0,
+          classes: ['button--tertiary', link_classes|join(' '), (link_card == 1 or link_card is empty ? 'stretched-link-tag-before' : '')],
+        }%}
+      {% else %}
+        {% for item in link %}
+          {% include '@atom/button/button--link-field.twig' with {
+            link: item,
+            classes: ['button--tertiary', link_classes|join(' '), (link_card == 1 or link_card is empty ? 'stretched-link-tag-before' : '')],
+          }%}
+        {% endfor %}
+      {% endif %}
+    </div>
+  {% endif %}
+</div>

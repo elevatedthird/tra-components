@@ -1,0 +1,6 @@
+args:
+  items:
+    required: true
+    type: array
+    default_value: ''
+    notes: 'Renders a field with multiple items.'

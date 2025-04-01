@@ -1,0 +1,25 @@
+{{ attach_library('aries/organism--accordion') }}
+{{ attach_library('aries/plugable--js--accordion') }}
+{{ attach_library('aries/plugable--scss--accordion') }}
+<div class="organism--accordion grid-x grid-margin-x">
+
+  <div class="accordion cell {{ narrow == 1 ? 'xlarge-8 xlarge-offset-2' : 'xlarge-10 xlarge-offset-1'}}" data-accordion data-allow-all-closed="true">
+    <div class="organism--accordian--copy">
+      {% include '@molecule/copy/copy.twig' with {
+        heading: heading,
+        heading_id:heading_id,
+        subhead: subhead,
+        description: description,
+        description_font_size: 'body-m',
+      }%}
+    </div>
+    {% if rendered_items %}
+      {{ rendered_items }}
+    {% else %}
+      {% include '@plugable/twig/render-items.twig' with {
+        items: items,
+      }%}
+    {% endif %}
+  </div>
+</div>
+

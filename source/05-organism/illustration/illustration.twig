@@ -1,0 +1,29 @@
+{#
+  image_xl
+  image_l
+  image_m
+  image_s
+#}
+
+{{ attach_library('aries/organism--illustration') }}
+
+{#
+  Handle tiering based on what fields are available. Sizes flow down from xl to s.
+  Note: The image_xl field is required and should be present in all cases.
+#}
+{% set image_xl_uri = image_xl %}
+{% set image_l_uri = (image_l) ? image_l : image_xl_uri %}
+{% set image_m_uri = (image_m) ? image_m : image_l_uri %}
+{% set image_s_uri = (image_s) ? image_s : image_m_uri %}
+
+{% set alt_text = content.field_image_xlarge.0['#item'].value.alt|default('illustration') %}
+
+<div class="organism--illustration">
+  <picture>
+    <source srcset="{{ image_xl_uri|image_style('page_width_xl') }}" media="(min-width: 1440px)">
+    <source srcset="{{ image_l_uri|image_style('page_width_xl') }}" media="(min-width: 960px)">
+    <source srcset="{{ image_m_uri|image_style('page_width_m') }}" media="(min-width: 600px)">
+    <source srcset="{{ image_s_uri|image_style('page_width_s') }}" media="(min-width: 360px)">
+    <img src="{{ image_s_uri|image_style('page_width_s') }}" alt="{{ alt_text }}" />
+  </picture>
+</div>

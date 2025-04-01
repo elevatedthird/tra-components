@@ -1,0 +1,30 @@
+{{ attach_library('aries/organism--tab-slider') }}
+{{ attach_library('aries/plugable--js--tabslider-tabs') }}
+{{ attach_library('aries/plugable--scss--reset-list-styles') }}
+
+
+<div class="organism--tab-slider aries-tabs-wrapper">
+  {% if heading %}
+    <h2 class="organism--tab-slider-heading h2">{{ heading }}</h2>
+  {% endif %}
+  {% if description %}
+    <div class="organism--tab-slider-description body-l">
+      {{ description }}
+    </div>
+  {% endif %}
+  {% if tab_labels %}
+    <div class="tab-dropdown-label body-l">Select a solution</div>
+    <div class="tab-list"   data-no-scroll-breakpoint="960" data-dropdown-breakpoint="960">
+      <ul role="tablist" class="tabs__tab-list">
+        <li aria-hidden="true" class="ul-spacers ul-spacer--left"></li>
+        {% for tab_label in tab_labels %}
+          <li role="presentation"><a href="#tab--{{ tab_label|clean_class }}" role="tab" aria-controls="{{ tab_label|clean_class }}" class="aries-tabs__trigger js-tab-trigger" data-text="{{ tab_label }}">{{ tab_label }}</a></li>
+        {% endfor %}
+        <li aria-hidden="true" class="ul-spacers ul-spacer--right"></li>
+      </ul>
+      <button class="move-list disabled" data-direction="left">Left</button>
+      <button class="move-list" data-direction="right">Right</button>
+    </div>
+  {% endif %}
+  {{ tabs }}
+</div>

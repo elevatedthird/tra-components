@@ -1,0 +1,25 @@
+{{ attach_library('aries/page--news') }}
+{{ attach_library('aries/plugable--scss--npr-style') }}
+
+<div class="page--news npr-style grid-container">
+  <div class="node__content grid-x grid-margin-x">
+    <div class="cell small-10 small-offset-1">
+      <h1>{{ label }}</h1>
+
+      {% if content.field_sub_heading|render %}
+        <h2 class="subheading h3">{{ content.field_sub_heading }}</h2>
+      {% endif %}
+
+      <div class="meta body-s">{{ content.field_posted_date }}</div>
+      <div class="body body-l">{{ content.body }}</div>
+
+      <div class="social-icons">
+        {% include '@molecule/addtoany/addtoany.twig' with {
+          buttons_size: 24,
+          page_url: url,
+          link_title: node.label,
+        }%}
+      </div>
+    </div>
+  </div>
+</div>

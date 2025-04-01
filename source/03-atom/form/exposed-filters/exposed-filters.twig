@@ -1,0 +1,8 @@
+<div class="atom--form--exposed-filters">
+  {{ form|without('actions', 'secondary') }}
+  {{ form.actions.submit }}
+  <div class="form-filters">
+    {{ form.actions.reset }}
+    {{ form.secondary }}
+  </div>
+</div>

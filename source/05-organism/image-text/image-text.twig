@@ -1,0 +1,86 @@
+{{ attach_library('aries/organism--image-text') }}
+
+{#
+media
+video
+heading
+subhead
+subhead_2
+description
+disclosure
+alignment
+image_width
+background_color
+shape
+shape_position
+shape_color
+links
+columns
+adjust
+#}
+{% set theme = ('contrasting' in background_color ? 'contrasting' : 'vibrant') %}
+
+{% set media_render %}
+  <div class="position-relative organism--image-text--media {{ adjust ? 'no-crop' }} {{ image_align_top == 1 ? 'organism--image-text--top' : ''}}">
+    {% if adjust %}
+    <div class="image-container">
+      {{ media }}
+    </div>
+    {% else %}
+      {% include '@molecule/background-media/background-media.twig' with {
+        media: media,
+        additionalClasses: [shape ? 'shape' : 'else-case-to-fix-render', shape_position ? shape ~ '--' ~  shape_position : shape, media ? 'has-media' : 'no-media', shape_color ? 'bg-color-' ~ shape_color : 'else-case-to-fix-render2']
+      } %}
+    {% endif %}
+    {% if video %}
+     <div class="video-play">
+       {% include '@molecule/modal/video-modal/video-modal.twig' with {
+         modal_content: video,
+         trigger_label: 'Play'
+       }%}
+     </div>
+    {% endif %}
+  </div>
+{% endset %}
+
+{% set copy %}
+  {% include '@molecule/copy/copy.twig' with {
+    heading: heading,
+    heading_tag: heading_tag,
+    heading_font_size: heading_font_size ?? heading_tag,
+    heading_id:heading_id,
+    subhead: subhead,
+    subhead_2: subhead_2,
+    description: description,
+    disclosure: disclosure,
+    theme: theme,
+    links: links,
+    columns: columns,
+  }%}
+{% endset %}
+
+{% set is_2_col = columns ? 'two-col' : '' %}
+{% set stack_bp = (is_2_col ? 'large' : 'medium') %}
+
+{% set left_content = media_render %}
+{% set left_type = "media" %}
+{% set right_content = copy %}
+{% set right_type = "copy" %}
+{% set left_width = image_width %}
+{% if alignment == 'right' %}
+  {% set left_width = 12 - image_width %}
+  {% set left_content = copy %}
+  {% set left_type = "copy" %}
+  {% set right_content = media_render %}
+  {% set right_type = "media" %}
+{% endif %}
+
+
+<div class="organism--image-text {{ is_2_col }} default image-{{ alignment }} {{ background_color ? 'bg-color-' ~ background_color }} grid-x {{ minheight ? 'minheight-' ~ minheight }}">
+  <div class="left cell xsmall-12 {{ stack_bp }}-{{ left_width }} {{ left_type }}">
+    {{ left_content }}
+  </div>
+  <div class="right cell xsmall-12 {{ stack_bp }}-{{ 12 - left_width }} {{ right_type }}">
+    {{ right_content }}
+  </div>
+</div>

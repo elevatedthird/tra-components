@@ -1,0 +1,11 @@
+args:
+  modal_content:
+    required: true
+    type: 'block content'
+    default_value: ''
+    notes: 'This is where the content of the modal gets passed in'
+  trigger_label:
+    required: true
+    type: 'string'
+    default_value: ''
+    notes: 'This is where the trigger button text for the modal gets passed in'

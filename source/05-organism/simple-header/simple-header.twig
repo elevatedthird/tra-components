@@ -1,0 +1,17 @@
+{{ attach_library('aries/organism--simple-header') }}
+<div class="organism--simple-header {{ meta|length > 0 ? 'has-meta' }}" >
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x grid-margin-y">
+        <div class="cell xsmall-12 large-6 large-offset-3">
+          {% if heading.0 or node_title %}
+            <h1 class="h2 heading grid-container--narrow">{{ heading.0 ? heading.0 : node_title }}</h1>
+          {% endif %}
+          {% if meta %}
+            {% include '@molecule/header-meta/header-meta.twig' with {
+              meta: meta,
+            } %}
+          {% endif %}
+        </div>
+      </div>
+  </div>
+</div>

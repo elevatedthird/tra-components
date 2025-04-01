@@ -1,0 +1,14 @@
+{{ attach_library('aries/organism--multi-text') }}
+
+<div class="organism--multi-text">
+  <div class="organism--multi-text--heading">
+    {{ heading }}
+  </div>
+  <ul class="organism--multi-text--items">
+    {% include '@plugable/twig/render-items.twig' with {
+      items: items,
+      tag: 'li'
+    }%}
+  </ul>
+
+</div>

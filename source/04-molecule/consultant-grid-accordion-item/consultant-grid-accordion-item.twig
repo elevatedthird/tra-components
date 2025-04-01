@@ -1,0 +1,39 @@
+{{ attach_library('aries/molecule--accordion-item') }}
+
+{% set accordion_item_id = id ? id : title|render|striptags|trim|clean_class %}
+
+<div class="molecule--accordion-item accordion-item position-relative" data-accordion-item>
+  {# Accordion Item Header #}
+  {% if title %}
+    <a href="#acc--{{ accordion_item_id }}"
+       class="molecule--accordion-item--header flex-container align-middle position-relative trim-bottom-margin material-symbols-outlined expand-more">
+      <h3 class="molecule--accordion-item--title {{ title_typography }}">
+        {{ title }}
+      </h3>
+    </a>
+  {% endif %}
+
+  {# Accordion Item Content #}
+  <div class="accordion-content" data-tab-content id="acc--{{ accordion_item_id }}">
+
+    {% if heading %}
+      <div class="molecule--accordion-item--heading body-l">
+        {{ heading }}
+      </div>
+    {% endif %}
+
+    {% if description %}
+      <div class="molecule--accordion-item--description body-l">
+        {{ description }}
+      </div>
+    {% endif %}
+
+    <div class="consultant-grid-consultants grid-x extra-wide-grid-margin-x extra-extra-wide-grid-margin-y">
+      {% for i in consultants['#items']|keys %}
+        <div class="cell xsmall-12 medium-6 large-6">
+          {{ consultants[i] }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

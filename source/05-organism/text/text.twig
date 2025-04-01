@@ -1,0 +1,38 @@
+{{ attach_library('aries/organism--text') }}
+{% set theme = ('contrasting' in background_color ? 'contrasting' : 'vibrant') %}
+
+{% set width_lookup = {
+  '8_col': alignment == 'left' ? 'large-8' : 'large-8 large-offset-2',
+  '10_col': alignment == 'left' ? 'large-10' : 'large-10 large-offset-1',
+  '12_col': '',
+} %}
+{% set width = width_lookup[width] ?? '' %}
+
+{% set subhead_tag_lookup = {
+  'h2': 'h3',
+  'h3': 'h4',
+  'h4': 'h5',
+} %}
+
+{% set media_render %}
+ {% if media | render %}
+    {{ media }}
+  {% endif %}
+{% endset %}
+
+<div class="organism--text grid-x">
+  {{ media_render }}
+  <div class="organism--text--copy {{ width }}">
+    {% include '@molecule/copy/copy.twig' with {
+      heading: heading,
+      heading_tag: heading_tag,
+      heading_font_size: heading_tag,
+      heading_id:heading_id,
+      subhead: subhead,
+      subhead_font_size: subhead_tag_lookup[heading_tag],
+      description: description,
+      disclosure: disclosure,
+      links: links,
+    }%}
+  </div>
+</div>

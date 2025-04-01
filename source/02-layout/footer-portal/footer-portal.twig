@@ -1,0 +1,12 @@
+{{ attach_library('aries/layout--footer-portal') }}
+<div class="layout--footer-portal">
+  <div class="footer">
+    {% include '@organism/footer/footer.twig' %}
+  </div>
+
+  {% if footer_regional_select.items|length > 0 %}
+    <div class="footer-regional-select">
+      {% include '@organism/footer-regional-select/footer-regional-select.twig' %}
+    </div>
+  {% endif %}
+</div>

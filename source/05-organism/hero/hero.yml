@@ -1,0 +1,41 @@
+args:
+  heading:
+    required: true
+    type: string
+    default_value: ''
+    notes: 'Heading'
+  heading_tag:
+    required: true
+    type: string
+    default_value: 'h1'
+    notes: 'Heading tag to determine if the heading is an <h1> or <h2> element.'
+  layout:
+    required: true
+    type: string
+    default_value: ''
+    notes: 'Layout variable to determine if billboard is in the banner or one_column layout.'
+  description:
+    required: true
+    type: string
+    default_value: ''
+    notes: 'Description'
+  links:
+    required: false
+    type: array
+    default_value: ''
+    notes: 'Links that can either be a text link or a button opening up to a video modal.'
+  media:
+    required: true
+    type: string
+    default_value: ''
+    notes: 'Background image'
+  alignment:
+    required: true
+    type: string
+    default_value: 'align_left'
+    notes: 'Text alignment. Options are align_left or align_center.'
+  theme:
+    required: true
+    type: string
+    default_value: 'light'
+    notes: 'Decides what shadow box goes behind the text. Options are light or dark.'
