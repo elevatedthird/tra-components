@@ -1,6 +1,0 @@
-args:
-  media:
-    required: true
-    type: media
-    default_value: ''
-    notes: Media variable that passes in an image.

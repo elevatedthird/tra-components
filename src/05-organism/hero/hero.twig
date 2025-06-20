@@ -1,0 +1,108 @@
+{% if background_image == 'yes' %}
+{% set theme = ('contrasting' in background_color ? 'vibrant' : 'contrasting') %}
+{% else %}
+{% set theme = ('contrasting' in background_color ? 'contrasting' : 'vibrant') %}
+{% endif %}
+
+{% if background_color is empty %}
+  {% set background_color = 'contrasting-night-blue' %}
+{% endif %}
+
+{% if shape is empty %}
+  {% set shape = 'octagon' %}
+  {% set shape_position = 'left' %}
+{% endif %}
+
+{% if height_variation is empty %}
+  {% set height_variation = 'height_280' %}
+{% endif %}
+
+{% if shape_color is empty %}
+  {% set shape_color = 'vibrant-sky-blue' %}
+{% endif %}
+
+{% if alignment is empty %}
+  {% set alignment = 'right' %}
+{% endif %}
+
+{% set theme = ('contrasting' in background_color ? 'contrasting' : 'vibrant') %}
+
+{% set media_render %}
+  <div class="position-relative organism--hero--media">
+    {% include 'aries:background-media' with {
+      media: media,
+      position: 'center',
+      additionalClasses: [
+        shape ? 'shape' : '',
+        shape_position ? shape ~ '--' ~ shape_position : shape,
+        media ? 'has-media' : 'no-media',
+        shape_color ? 'bg-color-' ~ shape_color : ''
+      ]
+    } %}
+  </div>
+{% endset %}
+
+{% set copy %}
+<div class="organism--hero--content-wrapper">
+  {% if icon %}
+    <div class="icon">
+      {{ icon }}
+    </div>
+  {% endif %}
+  <div class="{{ add_animation == 1 ? 'fade-in' : '' }}">
+    {% include 'aries:copy' with {
+      heading: heading,
+      heading_id:heading_id,
+      theme: theme,
+      link: links,
+      heading_tag: 'h1',
+    }%}
+  </div>
+  </div>
+{% endset %}
+
+{% set left_content = media_render %}
+{% set left_content_class = 'media' %}
+{% set right_content = copy %}
+{% set right_content_class = ['copy', 'grid-container'] %}
+{% if alignment == 'right' %}
+  {% set left_content = copy %}
+  {% set right_content = media_render %}
+  {% set right_content_class = 'media' %}
+  {% set left_content_class = ['copy', 'grid-container'] %}
+{% endif %}
+{% set background_color = 'bg-color-' ~ background_color %}
+
+<div class="organism--hero variation--{{ variation }} {{ background_color }} {{ theme }} position-relative">
+  {% if add_off_blue %}
+    <video muted="muted" playsinline="" class="video-bg-color responsive-background-object" src="/themes/custom/aries/source/assets/video-bg-color.mp4"></video>
+  {% endif %}
+  <div class="organism--hero--container">
+    <div class="grid-x organism--hero--grid organism--hero--{{ alignment|replace({'_': '--'}) }} {{ background_image ? 'organism--hero--reverse--' ~ background_image }} {{ mobile_image_position ? 'image--' ~ mobile_image_position : 'image--top'}} {{ height_variation }}">
+      {% if background_image == 'yes' %}
+        <div class="organism--hero--grid--media">
+          {% if media_bundle == 'video' %}
+            {{ video }}
+          {% else %}
+            {{ media }}
+          {% endif %}
+        </div>
+        <div class="left content-wrapper cell xsmall-12 large-6">
+          <div class="position-relative text-bg-color grid-container {{ shape ? 'shape' : '' }}  {{ mobile_shape_position ? 'mobile--' ~ shape ~ '--' ~ mobile_shape_position : shape }} {{ shape_position ? shape ~ '--' ~ shape_position : shape }} {{ shape_color ? 'bg-color-' ~ shape_color : '' }}">
+            {% if add_off_blue %}
+              <video muted="muted" playsinline="" class="video-bg-color responsive-background-object" src="/themes/custom/aries/source/assets/video-bg-color.mp4"></video>
+            {% endif %}
+            {{ copy }}
+          </div>
+        </div>
+      {% else %}
+        <div class="left cell xsmall-12 large-6 {{ left_content_class|join(' ') }}">
+          {{ left_content }}
+        </div>
+        <div class="right cell xsmall-12 large-6 {{ right_content_class|join(' ') }}">
+          {{ right_content }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

@@ -1,8 +1,0 @@
-{{ attach_library('aries/molecule--piped-meta') }}
-<div class="molecule--piped-meta flex-container flex-dir-row">
-  {% for key, value in meta %}
-    {% if value is not empty %}
-      <div class="meta-item fw--normal-plus {{ key }}">{{ value }}</div>
-    {% endif %}
-  {% endfor %}
-</div>

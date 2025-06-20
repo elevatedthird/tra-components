@@ -1,0 +1,52 @@
+.molecule--copy {
+  // @todo should this be a utility class?
+  .links {
+    margin-top: $spacing-6;
+    @include breakpoint(medium) {
+      margin-top: $spacing-8;
+    }
+    grid-template-columns: repeat(1, max-content);
+    row-gap: $spacing-4;
+    column-gap: $spacing-4;
+    justify-items: start;
+    display: grid;
+    @include breakpoint(medium) {
+      column-gap: $spacing-6;
+      grid-template-columns: repeat(2, max-content);
+    }
+    @include breakpoint(large) {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: $spacing-6;
+    }
+
+  }
+
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr; // 1 column.
+    grid-auto-flow: row;
+    gap: $spacing-4;
+
+    @include breakpoint(medium) {
+      grid-template-columns: 1fr 1fr; // 2 equal columns.
+      grid-template-rows: auto auto auto; // 3 rows (for each cell pair).
+      grid-auto-flow: column; // Fill columns first (this will put the column cells side by side).
+    }
+  }
+
+  &.two-col {
+    .copy {
+      .molecule--copy {
+        .subhead,
+        .description {
+          margin-top: $spacing-6;
+        }
+
+        .subhead-2 {
+          margin-top: $spacing-8;
+        }
+      }
+    }
+  }
+}

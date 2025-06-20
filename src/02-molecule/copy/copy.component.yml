@@ -1,0 +1,12 @@
+\$schema: >-
+  https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Copy
+status: stable
+description: A foundation copy.
+libraryOverrides:
+  dependencies:
+    - aries/aries
+    - aries/atom--table
+  css:
+    component:
+      ~{theme:aries}/dist/css/molecule--copy.css: {}

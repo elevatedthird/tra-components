@@ -1,8 +1,0 @@
-{{ attach_library('aries/molecule--tabs-item--tabs-content') }}
-{% if item %}
-  {% set entity_id = item.entity ? item.entity.id() : '' %}
-  {% set paragraph = entity_id ? drupal_entity('paragraph', entity_id) : 'Tab content placeholder' %}
-  <div class="molecule--tabs-item--tabs-content tabs-panel {{ active }}" id="{{ 'tab-panel-' ~ entity_id }}">
-    {{ paragraph }}
-  </div>
-{% endif %}

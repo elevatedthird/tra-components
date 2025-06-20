@@ -1,8 +1,0 @@
-{{ attach_library('aries/molecule--modal') }}
-{{ attach_library('aries/plugable--js--reveal') }}
-{{ attach_library('aries/plugable--scss--reveal') }}
-<a class="{{ 'button ' ~ trigger_classes|join(' ') }} js-button" data-open="{{ id }}">
-  {% block trigger %}
-    {{ trigger }}
-  {% endblock %}
-</a>

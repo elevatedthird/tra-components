@@ -1,6 +1,0 @@
-{{ attach_library('aries/molecule--tag-cloud') }}
-<div class="molecule--tag-cloud flex-container flex-dir-row">
-  {% for item in items %}
-    {{ include(type, { item }, with_context = false) }}
-  {% endfor %}
-</div>
