@@ -1,7 +1,7 @@
 {
   "name": "tra-components",
   "version": "1.0.0",
-  "description": "tra aries components and their behaviors. Twig templates. Intended for Drupal.",
+  "description": "Component templates and behaviors for Aegon. Designed for integration with Drupal.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@drupal/once": "^1.0.1",
+    "foundation-sites": "^6.9.0",
     "tra-global-styles": "github:elevatedthird/tra-global-styles#develop"
   }
 }

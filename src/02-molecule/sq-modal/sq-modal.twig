@@ -1,0 +1,16 @@
+{% set hash = random(0, 1000) %}
+
+<div class="molecule--modal">
+  {% include 'aries:modal-content' with {
+    id: 'modal--' ~ hash,
+    modal_content,
+  } only %}
+  {# Trigger Button #}
+  <div class="molecule--modal--trigger">
+    {% include 'aries:modal-trigger' with {
+      id: 'modal--' ~ hash,
+      trigger: trigger ?? trigger_label,
+      trigger_classes: [trigger_classes|join(' ')],
+    } only %}
+  </div>
+</div>

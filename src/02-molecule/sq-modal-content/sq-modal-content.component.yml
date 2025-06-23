@@ -1,0 +1,14 @@
+\$schema: >-
+  https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Sequoia Modal Content
+status: stable
+description: A foundation modal content so the two pieces can be used separately.
+libraryOverrides:
+  dependencies:
+    - aries/aries
+    - aries/plugable--js--reveal
+    - aries/plugable--scss--reveal
+    - core/components.aries--modal
+  css:
+    component:
+      ~{theme:aries}/dist/css/molecule--modal--modal-content.css: {}

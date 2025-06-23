@@ -1,0 +1,13 @@
+\$schema: >-
+  https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Tooltip
+status: stable
+description: A foundation tooltip.
+libraryOverrides:
+  dependencies:
+    - aries/aries
+  css:
+    component:
+      ~{theme:aries}/dist/css/atom--tooltip.css: {}
+  js:
+    ~{theme:aries}/dist/js/atom--tooltip.js: {}

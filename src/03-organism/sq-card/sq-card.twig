@@ -1,0 +1,63 @@
+{% set theme = ('contrasting' in background_color ? 'contrasting' : 'vibrant') %}
+
+{% set subhead_tag_lookup = {
+  'h2': 'h3',
+  'h3': 'h4',
+  'h4': 'h5',
+} %}
+
+{% set media_render %}
+  {% if icon | render %}
+  <div class="position-relative organism--card--media">
+    <div class="position-relative organism--card--icon {{ icon_color ? 'icon-color--' ~ icon_color }}">
+      {{ icon }}
+    </div>
+  </div>
+  {% elseif media | render %}
+    {{ media }}
+    {% if video %}
+      {% include '{{sequoia}}:sq-video-modal' with {
+        modal_content: video,
+        trigger_label: 'Play',
+        play_icon: 1,
+      }%}
+    {% endif %}
+  {% endif %}
+{% endset %}
+
+<div class="organism--sq-card height-100">
+  <div class="organism--card--inner-wrapper flex-container flex-dir-column height-100 {{ background_color ? 'p-8 bg-color-' ~ background_color }}">
+    <div class="image-container display-inline-block position-relative">
+        {{ media_render }}
+    </div>
+    <div class="organism--card--copy height-100 flex-container flex-dir-column">
+      {% set subhead_font_size = subhead_tag_lookup[heading_tag] %}
+      {% set heading_font_size = heading_tag %}
+      {% if heading %}
+       <{{ heading_tag|default('h2') }} class="heading mt-6 mb-0 {{ heading_font_size|default('h2')}}"
+      {% if heading_id %}
+        id="{{ heading_id }}"
+      {% endif %}
+        >{{ heading }}</{{ heading_tag|default('h2') }}>
+      {% endif %}
+      {% if subhead %}
+       <{{ subhead_tag|default('h3') }} class="subhead mt-4 mb-0 {{ subhead_font_size|default('h3')}}">{{ subhead }}</{{ subhead_tag|default('h3') }}>
+      {% endif %}
+      {% if description %}
+       <div class="description {{ description_classes|default(['mt-4'])|join(' ') }} nmblc mb-0 {{ description_font_size|default('body-m')}}">{{ description }}</div>
+      {% endif %}
+      {% if disclosure %}
+        {% include '{{sequoia}}:sq-tooltip' with {
+          text: disclosure,
+          classes: ['mt-auto', 'pt-4', 'flex-container', 'flex-wrap--wrap', 'align-top', 'flex-dir-column']
+        } %}
+      {% endif %}
+      {% if links %}
+        <div class="links p {{ disclosure ? links_classes|default(['mt-6'])|join(' ') : 'mt-auto ' ~ links_classes|default(['pt-6'])|join(' ') }} flex-container flex-wrap--wrap align-top">
+          {{ links }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+

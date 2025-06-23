@@ -1,0 +1,21 @@
+{#
+/**
+ * Takes the following parameters:
+ * - label: text to display as a label in the tooltip
+ * - text: content to go inside tooltip (can be HTML)
+ */
+#}
+{% set tooltip_text %}
+  {% apply spaceless %}
+    {% if label is not empty %}
+      <h6>{{ label }}</h6>
+    {% endif %}
+    {{ text }}
+  {% endapply %}
+{% endset %}
+<div class="disclosure-wrapper atom--sq-tooltip {{ classes|join(' ') }}">
+  <div class="tooltip-admin tooltip-admin-hidden" aria-hidden="true">{{ disclosure }}</div>
+  <div class="disclosure">
+    <div data-tooltip tabindex="0" class="has-tip" title="{{ tooltip_text|escape('html_attr') }}"></div>
+  </div>
+</div>
