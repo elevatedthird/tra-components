@@ -1,0 +1,50 @@
+//@include foundation-typography;
+//
+@include foundation-xy-grid-classes(true, true, true, true, true, true, true, true);
+@include foundation-flex-classes;
+@include foundation-visibility-classes;
+@include foundation-text-alignment;
+@include foundation-prototype-text-transformation;
+@include foundation-prototype-text-decoration;
+@include foundation-prototype-border-none;
+@include foundation-prototype-sizing;
+@include foundation-prototype-display;
+@include foundation-responsive-embed;
+@include tra-spacing();
+@include tra-min-sizing();
+@include tra-gap();
+
+// utility classes
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.stretched-link {
+  position: relative;
+}
+
+.stretched-link a::after, .stretched-link-tag-before::before {
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// exclusive to layout
+.layout-container, .reveal {
+  @import 'utilities/typography';
+  @import 'utilities/general';
+  @import 'utilities/grid';
+  @import 'utilities/colors';
+  @import 'utilities/links';
+  @import 'utilities/buttons';
+  @import 'utilities/animation';
+  @import 'utilities/shame';
+}
+

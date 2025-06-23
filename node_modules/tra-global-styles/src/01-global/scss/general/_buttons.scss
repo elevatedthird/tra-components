@@ -1,0 +1,48 @@
+span.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -1rem;
+}
+
+.button {
+  @include btn(tertiary);
+}
+
+.button.no-icon.no-icon:after {
+  content: none;
+}
+
+.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+
+.button.button.no-icon.no-icon {
+  div.material-symbols-outlined {
+    margin-left: 6px;
+  }
+  &:has(div.material-symbols-outlined) {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    &:hover, &:focus {
+      text-decoration: none;
+      span {
+        text-decoration: underline;
+        text-underline-offset: 6px;
+        text-decoration-thickness: 2px;
+      }
+      div.material-symbols-outlined {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.external.external.external:after {
+  content: "\e895";
+  font-family: "Material Symbols Outlined";
+  transform: none !important;
+}

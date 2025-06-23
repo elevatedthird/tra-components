@@ -1,0 +1,29 @@
+/*
+  building up base functionality to control elements color profiles based on
+  the background color of the component/section/container its in.
+  Try to name using primary secondary and so on except for white and black
+ */
+
+$theme-profiles: (
+  //TODO possibly move this below vibrant/contrasting so that it's allowed to override them
+  //since vibrant seems to be set by default sometimes, this gets overriden even if it's set below?
+  tertiary: (
+    background: $color--brand--warm-black,
+    button-profile: border-secondary,
+    text-color-profile: light,
+    link-profile:secondary,
+  ),
+
+  vibrant: (
+    background: var(--theme-accent-color-vibrant),
+    button-profile: rounded-accent-vibrant,
+    text-color-profile: dark,
+  ),
+
+  contrasting: (
+    background: var(--theme-accent-color-contrasting),
+    button-profile: rounded-accent-contrasting,
+    text-color-profile: light,
+  ),
+);
+

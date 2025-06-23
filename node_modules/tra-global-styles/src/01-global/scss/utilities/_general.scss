@@ -1,0 +1,83 @@
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 100%;
+}
+
+.js-hide.js-hide {
+  display: none;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.no-padding.no-padding {
+  padding: 0;
+}
+
+.image-overlay {
+  backdrop-filter: blur(2px);
+  filter: blur(50px);
+}
+
+.text-transform-uppercase {
+  text-transform: uppercase;
+}
+
+.truncate {
+  white-space: nowrap;         /* Prevent the text from wrapping to the next line */
+  overflow: hidden;            /* Hide the overflowing text */
+  text-overflow: ellipsis;     /* Show an ellipsis ('...') when text overflows */
+}
+
+.disabled {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.responsive-background-object {
+
+  @include bg-image(center);
+
+  // creates helper classes to position the background image
+  $position: (
+    --top-left: top left,
+    --center-left: center left,
+    --bottom-left: bottom left,
+    --center-top: center top,
+    --center: center,
+    --center-bottom: center bottom,
+    --top-right: top right,
+    --center-right: center right,
+    --bottom-right: bottom right,
+  );
+
+  @each $ext, $value in $position {
+    &#{$ext} {
+      @include bg-image($value);
+    }
+  }
+
+}
+
+@each $name, $shadow in $box-shadows {
+  .shadow--#{"" + $name} {
+    box-shadow: $shadow;
+  }
+}
+
+.flex-wrap--wrap {
+  flex-wrap: wrap;
+}
+
+.display-inline-flex {
+  display: inline-flex;
+}

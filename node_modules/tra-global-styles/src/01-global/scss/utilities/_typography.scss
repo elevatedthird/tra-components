@@ -1,0 +1,45 @@
+// Gradient text - currently used for Pre-Footer Heading
+// Gradient color will be added through the .gradient--{gradient-color} class from general/_colors.scss
+
+.header-font-family {
+  font-family: $header-font-family;
+}
+
+.body-font-family {
+  font-family: $body-font-family;
+}
+
+.gradient-text {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fw--normal.fw--normal.fw--normal {
+  font-weight: $font-weight-normal;
+}
+
+.fw--normal-plus {
+  font-weight: $font-weight-medium;
+}
+
+.fw--semi-bold {
+  font-weight: $font-weight-semi-bold;
+}
+
+.fw--bold {
+  font-weight: $font-weight-bold;
+}
+
+.text-decoration--none {
+  text-decoration: none;
+}
+
+/*
+  This will generate text color profile classes based on the configuration
+  in the variables in the settings dir. command click the $text-color-profile to see.
+ */
+@each $key, $value in $text-color-profiles {
+  .text-color-profile--#{$key} {
+    @include text-color-profile-targets($key);
+  }
+}

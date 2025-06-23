@@ -1,0 +1,118 @@
+@mixin tra-spacing() {
+  @each $key, $spacer in $spacing-map {
+    @each $prop in (margin, padding) {
+      // All Sides
+      $prop-class: m;
+      @if $prop == padding {
+        $prop-class: p;
+      }
+      .#{$prop-class}-#{$key} {
+        #{$prop}: $spacer;
+      }
+
+      @each $dir in (t, r, b, l, x, y) {
+        .#{$prop-class}#{$dir}-#{$key} {
+          @if $dir == x {
+            #{$prop}-left: $spacer;
+            #{$prop}-right: $spacer;
+          } @else if $dir == y {
+            #{$prop}-top: $spacer;
+            #{$prop}-bottom: $spacer;
+          } @else if $dir == t {
+            #{$prop}-top: $spacer;
+          } @else if $dir == r {
+            #{$prop}-right: $spacer;
+          } @else if $dir == b {
+            #{$prop}-bottom: $spacer;
+          } @else if $dir == l {
+            #{$prop}-left: $spacer;
+          }
+        }
+      }
+    }
+  }
+
+  @each $key, $spacer in $spacing-map {
+    @each $size in $breakpoint-classes {
+      @include breakpoint($size) {
+        @if $size != $-zf-zero-breakpoint {
+          .#{$size} {
+            @each $prop in (margin, padding) {
+              $prop-class: m;
+              @if $prop == padding {
+                $prop-class: p;
+              }
+              &-#{$prop-class}-#{$key} {
+                #{$prop}: $spacer;
+              }
+
+              @each $dir in (t, r, b, l, x, y) {
+                &-#{$prop-class}#{$dir}-#{$key} {
+                  @if $dir == x {
+                    #{$prop}-left: $spacer;
+                    #{$prop}-right: $spacer;
+                  } @else if $dir == y {
+                    #{$prop}-top: $spacer;
+                    #{$prop}-bottom: $spacer;
+                  } @else if $dir == t {
+                    #{$prop}-top: $spacer;
+                  } @else if $dir == r {
+                    #{$prop}-right: $spacer;
+                  } @else if $dir == b {
+                    #{$prop}-bottom: $spacer;
+                  } @else if $dir == l {
+                    #{$prop}-left: $spacer;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin tra-gap() {
+  @each $key, $spacer in $spacing-map {
+    .g-#{$key} {
+      gap: $spacer;
+    }
+    .rg-#{$key} {
+      row-gap: $spacer;
+    }
+    .cg-#{$key} {
+      column-gap: $spacer;
+    }
+  }
+
+  @each $key, $spacer in $spacing-map {
+    @each $size in $breakpoint-classes {
+      @include breakpoint($size) {
+        @if $size != $-zf-zero-breakpoint {
+          .#{$size} {
+            &-g-#{$key} {
+              gap: $spacer;
+            }
+            &-rg-#{$key} {
+              row-gap: $spacer;
+            }
+            &-cg-#{$key} {
+              column-gap: $spacer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin tra-min-sizing() {
+  .mh-auto { min-height: auto; }
+  .mw-auto { min-width: auto; }
+
+  @for $i from 0 through 40 {
+    .mh-#{25 * $i} { min-height: #{25 * $i}px; }
+    .mw-#{25 * $i} { min-width: #{25 * $i}px; }
+  }
+}

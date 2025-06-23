@@ -1,0 +1,34 @@
+
+// Choose the styles that we actually want PRINTED into our stylesheets
+@include foundation-global-styles;
+@import '../../../00-config/mixins/typography';
+@include foundation-typography-base;
+@include foundation-typography-helpers;
+
+:root {
+  --theme-accent-color-vibrant: $color--white;
+  --theme-accent-color-contrasting: $color--black;
+}
+
+.layout-container, .reveal {
+  @include aries-icons();
+  @import "theme-profiles";
+  @import "general";
+  @import "grid";
+  @import "typography";
+  @import "colors";
+  @import "links";
+  @import "buttons";
+  @import "shapes";
+}
+
+#global-overlay {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(#000, .5);
+}

@@ -1,0 +1,93 @@
+@each $name, $color in $color-palette {
+  @each $class, $prop in $color_class_types {
+    .#{$class}--#{"" + $name} {
+      #{$prop}: $color;
+    }
+  }
+}
+
+@each $name, $gradient in $gradients {
+  .gradient--#{"" + $name} {
+    background-image: $gradient;
+  }
+}
+
+// @todo need to remove completely eventually.
+@each $name, $color in $vibrant-bg-colors {
+  .bg-color--#{$name}:not(.layout) {
+    background-color: $color;
+    color: $color--brand--warm-black;
+    p {
+      color: $color--brand--warm-black;
+    }
+  }
+}
+
+// @todo need to remove completely eventually.
+@each $name, $color in $contrasting-bg-colors {
+  .bg-color--#{$name}:not(.layout) {
+    background-color: $color;
+    color: $color--brand--pure-white;
+    p {
+      color: $color--brand--pure-white;
+    }
+    a {
+      @include link(contrasting);
+    }
+  }
+}
+
+@each $name, $color in $contrasting-colors {
+  .bg-color-contrasting-#{$name},
+  .sub-bg-color-contrasting-#{$name} > * {
+    background-color: #{$color};
+    color: $color--brand--pure-white;
+    p {
+      color: $color--brand--pure-white;
+    }
+    a {
+      @include link(contrasting);
+    }
+  }
+}
+
+@each $name, $color in $vibrant-colors {
+  .bg-color-vibrant-#{$name},
+  .sub-bg-color-vibrant-#{$name} * {
+    background-color: #{$color};
+    color: $color--brand--warm-black;
+    p {
+      color: $color--brand--warm-black;
+    }
+  }
+}
+
+@each $name, $color in $contrasting-colors {
+  .icon-color--contrasting-#{$name} {
+    svg {
+      fill: $color;
+    }
+  }
+}
+
+@each $name, $color in $vibrant-colors {
+  .icon-color--vibrant-#{$name} {
+    svg {
+      fill: $color;
+    }
+  }
+}
+
+//colors for shapes
+//set the theme vibrant/contrast colors
+@each $name, $color in $contrasting-colors {
+  .color-contrasting-#{$name} {
+    --theme-accent-color-contrasting: #{$color};
+  }
+}
+
+@each $name, $color in $vibrant-colors {
+  .color-vibrant-#{$name} {
+    --theme-accent-color-vibrant: #{$color};
+  }
+}

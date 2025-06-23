@@ -1,0 +1,32 @@
+/*
+  Generate container classes that will control the these of,
+  for example, sections. They can be nested for things like cards too.
+  It will control the bg color and the appropriate color profile for links, buttons, and text.
+  Command click $theme-profiles to see the configuration.
+ */
+
+//@each $key, $value in $theme-profiles {
+//  .theme--#{$key} {
+  //  $profile: extend-in-map($theme-profiles, $key);
+  //  @if map-has-key($profile, background) {
+  //    background: map-get($profile, background);
+  //  }
+  //
+  //  @if map-has-key($profile, text-color-profile) {
+  //    @include text-color-profile-targets(map-get($profile, text-color-profile));
+  //  }
+  //
+  //  @if map-has-key($profile,link-profile) {
+  //    .link--#{$key}, a {1
+  //      @include link(map-get($profile, link-profile));
+  //    }
+  //  }
+  //
+  //  @if map-has-key($profile, button-profile) {
+  //    .button {
+  //      @include btn(map-get($profile, button-profile));
+  //    }
+  //  }
+  //}
+//}
+

@@ -1,0 +1,102 @@
+////
+/// Framework - Links
+/// @group frameworkComponents
+////
+
+/// Standard link style mixin
+/// @param {String} $link-key - the key in the $buttons map to use from config
+/// @example
+///   @include link(inline)
+///
+/// Note (from https://www.w3schools.com/css/css_pseudo_classes.asp):
+//    a:hover MUST come after a:link and a:visited in the CSS definition in order to be effective!
+//    a:active MUST come after a:hover in the CSS definition in order to be effective!
+@mixin link($link-key: default) {
+  &:not([class]) {
+    $link-conf: extend-in-map($link-profiles, $link-key);
+
+    // Default state for unvisited links.
+    @if map-has-key($link-conf, initial) {
+      & {
+        $link-state: extend-in-map($link-conf, initial);
+        @each $prop, $value in $link-state {
+          #{$prop}: $value;
+        }
+      }
+    }
+
+    // State for visited links.
+    @if map-has-key($link-conf, visited) {
+      &:visited {
+        $link-state: extend-in-map($link-conf, visited);
+        @each $prop, $value in $link-state {
+          #{$prop}: $value;
+        }
+      }
+    }
+
+    // State when the mouse is over the link or when the link is focused.
+    @if map-has-key($link-conf, hover) {
+      &:focus, &:hover, &:visited:hover {
+        $link-state: extend-in-map($link-conf, hover);
+        @each $prop, $value in $link-state {
+          #{$prop}: $value;
+        }
+      }
+    }
+
+    // Outline when the link is focused and should be visibly indicated.
+    @if map-has-key($link-conf, focus-visible) {
+      &:focus-visible {
+        $link-state: extend-in-map($link-conf, focus-visible);
+        @each $prop, $value in $link-state {
+          #{$prop}: $value;
+        }
+      }
+    }
+
+    // State when the link is being pressed.
+    @if map-has-key($link-conf, active) {
+      &:active, &:visited:active {
+        $link-state: extend-in-map($link-conf, active);
+        @each $prop, $value in $link-state {
+          #{$prop}: $value;
+        }
+      }
+    }
+
+    // State for inactive links.
+    @if map-has-key($link-conf, inactive) {
+      &.inactive, &:disabled {
+        $link-state: extend-in-map($link-conf, inactive);
+        @each $prop, $value in $link-state {
+          #{$prop}: $value;
+        }
+      }
+    }
+  }
+}
+
+// Default Spacing for Links field
+// Looks unused.
+//@mixin linksSpacing() {
+//  .field--name-field-p-links {
+//    @include breakpoint('medium') {
+//      display: flex;
+//    }
+//    & > .field__item {
+//      margin-top: $spacing-7;
+//      @include breakpoint('medium') {
+//        margin-top: $spacing-8;
+//        margin-left: $spacing-6;
+//      }
+//      &:first-child {
+//        margin-top: $spacing-5;
+//        margin-left: 0;
+//        @include breakpoint('medium') {
+//          margin-top: $spacing-8;
+//        }
+//      }
+//    }
+//  }
+//}

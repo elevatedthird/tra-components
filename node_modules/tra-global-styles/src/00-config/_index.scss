@@ -1,0 +1,23 @@
+// pre-setting utils
+@import '~foundation-sites/scss/util/util';
+
+// settings
+@import "settings/colors";
+@import 'settings/settings';
+@import "settings/links";
+@import "settings/buttons";
+@import 'settings/config';
+@import 'settings/sizing';
+@import "settings/typography";
+@import 'settings/lists';
+@import 'settings/theme-profiles';
+@import 'settings/shapes';
+
+// foundation framework
+@import 'foundation';
+
+// post setting utils
+@import 'mixins/framework';
+
+@include aries-icons(false);
+@include silent_typography();

@@ -1,0 +1,31 @@
+a {
+  @include link();
+
+  // Use consistent styling for keyboard focus on all links.
+  &:focus-visible {
+    background-color: $color--focus--yellow;
+    color: $color--link--default;
+  }
+}
+
+.file--icon {
+  &:after {
+  content: "\e895";
+  font-family: $icon-font-family;
+  margin-left: rem-calc(5);
+  font-size: $spacing-6;
+  line-height: 0;
+  vertical-align: rem-calc(-7);
+  display: inline-block;
+  transform: translateX(0px);
+  transition: transform 300ms linear;
+}
+&:hover, &:focus {
+  color: inherit;
+  text-decoration: underline;
+
+  &:after {
+    transform: translateX(4px);
+  }
+}
+}

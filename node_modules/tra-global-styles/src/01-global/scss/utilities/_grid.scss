@@ -1,0 +1,198 @@
+@use 'sass:math';
+
+.grid-container.small-gutters {
+  @include -zf-each-breakpoint {
+    @include xy-grid-container($global-width, $grid-margin-gutters);
+  }
+}
+
+.grid-margin-x {
+  > .cell {
+    @include -zf-each-breakpoint {
+      &.#{$-zf-size}-4_8 {
+        //@include xy-cell(fraction-to-percentage($i, $grid-column-count), null, $large-grid-margin-gutters, margin, top bottom, $-zf-size, false);
+        @include xy-cell-size(math.div(4, 10), $grid-margin-gutters, margin, $-zf-size, false);
+        @include xy-cell-gutters($grid-margin-gutters, margin, left right, $-zf-size, false);
+      }
+
+      &.#{$-zf-size}-7_2 {
+        //@include xy-cell(fraction-to-percentage($i, $grid-column-count), null, $large-grid-margin-gutters, margin, top bottom, $-zf-size, false);
+        @include xy-cell-size(math.div(6, 10), $grid-margin-gutters, margin, $-zf-size, false);
+        @include xy-cell-gutters($grid-margin-gutters, margin, left right, $-zf-size, false);
+      }
+    }
+
+  }
+}
+
+.grid-x {
+  > .cell {
+    @include -zf-each-breakpoint {
+      &.#{$-zf-size}-4_8 {
+        //@include xy-cell(fraction-to-percentage($i, $grid-column-count), null, $large-grid-margin-gutters, margin, top bottom, $-zf-size, false);
+        @include xy-cell-size(math.div(4, 10), 0, margin, $-zf-size, false);
+      }
+
+      &.#{$-zf-size}-7_2 {
+        //@include xy-cell(fraction-to-percentage($i, $grid-column-count), null, $large-grid-margin-gutters, margin, top bottom, $-zf-size, false);
+        @include xy-cell-size(math.div(6, 10), 0, margin, $-zf-size, false);
+      }
+    }
+  }
+}
+
+
+.wide-grid-margin-x {
+  @include xy-gutters($wide-grid-margin-gutters, margin, left right, true);
+  > .cell {
+    @include -zf-each-breakpoint {
+      @for $i from 1 through $grid-column-count {
+        // Column width
+        &.#{$-zf-size}-#{$i} {
+          //@include xy-cell(fraction-to-percentage($i, $grid-column-count), null, $large-grid-margin-gutters, margin, top bottom, $-zf-size, false);
+          @include xy-cell-size(fraction-to-percentage($i, $grid-column-count), $wide-grid-margin-gutters, margin, $-zf-size, false);
+          @include xy-cell-gutters($wide-grid-margin-gutters, margin, left right, $-zf-size, false);
+        }
+      }
+
+      &.#{$-zf-size}-4_8 {
+        //@include xy-cell(fraction-to-percentage($i, $grid-column-count), null, $large-grid-margin-gutters, margin, top bottom, $-zf-size, false);
+        @include xy-cell-size(math.div(4, 10), $wide-grid-margin-gutters, margin, $-zf-size, false);
+        @include xy-cell-gutters($wide-grid-margin-gutters, margin, left right, $-zf-size, false);
+      }
+
+      &.#{$-zf-size}-7_2 {
+        //@include xy-cell(fraction-to-percentage($i, $grid-column-count), null, $large-grid-margin-gutters, margin, top bottom, $-zf-size, false);
+        @include xy-cell-size(math.div(6, 10), $wide-grid-margin-gutters, margin, $-zf-size, false);
+        @include xy-cell-gutters($wide-grid-margin-gutters, margin, left right, $-zf-size, false);
+      }
+    }
+  }
+}
+
+.wide-grid-margin-y {
+  @include xy-gutters($wide-grid-margin-gutters, margin, top bottom, true);
+  > .cell {
+    @include -zf-each-breakpoint {
+      @for $i from 1 through $grid-column-count {
+        // Column width
+        &.#{$-zf-size}-#{$i} {
+          //@include xy-cell(fraction-to-percentage($i, $grid-column-count), null, $large-grid-margin-gutters, margin, top bottom, $-zf-size, false);
+          @include xy-cell-size(fraction-to-percentage($i, $grid-column-count), $wide-grid-margin-gutters, margin, $-zf-size, false);
+          @include xy-cell-gutters($wide-grid-margin-gutters, margin, top bottom, $-zf-size, false);
+        }
+      }
+    }
+  }
+}
+
+.extra-wide-grid-margin-x {
+  @include xy-gutters($extra-wide-grid-margin-gutters, margin, left right, true);
+  > .cell {
+    @include -zf-each-breakpoint {
+      @for $i from 1 through $grid-column-count {
+        // Column width
+        &.#{$-zf-size}-#{$i} {
+          //@include xy-cell(fraction-to-percentage($i, $grid-column-count), null, $large-grid-margin-gutters, margin, top bottom, $-zf-size, false);
+          @include xy-cell-size(fraction-to-percentage($i, $grid-column-count), $extra-wide-grid-margin-gutters, margin, $-zf-size, false);
+          @include xy-cell-gutters($extra-wide-grid-margin-gutters, margin, left right, $-zf-size, false);
+        }
+      }
+
+      &.#{$-zf-size}-4_8 {
+        //@include xy-cell(fraction-to-percentage($i, $grid-column-count), null, $large-grid-margin-gutters, margin, top bottom, $-zf-size, false);
+        @include xy-cell-size(math.div(4, 10), $extra-wide-grid-margin-gutters, margin, $-zf-size, false);
+        @include xy-cell-gutters($extra-wide-grid-margin-gutters, margin, left right, $-zf-size, false);
+      }
+
+      &.#{$-zf-size}-7_2 {
+        //@include xy-cell(fraction-to-percentage($i, $grid-column-count), null, $large-grid-margin-gutters, margin, top bottom, $-zf-size, false);
+        @include xy-cell-size(math.div(6, 10), $extra-wide-grid-margin-gutters, margin, $-zf-size, false);
+        @include xy-cell-gutters($extra-wide-grid-margin-gutters, margin, left right, $-zf-size, false);
+      }
+    }
+  }
+}
+
+.extra-wide-grid-margin-y {
+  @include xy-gutters($extra-wide-grid-margin-gutters, margin, top bottom, true);
+  > .cell {
+    @include -zf-each-breakpoint {
+      @for $i from 1 through $grid-column-count {
+        // Column width
+        &.#{$-zf-size}-#{$i} {
+          //@include xy-cell(fraction-to-percentage($i, $grid-column-count), null, $large-grid-margin-gutters, margin, top bottom, $-zf-size, false);
+          @include xy-cell-size(fraction-to-percentage($i, $grid-column-count), $extra-wide-grid-margin-gutters, margin, $-zf-size, false);
+          @include xy-cell-gutters($extra-wide-grid-margin-gutters, margin, top bottom, $-zf-size, false);
+        }
+      }
+    }
+  }
+}
+
+.extra-extra-wide-grid-margin-y {
+  @include xy-gutters($extra-extra-wide-grid-margin-gutters, margin, top bottom, true);
+  > .cell {
+    @include -zf-each-breakpoint {
+      @for $i from 1 through $grid-column-count {
+        // Column width
+        &.#{$-zf-size}-#{$i} {
+          //@include xy-cell(fraction-to-percentage($i, $grid-column-count), null, $large-grid-margin-gutters, margin, top bottom, $-zf-size, false);
+          //@include xy-cell-size(fraction-to-percentage($i, $grid-column-count), $extra-extra-wide-grid-margin-gutters, margin, $-zf-size, false);
+          @include xy-cell-gutters($extra-extra-wide-grid-margin-gutters, margin, top bottom, $-zf-size, false);
+        }
+      }
+    }
+  }
+}
+
+.extra-extra-wide-grid-margin-x {
+  @include xy-gutters($extra-extra-wide-grid-margin-gutters, margin, left right, true);
+  > .cell {
+    @include -zf-each-breakpoint {
+      @for $i from 1 through $grid-column-count {
+        // Column width
+        &.#{$-zf-size}-#{$i} {
+          //@include xy-cell(fraction-to-percentage($i, $grid-column-count), null, $large-grid-margin-gutters, margin, top bottom, $-zf-size, false);
+          @include xy-cell-size(fraction-to-percentage($i, $grid-column-count), $extra-extra-wide-grid-margin-gutters, margin, $-zf-size, false);
+          @include xy-cell-gutters($extra-extra-wide-grid-margin-gutters, margin, left right, $-zf-size, false);
+        }
+      }
+    }
+  }
+}
+
+.layout {
+  @each $name, $size in $bottom-margins {
+    @if type-of($size) == 'map' {
+      @each $breakpoint, $value in $size {
+        @include breakpoint($breakpoint) {
+          &.bottom-margin--#{$name}:not(.collapse-margins):not(.layout-builder__layout) {
+            margin-bottom: $value;
+          }
+        }
+      }
+    } @else {
+      &.bottom-margin--#{$name}:not(.collapse-margins):not(.layout-builder__layout) {
+        margin-bottom: $size;
+      }
+    }
+  }
+
+  @each $name, $size in $top-margins {
+    // check is $size is a map
+    @if type-of($size) == 'map' {
+      @each $breakpoint, $value in $size {
+        @include breakpoint($breakpoint) {
+          &.top-margin--#{$name}:not(.collapse-margins):not(.layout-builder__layout) {
+            margin-top: $value;
+          }
+        }
+      }
+    } @else {
+      &.top-margin--#{$name}:not(.collapse-margins):not(.layout-builder__layout) {
+        margin-top: $size;
+      }
+    }
+  }
+}

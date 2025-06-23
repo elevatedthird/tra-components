@@ -1,0 +1,593 @@
+// split out video component
+// recommend not using image background
+// not using specific height or changing min-height
+// talk about it with TRA.
+.organism--hero {
+  overflow: hidden;
+  div:has(> video) {
+    display: flex;
+  }
+
+  .icon {
+    max-width: 115px;
+    margin-bottom: 1rem;
+
+    @include breakpoint(medium down) {
+      margin: auto;
+      margin-bottom: 1rem;
+      margin-top: 0;
+    }
+  }
+
+  &--media {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 1.2 / 1;
+
+    @include breakpoint(large) {
+      aspect-ratio: initial;
+    }
+  }
+
+  .organism--hero--grid {
+    height: 800px;
+
+    @include breakpoint(small down) {
+      height: 600px;
+    }
+
+    @include breakpoint(large) {
+      height: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 90rem;
+    }
+
+    @include breakpoint(xlarge) {
+      .left.copy {
+        padding-right: 4.5rem;
+      }
+
+      .left.media {
+        padding-right: 4.5rem;
+      }
+
+      .right.copy {
+        padding-left: 4.5rem;
+      }
+
+      .right.media {
+        padding-left: 4.5rem;
+      }
+    }
+
+  }
+
+  @include breakpoint('large') {
+    .height_560 {
+      height: 560px;
+
+      .organism--hero--grid--media img {
+        height: 560px;
+      }
+    }
+
+    .height_480 {
+      height: 480px;
+
+      .organism--hero--grid--media img {
+        height: 480px;
+      }
+
+    }
+
+    .height_280 {
+      height: 280px;
+
+      .organism--hero--grid--media img {
+        height: 280px;
+      }
+
+      .organism--hero--content-wrapper {
+        .molecule--copy {
+          .heading {
+            font-size: $heading-lg-font-size;
+            line-height: $heading-lg-line-height;
+          }
+
+          .links.p {
+            display: none;
+          }
+        }
+      }
+    }
+
+  }
+
+  .height_auto.height_auto.height_auto {
+    height: auto;
+
+    .organism--hero--grid--media.organism--hero--grid--media {
+      position: relative;
+
+      img,
+      video {
+        height: auto;
+        transform: unset;
+        position: static;
+      }
+    }
+  }
+
+  @include breakpoint(mobile_menu down) {
+    .grid-x {
+      .xsmall-12 {
+        height: 50%;
+      }
+    }
+  }
+
+  &--content-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-10 0;
+    justify-content: center;
+
+    .molecule--copy {
+      .heading {
+        margin-bottom: 0;
+
+        @include breakpoint(small) {
+          font-size: $heading-md-smallscreen;
+          line-height: $heading-md-line-height;
+        }
+
+        @include breakpoint(medium) {
+          font-size: $heading-xl-font-size;
+          line-height: $heading-xl-line-height;
+        }
+      }
+
+      .links.p {
+        margin-bottom: 0;
+        display: grid;
+        margin-top: $spacing-4;
+        justify-content: space-between;
+        grid-template-columns: auto;
+        column-gap: 1rem;
+
+        @include breakpoint(large) {
+          margin-top: $spacing-6;
+        }
+
+        @include breakpoint(xlarge) {
+          display: flex;
+          margin-top: $spacing-8;
+          justify-content: flex-start;
+        }
+      }
+    }
+  }
+
+  @include breakpoint(mobile_menu down) {
+
+    .image--top .media, .image--bottom .copy {
+      order: 1;
+    }
+
+    .image--top .copy, .image--bottom .media {
+      order: 2;
+    }
+  }
+
+  .organism--hero--grid.organism--hero--reverse--yes {
+    @include breakpoint(large) {
+      margin-left: 0;
+      margin-right: 0;
+      max-width: 100%;
+
+      .left {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 90em;
+        position: relative;
+        width: 100%;
+      }
+    }
+  }
+
+
+  .organism--hero--reverse--yes {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    @include breakpoint('large') {
+
+      &.height_480 {
+
+        .molecule--copy {
+          .links.p {
+            margin-top: $spacing-6;
+          }
+        }
+      }
+
+      &.height_280 {
+        height: 280px;
+
+        .organism--hero--grid--media img {
+          height: 280px;
+        }
+
+        .organism--hero--content-wrapper {
+          .molecule--copy {
+            .heading {
+              font-size: $heading-md-smallscreen;
+              line-height: $heading-md-line-height;
+
+              @include breakpoint(medium) {
+                font-size: $heading-xl-font-size;
+                line-height: $heading-xl-line-height;
+
+              }
+
+              @include breakpoint(large) {
+                font-size: $heading-lg-font-size;
+                line-height: $heading-lg-line-height;
+
+              }
+
+            }
+
+            .links.p {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .organism--hero--grid--media {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+
+      //2.57:1
+      img, video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 800px;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+
+        @include breakpoint(small down) {
+          object-position: top;
+        }
+
+        @include breakpoint(small down) {
+          height: 600px;
+        }
+
+        @include breakpoint(large) {
+          height: 560px;
+        }
+      }
+
+      @include breakpoint(medium down) {
+        &:has(video) {
+          max-height: 85vh;
+        }
+      }
+
+      >div:has(video) {
+        display: flex;
+      }
+    }
+
+
+    .text-bg-color {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+
+      @include breakpoint(mobile_menu down) {
+        height: 55%;
+        width: 100%;
+        padding: 0 4rem;
+      }
+
+      @include breakpoint(small down) {
+        padding: 0 1.5rem;
+      }
+    }
+
+    &.height_auto {
+      .content-wrapper.left {
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        left: 0;
+        right: 0;
+        margin: auto;
+
+        @include breakpoint(mobile_menu down) {
+          width: 100%;
+          position: absolute;
+        }
+      }
+
+      .image--top {
+        @include breakpoint(mobile_menu down) {
+          .content-wrapper {
+            display: flex;
+            align-items: flex-end;
+          }
+        }
+      }
+
+      .image--bottom {
+        @include breakpoint(mobile_menu down) {
+          .content-wrapper {
+            display: flex;
+            align-items: flex-start;
+          }
+        }
+      }
+
+      .organism--hero--grid--media {
+
+        div, article {
+          height: 100%;
+        }
+      }
+
+      .organism--hero--content-wrapper {
+        overflow: auto;
+      }
+    }
+
+    .organism--hero--content-wrapper {
+      .molecule--copy {
+        .heading {
+          font-size: $heading-md-smallscreen;
+          line-height: $heading-md-line-height;
+          margin-bottom: 0;
+          text-align: center;
+
+          @include breakpoint(medium) {
+            font-size: $heading-md-font-size;
+            line-height: $heading-md-line-height;
+            text-align: center;
+          }
+
+          @include breakpoint(large) {
+            font-size: $heading-lg-font-size;
+            line-height: $heading-lg-line-height;
+            text-align: left;
+          }
+
+          @include breakpoint(xlarge) {
+            font-size: $heading-xl-font-size;
+            line-height: $heading-xl-line-height;
+          }
+        }
+
+        .links.p {
+          justify-content: start;
+
+          @include breakpoint(mobile_menu down) {
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    &.image--bottom {
+      .grid-container {
+        @include breakpoint(small) {
+          padding-top: $spacing-16;
+          padding-bottom: $spacing-6;
+        }
+
+        @include breakpoint(medium) {
+          padding-top: $spacing-16;
+          padding-bottom: $spacing-10;
+        }
+
+        @include breakpoint(large) {
+          padding-top: 0px;
+          padding-bottom: 0px;
+        }
+      }
+    }
+
+    &.image--top {
+      .grid-container {
+        @include breakpoint(small) {
+          padding-top: $spacing-6;
+          padding-bottom: $spacing-16;
+        }
+
+        @include breakpoint(medium) {
+          padding-top: $spacing-10;
+          padding-bottom: $spacing-16;
+        }
+
+        @include breakpoint(large) {
+          padding-top: 0px;
+          padding-bottom: 0px;
+        }
+      }
+    }
+
+    .organism--hero--cell {
+      position: relative;
+      z-index: 1;
+      margin-left: 0;
+    }
+  }
+
+  .organism--hero--reverse--no {
+    .organism--hero--content-wrapper {
+      .molecule--copy {
+        .heading {
+          margin-bottom: 0;
+
+          @include breakpoint(small down) {
+            font-size: $heading-md-smallscreen;
+            line-height: $heading-md-line-height;
+          }
+
+          @include breakpoint(large) {
+            font-size: $heading-xl-font-size;
+            line-height: $heading-xl-line-height;
+          }
+        }
+
+        .links.p {
+          @include breakpoint(mobile_menu down) {
+            margin-top: $spacing-6;
+          }
+
+          @include breakpoint(xlarge) {
+            margin-top: $spacing-8;
+          }
+        }
+
+      }
+    }
+
+    &.height_280 {
+      .organism--hero--content-wrapper {
+        .molecule--copy {
+          .heading {
+            font-size: $heading-md-smallscreen;
+            line-height: $heading-md-line-height;
+
+            @include breakpoint(medium) {
+              font-size: $heading-xl-font-size;
+              line-height: $heading-xl-line-height;
+            }
+
+            @include breakpoint(large) {
+              font-size: $heading-lg-font-size;
+              line-height: $heading-lg-line-height;
+            }
+
+          }
+        }
+      }
+    }
+  }
+
+  .organism--hero--reverse--yes.image--bottom .text-bg-color {
+    @include breakpoint(mobile_menu down) {
+      top: 50%;
+    }
+  }
+
+  @include breakpoint(xlarge) {
+    .grid-container {
+      padding-right: 7rem;
+    }
+  }
+
+  @include breakpoint(small only) {
+    .grid-container {
+      padding: 0 1.875rem;
+    }
+  }
+
+  &.variation--wide.variation--wide {
+    .content-wrapper.content-wrapper {
+      position: absolute;
+      height: 100%;
+      width: 50%;
+      max-width: unset;
+      left: unset;
+      right: unset;
+      margin: unset;
+
+      @include breakpoint(mobile_menu down) {
+        width: 100%;
+        position: absolute;
+      }
+    }
+
+    .image--top {
+      @include breakpoint(mobile_menu down) {
+        .content-wrapper {
+          display: flex;
+          align-items: flex-end;
+        }
+      }
+    }
+
+    .image--bottom {
+      @include breakpoint(mobile_menu down) {
+        .content-wrapper {
+          display: flex;
+          align-items: flex-start;
+        }
+      }
+    }
+
+    .text-bg-color {
+      position: static;
+      width: 100%;
+      max-width: unset;
+      &:has(.video-bg-color) {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .video-bg-color  {
+    width: 1000vw;
+    z-index: -1;
+    height: 1000vw;
+  }
+
+  @include breakpoint(medium down) {
+    .organism--hero--grid:has(video) {
+
+      .shape.mobile--arrow--top.mobile--arrow--top {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 100%, 0% 100%, 0% 25%);
+        padding-bottom: 0;
+      }
+
+      .content-wrapper {
+        padding-bottom: 0;
+
+        .organism--hero--content-wrapper {
+          padding: 4rem 0 2rem;
+
+          .molecule--copy .heading {
+            text-align: left;
+          }
+
+          .molecule--copy .links.p {
+            justify-content: start;
+          }
+        }
+
+        .icon {
+          margin: 0;
+          max-width: 50px;
+        }
+      }
+    }
+  }
+}

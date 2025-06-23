@@ -1,11 +1,5 @@
 \$schema: >-
   https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
-name: Background Media
+name: Sequoia Background Media
 status: stable
 description: A foundation background media.
-libraryOverrides:
-  dependencies:
-    - aries/aries
-  css:
-    component:
-      ~{theme:aries}/dist/css/molecule--background-media.css: {}

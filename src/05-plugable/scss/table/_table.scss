@@ -1,0 +1,362 @@
+#main-content table:not(form table), #main-content table.tablesaw:not(form table) {
+  &:not(.glb-table) {
+    table-layout: fixed;
+  }
+
+  border-collapse: collapse;
+  border: 1px solid $color--light-grey-5;
+  margin: 24px 0;
+  width: 100%;
+  font-size: rem-calc(16);
+  line-height: 1.5;
+
+  //old table styling
+  @include breakpoint(medium){
+    display: table;
+    max-width: 100%;
+    margin: 0 auto;
+    //white-space: nowrap;
+    min-width:225px;
+  }
+
+  &.table-large {
+    display: table;
+    margin: 0 auto;
+    min-width: 225px;
+    max-width: unset;
+    //non-narrow containers = 90rem width, so 5 rem per gutter
+    width: min(calc(95rem - 32px), 1200px);
+  }
+
+  &.table-scroll {
+    @include breakpoint(medium) {
+      display:block;
+      width: 100%;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  }
+
+
+  @include breakpoint(medium) {
+    margin: 44px 0;
+  }
+
+  caption {
+    font-weight: $global-weight-bold;
+    padding: 12px 18px;
+  }
+
+  &.tablesaw th, th,
+  &.tablesaw td, td {
+    padding: 12px 32px 12px 17px;
+    text-align: left;
+    word-break: initial;
+  }
+
+  thead {
+    background-color: $color--brand--contrasting--night-blue;
+    color: $color--white;
+
+    th {
+      font-weight: $global-weight-bold;
+      color: $color--white;
+      border-right: 1px solid $color--light-grey-5;
+
+      strong {
+        font-weight: inherit;
+      }
+    }
+  }
+
+  &.forest-green {
+    thead {
+      background-color: $color--brand--contrasting--forest-green;
+    }
+  }
+
+  &.chocolate-brown {
+    thead {
+      background-color: $color--brand--contrasting--chocolate-brown;
+    }
+  }
+
+  tbody {
+    th {
+      border-right: 1px solid $color--light-grey-5;
+    }
+
+    tr {
+      &:nth-child(even) {
+        background: $color--light-grey-7;
+      }
+    }
+
+    td {
+      color: $color--black;
+      border-right: 1px solid $color--light-grey-5;
+    }
+  }
+
+  //for tablesaw stack overrides
+  //need to  use tablesaw's 40em breakpoint
+  @include breakpoint(medium) {
+    &.tablesaw-stack {
+      //@TODO seems like tablesaw removes border - double check if we want to add it back
+      .tablesaw-hidden-desktop {
+        display: none;
+      }
+    }
+  }
+
+  //additional things that need to be overridden for the different breakpoints to work...
+  @include breakpoint(small down) {
+    &.tablesaw-stack {
+      border:none;
+      tr {
+
+        td, th {
+          padding: 0px;
+          display: flex;
+          border-right: none;
+
+          &:nth-child(odd) {
+            background: #efefef;
+          }
+
+          &:last-child {
+            margin-bottom: 16px;
+          }
+
+          &:not(:last-child) {
+            border-bottom: 1px solid white;
+          }
+
+          .tablesaw-cell-label, .tablesaw-cell-content {
+            padding: .5em .7em;
+          }
+
+          .tablesaw-cell-label {
+            background-color: $color--brand--aegon-blue;
+            color: white;
+            width: 33%;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@include breakpoint(small down) {
+  table.tablesaw[data-tablesaw-mode="stack"] {
+    display: table;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    white-space: initial;
+  }
+  .tablesaw-stack thead td, .tablesaw-stack thead th {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    display: table-cell;
+  }
+}
+
+//overriding tablesaw-responsive (copying the file from the module and overriding the breakpoints as per their instructions)
+/*! Tablesaw - v3.1.2 - 2019-03-19
+* https://github.com/filamentgroup/tablesaw
+* Copyright (c) 2019 Filament Group; Licensed MIT */
+
+/* Mobile first styles: Begin with the stacked presentation at narrow widths */
+
+/* Support note IE9+: @media only all */
+
+@media only all {
+  /* Show the table cells as a block level element */
+
+  .tablesaw-stack {
+    clear: both;
+  }
+
+  .tablesaw-stack td,
+  .tablesaw-stack th {
+    text-align: left;
+    display: block;
+  }
+
+  .tablesaw-stack tr {
+    clear: both;
+    display: table-row;
+  }
+
+  /* Make the label elements a percentage width */
+
+  .tablesaw-stack td .tablesaw-cell-label,
+  .tablesaw-stack th .tablesaw-cell-label {
+    display: inline-block;
+    padding: 0 .6em 0 0;
+    width: 30%;
+  }
+
+  /* For grouped headers, have a different style to visually separate the levels by classing the first label in each col group */
+
+  .tablesaw-stack th .tablesaw-cell-label-top,
+  .tablesaw-stack td .tablesaw-cell-label-top {
+    display: block;
+    padding: .4em 0;
+    margin: .4em 0;
+  }
+
+  .tablesaw-cell-label {
+    display: block;
+  }
+
+  /* Avoid double strokes when stacked */
+
+  .tablesaw-stack tbody th.group {
+    margin-top: -1px;
+  }
+
+  /* Avoid double strokes when stacked */
+
+  .tablesaw-stack th.group b.tablesaw-cell-label {
+    display: none !important;
+  }
+}
+
+@include breakpoint(small down) {
+  /* Table rows have a gray bottom stroke by default */
+
+  .tablesaw-stack tbody tr {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #dfdfdf;
+  }
+
+  .tablesaw-stack thead td,
+  .tablesaw-stack thead th {
+    display: none;
+  }
+
+  .tablesaw-stack tbody td,
+  .tablesaw-stack tbody th {
+    display: block;
+    float: left;
+    clear: left;
+    width: 100%;
+  }
+
+  .tablesaw-cell-label {
+    vertical-align: top;
+  }
+
+  .tablesaw-cell-content {
+    display: inline-block;
+    max-width: 67%;
+  }
+
+  .tablesaw-stack .tablesaw-stack-block .tablesaw-cell-label,
+  .tablesaw-stack .tablesaw-stack-block .tablesaw-cell-content {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .tablesaw-stack td:empty,
+  .tablesaw-stack th:empty {
+    display: none;
+  }
+}
+
+/* Media query to show as a standard table at 560px (35em x 16px) or wider */
+
+@include breakpoint(medium){
+  .tablesaw-stack tr {
+    display: table-row;
+  }
+
+  /* Show the table header rows */
+
+  .tablesaw-stack td,
+  .tablesaw-stack th,
+  .tablesaw-stack thead td,
+  .tablesaw-stack thead th {
+    display: table-cell;
+    margin: 0;
+  }
+
+  /* Hide the labels in each cell */
+
+  .tablesaw-stack td .tablesaw-cell-label,
+  .tablesaw-stack th .tablesaw-cell-label {
+    display: none !important;
+  }
+}
+
+.tablesaw-fix-persist {
+  table-layout: fixed;
+}
+
+/* Hide all prioritized columns by default */
+
+@media only all {
+  .tablesaw-columntoggle th.tablesaw-priority-6,
+  .tablesaw-columntoggle td.tablesaw-priority-6,
+  .tablesaw-columntoggle th.tablesaw-priority-5,
+  .tablesaw-columntoggle td.tablesaw-priority-5,
+  .tablesaw-columntoggle th.tablesaw-priority-4,
+  .tablesaw-columntoggle td.tablesaw-priority-4,
+  .tablesaw-columntoggle th.tablesaw-priority-3,
+  .tablesaw-columntoggle td.tablesaw-priority-3,
+  .tablesaw-columntoggle th.tablesaw-priority-2,
+  .tablesaw-columntoggle td.tablesaw-priority-2,
+  .tablesaw-columntoggle th.tablesaw-priority-1,
+  .tablesaw-columntoggle td.tablesaw-priority-1,
+  .tablesaw-columntoggle th.tablesaw-priority-0,
+  .tablesaw-columntoggle td.tablesaw-priority-0 {
+    display: none;
+  }
+}
+
+/* Preset breakpoints if "" class added to table */
+
+/* Show priority 1 at 320px (20em x 16px) */
+
+@media (min-width: 20em) {
+  .tablesaw-columntoggle th.tablesaw-priority-1,
+  .tablesaw-columntoggle td.tablesaw-priority-1 {
+    display: table-cell;
+  }
+}
+
+/* Show priority 2 at 480px (30em x 16px) */
+
+@media (min-width: 30em) {
+  .tablesaw-columntoggle th.tablesaw-priority-2,
+  .tablesaw-columntoggle td.tablesaw-priority-2 {
+    display: table-cell;
+  }
+}
+
+/* Show priority 3 at 640px (40em x 16px) */
+
+@include breakpoint(medium){
+  .tablesaw-columntoggle th.tablesaw-priority-3,
+  .tablesaw-columntoggle td.tablesaw-priority-3 {
+    display: table-cell;
+  }
+
+  .tablesaw-columntoggle tbody td {
+    line-height: 2;
+  }
+}
+

@@ -1,0 +1,239 @@
+// 4 $spacing-1
+// 16 $spacing-4
+// 24 $spacing-6
+// 32 $spacing-8
+
+/*------------------------------------*\
+  Tag Default Sizes
+\*------------------------------------*/
+$heading-xl-font-size:              60px;
+$heading-xl-line-height:            110%;
+$heading-xl-smallscreen:            40px;
+
+$heading-lg-font-size:              48px;
+$heading-lg-line-height:            110%;
+$heading-lg-smallscreen:            36px;
+
+$heading-md-font-size:              36px;
+$heading-md-line-height:            120%;
+$heading-md-smallscreen:            32px;
+
+$heading-sm-font-size:              26px;
+$heading-sm-line-height:            120%;
+$heading-sm-smallscreen:            26px;
+
+$heading-xs-font-size:              20px;
+$heading-xs-line-height:            120%;
+$heading-xs-smallscreen:            22px;
+
+$body-xl-font-size:              24px;
+$body-xl-line-height:            150%;
+$body-xl-smallscreen:            22px;
+
+$body-lg-font-size:              20px;
+$body-lg-line-height:            150%;
+$body-lg-smallscreen:            20px;
+
+$body-md-font-size:              16px;
+$body-md-line-height:            150%;
+$body-md-smallscreen:            18px;
+
+$body-sm-font-size:              14px;
+$body-sm-line-height:            150%;
+$body-sm-smallscreen:            14px;
+
+$label-xl-font-size:             26px;
+$label-xl-line-height:           150%;
+$label-xl-smallscreen:           $label-xl-font-size;
+
+$label-lg-font-size:             20px;
+$label-lg-line-height:           150%;
+$label-lg-smallscreen:           $label-lg-font-size;
+
+$label-md-font-size:             16px;
+$label-md-line-height:           150%;
+$label-md-smallscreen:           $label-md-font-size;
+
+$label-sm-font-size:             14px;
+$label-sm-line-height:           150%;
+$label-sm-smallscreen:           $label-sm-font-size;
+
+$h1-font-size:                      $heading-lg-font-size !default;
+$h1-line-height:                    $heading-lg-line-height !default;
+$h1-font-size-smallscreen:          $heading-lg-smallscreen !default;
+
+$h2-font-size:                      $heading-md-font-size !default;
+$h2-line-height:                    $heading-md-line-height !default;
+$h2-font-size-smallscreen:          $heading-md-smallscreen !default;
+
+$h3-font-size:                      $heading-sm-font-size !default;
+$h3-line-height:                    $heading-sm-line-height !default;
+$h3-font-size-smallscreen:          $heading-sm-smallscreen !default;
+
+$h4-font-size:                      $heading-xs-font-size !default;
+$h4-line-height:                    $heading-xs-line-height !default;
+$h4-font-size-smallscreen:          $heading-xs-smallscreen !default;
+
+$header-styles: (
+  xsmall: (
+    'h1': (
+      'font-size': 36,
+      'line-height': 39.6,
+    ),
+    'h2': (
+      'font-size': 32,
+      'line-height': 38.4,
+    ),
+    'h3': (
+      'font-size': 26,
+      'line-height': 31.2,
+    ),
+    'h4': (
+      'font-size': 22,
+      'line-height': 26.4,
+    ),
+    'h5': (
+      'font-family': $body-font-family,
+      'font-size': 14,
+      'line-height': 21,
+    ),
+    'body-xxl': (
+      'font-family': $body-font-family,
+      'font-size': 22,
+      'line-height': 26,
+    ),
+    'body-xl': (
+      'font-family': $body-font-family,
+      'font-size': 22,
+      'line-height': 26,
+    ),
+    'body-l': (
+      'font-family': $body-font-family,
+      'font-size': 20,
+      'line-height': 30,
+    ),
+    'body-m': (
+      'font-family': $body-font-family,
+      'font-size': 18,
+      'line-height': 27,
+    ),
+    'body-m-plus': (
+      'font-family': $body-font-family,
+      'font-size': 18,
+      'line-height': 27,
+    ),
+    'body-s': (
+      'font-family': $body-font-family,
+      'font-size': 14,
+      'line-height': 21,
+    ),
+    'label-xl': (
+      'font-family': $body-font-family,
+      'font-size': 26,
+      'line-height': 39,
+    ),
+    'label-l': (
+      'font-family': $body-font-family,
+      'font-size': 20,
+      'line-height': 30,
+    ),
+    'label-m': (
+      'font-family': $body-font-family,
+      'font-size': 16,
+      'line-height': 24,
+    ),
+    'label-s': (
+      'font-family': $body-font-family,
+      'font-size': 14,
+      'line-height': 21,
+    ),
+  ),
+  large: (
+    'h1': (
+      'font-size': 48,
+      'line-height': 52.8,
+    ),
+    'h2': (
+      'font-size': 36,
+      'line-height': 43.2,
+    ),
+    'h3': (
+      'font-size': 26,
+      'line-height': 31.2,
+    ),
+    'h3-plus': (
+      'font-size': 32,
+      'line-height': 38.2,
+    ),
+    'h4': (
+      'font-size': 20,
+      'line-height': 24,
+    ),
+    'h5': (
+      'font-family': $body-font-family,
+      'font-size': 14,
+      'line-height': 21,
+    ),
+    'body-xxl': (
+      'font-family': $body-font-family,
+      'font-size': 26,
+      'line-height': 31,
+    ),
+    'body-xl': (
+      'font-family': $body-font-family,
+      'font-size': 24,
+      'line-height': 36,
+    ),
+    'body-l': (
+      'font-family': $body-font-family,
+      'font-size': 20,
+      'line-height': 30,
+    ),
+    'body-m': (
+      'font-family': $body-font-family,
+      'font-size': 16,
+      'line-height': 24,
+    ),
+    'body-s': (
+      'font-family': $body-font-family,
+      'font-size': 14,
+      'line-height': 21,
+    ),
+    'label-xl': (
+      'font-family': $body-font-family,
+      'font-size': 26,
+      'line-height': 39,
+    ),
+    'label-l': (
+      'font-family': $body-font-family,
+      'font-size': 20,
+      'line-height': 30,
+    ),
+    'label-m': (
+      'font-family': $body-font-family,
+      'font-size': 16,
+      'line-height': 24,
+    ),
+    'label-s': (
+      'font-family': $body-font-family,
+      'font-size': 14,
+      'line-height': 21,
+    ),
+  ),
+);
+
+// Typography color profiles
+
+$default-text-color-profile-targets: '.tagline, .subtext, .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p, a, .eyebrow, label, div';
+
+$text-color-profiles: (
+  /*
+    can specify the default then override individual tags/classes
+   */
+  light: (
+    default: white,
+  ),
+  dark: (
+    default: $color--brand--warm-black,
+  ),
+);

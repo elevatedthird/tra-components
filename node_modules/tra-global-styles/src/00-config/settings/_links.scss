@@ -1,0 +1,124 @@
+/// Links config
+$link-profiles: (
+  default: (
+    initial: (
+      color: $color--link--default,
+      text-decoration: underline,
+      font-weight: $font-weight-medium,
+    ),
+    hover: (
+      color: $color--link--hover,
+    ),
+    active: (
+      color: $color--link--active,
+    ),
+    visited: (
+      color: $color--link--visited,
+    ),
+    inactive: (
+      color: $color--link--disabled,
+    ),
+  ),
+  contrasting: (
+    initial: (
+      color: $color--link--rev--default,
+      text-decoration: underline,
+      font-weight: $font-weight-medium,
+    ),
+    hover: (
+      color: $color--link--rev--hover,
+    ),
+    active: (
+      color: $color--link--rev--active,
+    ),
+    visited: (
+      color: $color--link--rev--visited,
+    ),
+    inactive: (
+      color: $color--link--rev--disabled,
+    ),
+  ),
+  quiet: (
+    initial: (
+      color: $color--link--default,
+      text-decoration: none,
+      font-weight: $font-weight-medium,
+    ),
+    hover: (
+      color: $color--link--default,
+      text-decoration: underline,
+    ),
+    active: (
+      color: $color--link--active,
+    ),
+    visited: (
+      color: $color--link--default,
+    ),
+  ),
+  contrasting-quiet: (
+    initial: (
+      color: $color--link--rev--default,
+      text-decoration: none,
+      font-weight: $font-weight-medium,
+    ),
+    hover: (
+      color: $color--link--rev--default,
+      text-decoration: underline,
+    ),
+    active: (
+      color: $color--link--rev--active,
+    ),
+    visited: (
+      color: $color--link--rev--default,
+    ),
+  ),
+  primary: (
+    initial: (
+      color: $color--brand--warm-black,
+      text-decoration: underline,
+    ),
+    active: (
+      color: $color--brand--contrasting--lavender-purple,
+    ),
+    visited: (
+
+    ),
+  ),
+  secondary: (
+    initial: (
+      color: $color--brand--warm-black,
+      text-decoration: underline,
+    ),
+    active: (
+      color: $color--brand--contrasting--lavender-purple,
+    ),
+    visited: (
+
+    ),
+  ),
+  reset: (
+    initial: (
+      color: currentColor,
+      text-decoration: none,
+    ),
+    hover: (
+      color: currentColor,
+      text-decoration: none,
+    ),
+    focus: (
+      text-decoration: none,
+    ),
+    focus-visible: (
+      color: $color--brand--warm-black,
+    ),
+    active: (
+      color: currentColor,
+    ),
+    visited: (
+      color: currentColor,
+    ),
+    inactive: (
+      color: currentColor,
+    ),
+  ),
+);

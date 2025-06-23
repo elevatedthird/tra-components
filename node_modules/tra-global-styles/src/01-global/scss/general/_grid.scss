@@ -1,0 +1,55 @@
+@use 'sass:math';
+
+.grid-container--narrow {
+  @include breakpoint(medium) {
+    $narrow: calc((100vw * .75) + (map-get($grid-margin-gutters, xsmall) / 4));
+    @include xy-grid-container($narrow);
+  }
+  @include breakpoint(large) {
+    $narrow: math.div($global-width - rem-calc(map-get($grid-margin-gutters, large)), 2);
+    // wanted to calculate this but it was being annoying.
+    $narrow: 640px;
+    @include xy-grid-container($narrow);
+  }
+}
+
+.width-mid {
+  max-width: $width-mid;
+  margin: auto
+}
+
+.grid-margin-y.big-y-axis {
+  @include breakpoint(medium) {
+    @include xy-gutters(80px, margin, top bottom, true);
+  }
+  > .cell {
+    @include breakpoint(medium) {
+      @include xy-gutters(80px, margin, top bottom, false);
+    }
+  }
+}
+
+
+.grid-container {
+  &.wide-grid {
+    @include xy-gutters($wide-grid-margin-gutters, padding, left right, false);
+  }
+}
+
+.layout {
+  &:not(.collapse-margins):not(.layout-builder__layout) {
+    margin-bottom: key($bottom-margins, default);
+  }
+
+  .layout__row + .layout__row {
+    margin-top: $spacing-10;
+  }
+}
+
+
+
+.layout__row .layout__region {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1.5rem;
+}

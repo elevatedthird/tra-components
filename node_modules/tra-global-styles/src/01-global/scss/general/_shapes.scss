@@ -1,0 +1,46 @@
+//shapes
+.shape {
+  height: 100%;
+
+  & > div {
+    @include breakpoint(medium) {
+      height: 100%;
+    }
+  }
+
+  //common styles between both half and whole img
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @each $shape, $clipPath in $shapes {
+    &.#{$shape} {
+      clip-path: key($shapes, $shape, shape);
+      transition: clip-path 1s ease;
+    }
+    @include breakpoint(mobile_menu down) {
+      &.mobile--#{$shape}.mobile--#{$shape} {
+        clip-path: key($shapes, $shape, shape);
+        transition: clip-path 1s ease;
+      }
+    }
+    &.#{$shape}.shape-hover:hover {
+      clip-path: key($shapes, $shape, default);
+    }
+  }
+
+  .theme--contrasting & {
+    background-color: var(--theme-accent-color-vibrant);
+  }
+
+  .theme--vibrant & {
+    background-color: var(--theme-accent-color-contrasting);
+  }
+
+  &.has-media {
+    background-color: transparent;
+  }
+}
+
+
