@@ -4,7 +4,11 @@
   "description": "Component templates and behaviors for Aegon. Designed for integration with Drupal.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js --mode=production"
+    "build": "webpack --config webpack.config.js --mode=production",
+    "sync:components": "node scripts/sync-components.js"
+  },
+  "bin": {
+    "sequoia-sync": "./scripts/sync-components.js"
   },
   "author": "",
   "license": "ISC",
