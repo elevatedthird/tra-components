@@ -1,0 +1,46 @@
+@include foundation-reveal;
+
+//.reveal-overlay {
+//  margin-top: 55px;
+//
+//  @include breakpoint(mobile_menu) {
+//    margin-top: 72px;
+//  }
+//}
+
+//.reveal, .ui-dialog {
+.reveal {
+  padding: 3.55rem $spacing-12;
+  padding-bottom: $spacing-7;
+  top: 100px !important;
+  margin: 0 $spacing-6;
+  width: auto;
+  height: auto;
+  min-height: auto;
+
+  @include breakpoint(small) {
+    width: 90vw;
+    margin: auto;
+  }
+
+  .close-button {
+    top: 0px !important;
+    right: 0px;
+    position: absolute;
+    margin: 0;
+    padding: 24px !important;
+    font-size: 28px;
+  }
+
+  .description {
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    line-height: 150%;
+  }
+
+  [type="submit"] {
+    margin-left: auto;
+    margin-right: 0;
+    display: block;
+  }
+}

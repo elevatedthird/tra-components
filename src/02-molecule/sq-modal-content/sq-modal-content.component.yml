@@ -7,4 +7,4 @@ libraryOverrides:
   dependencies:
     - {{sequoia}}/plugable--js--reveal
     - {{sequoia}}/plugable--scss--reveal
-    - core/components.aries--modal
+    - core/components.{{sequoia}}--sq-modal

@@ -5,10 +5,10 @@ status: stable
 description: A foundation modal.
 libraryOverrides:
   dependencies:
-    - aries/plugable--js--reveal
-    - aries/plugable--scss--reveal
-    - core/components.aries--modal--modal-content
-    - core/components.aries--modal--modal-trigger
+    - {{sequoia}}/plugable--js--reveal
+    - {{sequoia}}/plugable--scss--reveal
+    - core/components.{{sequoia}}--sq-modal-content
+    - core/components.{{sequoia}}--sq-modal-trigger
   js:
     ~{theme:aries}/dist/js/molecule--modal.js: {}
 

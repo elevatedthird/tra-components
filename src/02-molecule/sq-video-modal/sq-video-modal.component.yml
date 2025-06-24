@@ -5,5 +5,5 @@ status: stable
 description: A foundation video modal.
 libraryOverrides:
   dependencies:
-    - aries/plugable--js--reveal
-    - aries/plugable--scss--reveal
+    - {{sequoia}}/plugable--js--reveal
+    - {{sequoia}}/plugable--scss--reveal

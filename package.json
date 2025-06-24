@@ -4,13 +4,30 @@
   "description": "Component templates and behaviors for Aegon. Designed for integration with Drupal.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config webpack.config.js --mode=production"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@drupal/once": "^1.0.1",
     "foundation-sites": "^6.9.0",
-    "tra-global-styles": "github:elevatedthird/tra-global-styles#develop"
+    "tra-global-styles": "github:elevatedthird/tra-global-styles#develop",
+    "webpack-remove-empty-scripts": "^1.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
+    "babel-loader": "^10.0.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^7.1.2",
+    "glob": "^11.0.3",
+    "html-webpack-plugin": "^5.6.3",
+    "mini-css-extract-plugin": "^2.9.2",
+    "sass": "^1.89.2",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
   }
 }

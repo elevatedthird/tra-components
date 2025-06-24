@@ -1,0 +1,41 @@
+.reveal.reveal.reveal {
+  //padding: 5rem 2rem 2rem;
+  //background-color: $color--brand--pure-white;
+  color: $color--brand--warm-black;
+  top: 30px;
+
+  @include breakpoint(large) {
+    width: 55.4rem;
+  }
+
+  .close-button {
+    top: 0;
+    right: 10px;
+    padding: 10px;
+    font-size: 32px;
+    cursor: pointer;
+
+    .icon-close:after {
+      display: block;
+      content: "\00d7";
+      color: $color--black;
+    }
+  }
+
+  // @todo do we need these last two rules?
+  .heading {
+    margin-bottom: $spacing-6;
+    font-size: rem-calc(22);
+
+    @include breakpoint(large) {
+      font-size: rem-calc(26);
+    }
+  }
+
+  .description {
+    margin-bottom: $spacing-6;
+    font-size: rem-calc(16);
+    font-weight: 500;
+  }
+}
+

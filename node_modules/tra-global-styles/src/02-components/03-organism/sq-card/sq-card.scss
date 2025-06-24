@@ -1,0 +1,102 @@
+.organism--sq-card {
+  .organism--card--icon {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .organism--card--media img {
+    width: 100%;
+  }
+
+  .image-container:not(:has(img)):not(:has(svg)) + .organism--card--copy .heading {
+    margin-top: 0;
+  }
+
+  @include breakpoint(medium) {
+
+    .organism--card--copy .description,
+    .organism--card--copy .description p {
+      font-size: $body-lg-font-size;
+      line-height: $body-lg-line-height;
+
+      p.text__small {
+        font-size: $body-sm-smallscreen;
+        line-height: $body-sm-line-height;
+      }
+    }
+  }
+
+  .links {
+    display: grid;
+    grid-template-columns: repeat(1, max-content);
+    row-gap: $spacing-4;
+    column-gap: $spacing-4;
+    justify-items: start;
+    @include breakpoint(medium) {
+      column-gap: $spacing-6;
+      grid-template-columns: repeat(2, max-content);
+    }
+    @include breakpoint(large) {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: $spacing-6;
+    }
+  }
+}
+
+// @todo figure out how to clean this up or if thats needed.
+
+.fourcol-layout,
+.threecol-layout {
+  .organism--sq-card {
+    div[class*="bg-color-"] {
+      padding: $spacing-6;
+    }
+  }
+}
+
+// Fine-grained link stacking.
+.fourcol-layout {
+  .organism--sq-card .organism--card--inner-wrapper .organism--card--copy .links {
+    flex-direction: column;
+    row-gap: $spacing-2;
+
+    @include breakpoint(medium) {
+      flex-direction: row;
+    }
+
+    @include breakpoint(large) {
+      flex-direction: column;
+    }
+  }
+}
+
+.threecol-layout {
+  .organism--sq-card .organism--card--inner-wrapper .organism--card--copy .links {
+    flex-direction: column;
+    row-gap: $spacing-2;
+
+    @include breakpoint(medium) {
+      flex-direction: column;
+    }
+
+    @include breakpoint(large) {
+      flex-direction: column;
+    }
+
+    @include breakpoint(xlarge) {
+      flex-direction: row;
+    }
+  }
+}
+
+.twocol-layout {
+  .organism--sq-card .organism--card--inner-wrapper .organism--card--copy .links {
+    flex-direction: column;
+    row-gap: $spacing-2;
+
+    @include breakpoint(medium) {
+      flex-direction: row;
+    }
+  }
+}
