@@ -13,7 +13,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@drupal/once": "1.0.0",
     "foundation-sites": "^6.7",
     "tra-global-styles": "github:elevatedthird/tra-global-styles#develop",
     "webpack-remove-empty-scripts": "^1.1.1"
