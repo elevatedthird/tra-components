@@ -9,6 +9,3 @@ libraryOverrides:
     - {{sequoia}}/plugable--scss--reveal
     - core/components.{{sequoia}}--sq-modal-content
     - core/components.{{sequoia}}--sq-modal-trigger
-  js:
-    ~{theme:aries}/dist/js/molecule--modal.js: {}
-
