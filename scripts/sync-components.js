@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+
+// @todo need to write a version based on the package.json. if the same then don't destroy the target directory.
 const fs = require('fs');
 const path = require('path');
 const [,, target, themeArg] = process.argv;

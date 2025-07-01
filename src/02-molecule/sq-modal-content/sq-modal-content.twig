@@ -1,6 +1,6 @@
 {% set resetOnClose = resetOnClose|default(0) != 0 ? 'true' : 'false' %}
 
-<div class="reveal molecule--modal--sq-content--wrapper pt-5 pb-8 px-8 bg-color--white" id="{{ id }}" data-reveal data-reset-on-close="{{ resetOnClose }}">
+<div class="reveal molecule--modal--content--wrapper pt-5 pb-8 px-8 bg-color--white" id="{{ id }}" data-reveal data-reset-on-close="{{ resetOnClose }}">
   {# Modal Content #}
   <div class="molecule--modal--content">
     {{ modal_content }}
