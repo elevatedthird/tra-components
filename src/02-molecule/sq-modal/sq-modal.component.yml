@@ -7,5 +7,3 @@ libraryOverrides:
   dependencies:
     - {{sequoia}}/plugable--js--reveal
     - {{sequoia}}/plugable--scss--reveal
-    - core/components.{{sequoia}}--sq-modal-content
-    - core/components.{{sequoia}}--sq-modal-trigger
