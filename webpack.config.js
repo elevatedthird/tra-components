@@ -21,11 +21,22 @@ const jsEntries = glob.sync('./src/**/*.es6.js').reduce((entries, file) => {
   entries[outPath] = absPath;
   return entries;
 }, {});
+
+// right here need to build up entiries and if there a key exists already then make the value an array of the paths.
+
+const mergedEntries = {};
+[scssEntries, jsEntries].forEach(entryGroup => {
+  Object.entries(entryGroup).forEach(([key, value]) => {
+    if (mergedEntries[key]) {
+      mergedEntries[key] = [].concat(mergedEntries[key], value);
+    } else {
+      mergedEntries[key] = value;
+    }
+  });
+});
+
 module.exports = {
-  entry: {
-    ...scssEntries,
-    ...jsEntries
-  },
+  entry: mergedEntries,
   context: __dirname,
   output: {
     filename: '[name].js',
