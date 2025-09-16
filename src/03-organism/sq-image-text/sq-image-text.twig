@@ -31,7 +31,7 @@
       {{ media }}
     </div>
     {% else %}
-      {% include '{{sequoia}}:background-media' with {
+      {% include '{{sequoia}}:sq-background-media' with {
         media: media,
         additionalClasses: [shape ? 'shape', shape_position ? shape ~ '--' ~  shape_position : shape, media ? 'has-media' : 'no-media', shape_color ? 'bg-color-' ~ shape_color]
       } %}
@@ -50,7 +50,7 @@
 {% set stack_bp = (is_2_col ? 'large' : 'medium') %}
 
 {% set copy %}
-  {% include '{{sequoia}}:copy' with {
+  {% include '{{sequoia}}:sq-copy' with {
     heading: heading,
     heading_tag: heading_tag,
     classes: [is_2_col],
