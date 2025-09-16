@@ -1,0 +1,9 @@
+\$schema: >-
+  https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Sequoia Copy
+status: stable
+description: A foundation copy.
+libraryOverrides:
+  dependencies:
+    - aries/aries
+    - aries/plugable--scss-table

@@ -1,0 +1,3 @@
+@media print,screen and (min-width: 60em){.organism--sq-image-text--media{aspect-ratio:initial}}.organism--sq-image-text--top{align-items:flex-start !important}.organism--sq-image-text .no-crop{aspect-ratio:initial !important}.organism--sq-image-text.image-right:not([class*=bg-color-]) .copy{padding-left:0}.organism--sq-image-text .organism--image-text--media{aspect-ratio:1.5/1}@media print,screen and (min-width: 37.5em){.organism--sq-image-text .organism--image-text--media{aspect-ratio:1.35/1}}@media print,screen and (min-width: 60em){.organism--sq-image-text .organism--image-text--media{aspect-ratio:1.728/1}}@media screen and (min-width: 90em){.organism--sq-image-text .organism--image-text--media{aspect-ratio:initial}}
+
+/*# sourceMappingURL=sq-image-text.css.map*/

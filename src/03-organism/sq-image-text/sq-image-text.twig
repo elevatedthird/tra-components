@@ -1,0 +1,109 @@
+{#
+  !IMPORTANT DONT REMOVE
+  whitelist classes
+  mh-350
+  mh-375
+  mh-400
+  mh-425
+  mh-450
+  mh-475
+  mh-500
+  medium-flex-dir-row
+  large-flex-dir-row
+  medium-3
+  medium-4
+  medium-6
+  medium-8
+  medium-9
+  large-9
+  large-8
+  large-6
+  large-4
+  large-3
+#}
+
+{% set theme = ('contrasting' in background_color ? 'contrasting' : 'vibrant') %}
+
+{% set media_render %}
+  <div class="position-relative organism--image-text--media width-100 height-100 flex-container align-middle align-center {{ adjust ? 'no-crop' }} {{ image_align_top == 1 ? 'organism--image-text--top' : ''}}">
+    {% if adjust %}
+    <div class="image-container position-relative display-inline-block">
+      {{ media }}
+    </div>
+    {% else %}
+      {% include '{{sequoia}}:background-media' with {
+        media: media,
+        additionalClasses: [shape ? 'shape', shape_position ? shape ~ '--' ~  shape_position : shape, media ? 'has-media' : 'no-media', shape_color ? 'bg-color-' ~ shape_color]
+      } %}
+    {% endif %}
+    {% if video %}
+      {% include '{{sequoia}}:sq-video-modal' with {
+        modal_content: video,
+        trigger_label: 'Play',
+        play_icon: 1,
+      }%}
+    {% endif %}
+  </div>
+{% endset %}
+
+{% set is_2_col = columns ? 'two-col' : '' %}
+{% set stack_bp = (is_2_col ? 'large' : 'medium') %}
+
+{% set copy %}
+  {% include '{{sequoia}}:copy' with {
+    heading: heading,
+    heading_tag: heading_tag,
+    classes: [is_2_col],
+    heading_font_size: heading_font_size ?? heading_tag,
+    heading_id:heading_id,
+    subhead: subhead,
+    subhead_2: subhead_2,
+    description: description,
+    disclosure: disclosure,
+    theme: theme,
+    links: links,
+    columns: columns,
+  }%}
+{% endset %}
+
+{% set left_content = media_render %}
+{% set left_type = "media" %}
+{% set right_content = copy %}
+{% set right_type = "copy" %}
+{% set left_width = image_width %}
+{# left classes align with the media side #}
+{% set left_classes = [] %}
+{# right classes align with the copy side #}
+{% set copy_classes = [
+  'flex-container',
+  'align-middle',
+  'p-6',
+  'xlarge-p-8'
+] %}
+  {% if is_2_col %}
+    {% set copy_classes = ['flex-container', 'align-middle', 'p-4', 'medium-p-6', 'large-p-8', 'xlarge-px-12'] %}
+  {% endif %}
+{% set right_classes = copy_classes %}
+{% set container_classes = [] %}
+{% if alignment == 'right' %}
+  {% set left_width = 12 - image_width %}
+  {% set left_content = copy %}
+  {% set left_type = "copy" %}
+  {# left classes align with the copy side #}
+  {% set left_classes = copy_classes %}
+  {% set right_classes = [] %}
+  {% set right_content = media_render %}
+  {% set right_type = "media" %}
+  {% set container_classes = ['flex-dir-column-reverse', stack_bp ~ '-flex-dir-row'] %}
+{% endif %}
+
+
+
+<div class="organism--sq-image-text {{ is_2_col }} default image-{{ alignment }} {{ container_classes|join(' ') }} {{ background_color ? 'bg-color-' ~ background_color }} grid-x {{ minheight ? 'mh-' ~ minheight }}">
+  <div class="left cell xsmall-12 {{ stack_bp }}-{{ left_width }} {{ left_type }} {{ left_classes|join(' ') }}">
+    {{ left_content }}
+  </div>
+  <div class="right cell xsmall-12 {{ stack_bp }}-{{ 12 - left_width }} {{ right_type }} {{ right_classes|join(' ') }}">
+    {{ right_content }}
+  </div>
+</div>
