@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "foundation-sites": "^6.7",
-    "tra-global-styles": "github:elevatedthird/tra-global-styles#develop",
+    "tra-global-styles": "github:elevatedthird/tra-global-styles#master",
     "webpack-remove-empty-scripts": "^1.1.1"
   },
   "devDependencies": {
