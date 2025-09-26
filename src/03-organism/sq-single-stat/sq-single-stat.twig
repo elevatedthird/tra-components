@@ -15,7 +15,7 @@
     <div class="description mt-4 mb-0 nmblc {{ description_font_size|default('body-m')}}">{{ description }}</div>
   {% endif %}
   {% if disclosure %}
-    {% include 'aries:sq-tooltip' with {
+    {% include '{{sequoia}}:sq-tooltip' with {
       text: disclosure,
       classes: ['mt-4']
     } %}
