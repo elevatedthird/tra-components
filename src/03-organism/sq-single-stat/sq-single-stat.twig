@@ -1,0 +1,49 @@
+{% set background_color = background_color is empty ? 'contrasting-night-blue' : background_color %}
+
+{% set media_exists = media|render|trim is empty ? 'no-media' : '' %}
+
+{% set copy %}
+  {# since there is so many typography overrides I got rid of copy component and put directly here. CSS should only affect html that is in the corresponding twig file. not nested includes. #}
+  {% if heading %}
+    <{{ heading_tag|default('h2') }} class="heading mb-0 {{ heading_font_size|default('h1')}}"
+    {% if heading_id %}
+      id="{{ heading_id }}"
+    {% endif %}
+    >{{ heading }}</{{ heading_tag|default('h2') }}>
+  {% endif %}
+  {% if description %}
+    <div class="description mt-4 mb-0 nmblc {{ description_font_size|default('body-m')}}">{{ description }}</div>
+  {% endif %}
+  {% if disclosure %}
+    {% include 'aries:sq-tooltip' with {
+      text: disclosure,
+      classes: ['mt-4']
+    } %}
+  {% endif %}
+{% endset %}
+
+{% set left_content = media %}
+{% set left_type = "media" %}
+{% set copy_classes = ['py-6','px-8', 'xlarge-py-8', 'xlarge-px-12'] %}
+{% set media_classes = ['py-6','px-8', 'xlarge-py-8', 'xlarge-px-12'] %}
+{% set left_classes = [] %}
+{% set right_classes = copy_classes %}
+{% set right_content = copy %}
+{% set right_type = "copy" %}
+{% if alignment == 'right' %}
+  {% set left_content = copy %}
+  {% set left_type = "copy" %}
+  {% set left_classes = copy_classes %}
+  {% set right_classes = [] %}
+  {% set right_content = media %}
+  {% set right_type = "media" %}
+{% endif %}
+
+<div class="organism--sq-single-stat default image-{{ alignment }} {{ media_exists }} bg-color-{{ background_color }} grid-x">
+  <div class="left {{ left_type }} {{ left_classes|join(' ') }}">
+    {{ left_content }}
+  </div>
+  <div class="right {{ right_type }} {{ right_classes|join(' ') }}">
+    {{ right_content }}
+  </div>
+</div>

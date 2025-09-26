@@ -1,0 +1,8 @@
+$schema: >-
+  https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Sequoia Single Stat
+status: stable
+description: A foundation single stat.
+libraryOverrides:
+  dependencies:
+    - aries/aries
