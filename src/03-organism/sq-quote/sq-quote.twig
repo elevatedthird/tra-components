@@ -1,0 +1,50 @@
+{% set background_color = background_color is empty ? 'vibrant-white' : background_color %}
+
+{% set copy %}
+  {% set heading = quote %}
+  {% if heading %}
+    <{{ heading_tag|default('h2') }} class="heading mb-0 {{ heading_font_size|default('h2')}}"
+    {% if heading_id %}
+      id="{{ heading_id }}"
+    {% endif %}
+    >{{ heading }}</{{ heading_tag|default('h2') }}>
+  {% endif %}
+  {% if attribution %}
+    <div class="attribution mt-4 mb-0 {{ attribution_font_size|default('body-l')}} nmblc">
+      {{ attribution }}
+    </div>
+  {% endif %}
+  {% if disclosure %}
+    {% include '{{sequoia}}:sq-tooltip' with {
+      text: disclosure,
+      classes: ['mt-4']
+    } %}
+  {% endif %}
+{% endset %}
+
+{% set media_exists = media|render|trim is empty ? 'no-media' : 'media_exists' %}
+
+{% set left_content = media %}
+{% set left_type = "media" %}
+{% set right_content = copy %}
+{% set right_type = "copy" %}
+{% set copy_classes = ['p-4', 'large-p-6', 'xlarge-p-8'] %}
+{% set right_classes = copy_classes %}
+{% set left_classes = [] %}
+{% if alignment == 'right' %}
+  {% set left_content = copy %}
+  {% set left_type = "copy" %}
+  {% set right_content = media %}
+  {% set right_classes = [] %}
+  {% set left_classes = copy_classes %}
+  {% set right_type = "media" %}
+{% endif %}
+
+<div class="organism--sq-quote default align-middle flex-container image-{{ alignment }} {{ narrow == 1 ? 'narrow' : ''}} {{ media_exists }} bg-color-{{ background_color }} grid-x">
+  <div class="left {{ left_type }} {{ left_classes|join(' ') }}">
+    {{ left_content }}
+  </div>
+  <div class="right {{ right_type }} {{ right_classes|join(' ') }}">
+    {{ right_content }}
+  </div>
+</div>
