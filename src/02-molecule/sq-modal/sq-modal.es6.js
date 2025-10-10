@@ -27,9 +27,11 @@
           $.ajax({
             url: formWrapper.data('ajax-url'),
             type: 'GET',
-            success: function(response) {
-              formWrapper.html($(response).find('#webform-submission-email-selected-form-wizard-items-block-content-16731-form-ajax').html());
-              Drupal.attachBehaviors(formWrapper[0], Drupal.settings);
+            success: function (response) {
+              var newForm = $(response).find('#webform-submission-email-selected-form-wizard-items-block-content-16731-form-ajax').html();
+              Drupal.detachBehaviors(formWrapper.get(0), Drupal.settings);
+              formWrapper.html(newForm);
+              Drupal.attachBehaviors(formWrapper.get(0), Drupal.settings);
             },
             error: function() {
               console.error('Form reload failed');
@@ -38,32 +40,34 @@
         }
       }
 
-      once('modalCloseAlert', '.close-button, .okay-button', context).forEach(function (element) {
-        $(element).click(function (event) {
-          var modal = $(this).closest('.reveal');
-          pauseAndResetVideo(modal);
+      $(document).on('click', '.close-button, .okay-button', function (event) {
+        var modal = $(this).closest('.reveal');
+        pauseAndResetVideo(modal);
 
-          var formSelectors = [
-            '#webform-submission-email-selected-form-wizard-items-block-content-16731-form-ajax',
-            '#webform-submission-email-selected-form-wizard-items-block-content-18316-form-ajax'
-          ];
+        var formSelectors = [
+          '#webform-submission-email-selected-form-wizard-items-block-content-16731-form-ajax',
+          '#webform-submission-email-selected-form-wizard-items-block-content-83721-form-ajax-content'
+        ];
 
-          formSelectors.forEach(function (selector) {
-            if ($(this).closest('#modal--form-explorer-app').find(selector).length) {
-              event.preventDefault(); // Prevent default action
-              event.stopPropagation();
-              Drupal.detachBehaviors(modal[0], Drupal.settings);
-              location.reload();
-            }
-          }.bind(this));
+        formSelectors.forEach(function (selector) {
+          if (modal.find(selector).length) {
+            event.preventDefault();
+            event.stopPropagation();
+            Drupal.detachBehaviors(modal.get(0), Drupal.settings);
+            location.reload();
+          }
         });
       });
 
-      once('modalCloseOutside', '.reveal', context).forEach(function (element) {
-        $(element).on('closed.zf.reveal', function () {
-          pauseAndResetVideo($(this));
-          reloadForm();
-        });
+      $(document).on('closed.zf.reveal', function (event) {
+        var modal = $(event.target);
+        pauseAndResetVideo(modal);
+        reloadForm();
+      });
+
+      $(document).on('open.zf.reveal', function (event) {
+        var modal = $(event.target);
+        Drupal.attachBehaviors(modal.get(0), Drupal.settings);
       });
     }
   };
