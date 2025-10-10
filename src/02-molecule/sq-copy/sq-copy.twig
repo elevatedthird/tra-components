@@ -4,7 +4,7 @@
   'h4': 'h5',
 } %}
 {% set subhead_tag = subhead_tag ?? heading_tag ? subhead_tag_lookup[heading_tag] : 'h3' %}
-{% set subhead_font_size = subhead_font_size ?? heading_tag ? subhead_tag_lookup[heading_tag] : 'h3' %}
+{% set subhead_font_size = subhead_font_size ?? (heading_tag ? subhead_tag_lookup[heading_tag] : 'h3') %}
 
 <div class="molecule--sq-copy {{ classes|join(' ') }}">
   {% if microTitle %}
