@@ -2,7 +2,7 @@
   <div class="accordion cell {{ disclaimer_expanded ? 'disclaimer-expand-' ~ disclaimer_expanded }} {{ narrow == 1 ? 'xlarge-10 xlarge-offset-1' : 'xlarge-12'}}" data-accordion data-allow-all-closed="true">
     {% set accordion_item_id = id ? id : title|render|striptags|trim|clean_class %}
 
-    <div class="molecule--accordion-item accordion-item position-relative" data-accordion-item>
+    <div class="molecule--sq-accordion-item accordion-item position-relative" data-accordion-item>
       {# Accordion Item Header #}
       {% if title %}
         <a href="#{{ accordion_item_id }}" class="molecule--accordion-item--header large-flex-container align-middle position-relative trim-bottom-margin material-symbols-outlined expand-more py-5">
