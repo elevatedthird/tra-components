@@ -1,0 +1,25 @@
+<div class="organism--sq-disclaimer grid-x grid-margin-x display-block large-display-flex">
+  <div class="accordion cell {{ disclaimer_expanded ? 'disclaimer-expand-' ~ disclaimer_expanded }} {{ narrow == 1 ? 'xlarge-10 xlarge-offset-1' : 'xlarge-12'}}" data-accordion data-allow-all-closed="true">
+    {% set accordion_item_id = id ? id : title|render|striptags|trim|clean_class %}
+
+    <div class="molecule--accordion-item accordion-item position-relative" data-accordion-item>
+      {# Accordion Item Header #}
+      {% if title %}
+        <a href="#{{ accordion_item_id }}" class="molecule--accordion-item--header large-flex-container align-middle position-relative trim-bottom-margin material-symbols-outlined expand-more py-5">
+          <h2 class="molecule--accordion-item--title header-font-family body-l">
+            {{ title }}
+          </h2>
+        </a>
+      {% endif %}
+
+      {# Accordion Item Content #}
+      <div class="accordion-content mb-2 large-mb-5 border-none" data-tab-content id="{{ accordion_item_id }}">
+        {% if description|render %}
+          <div class="molecule--accordion-item--description body-s nmblc">
+            {{ description }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
