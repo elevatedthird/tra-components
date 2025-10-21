@@ -6,4 +6,4 @@ description: A foundation disclaimer.
 libraryOverrides:
   dependencies:
     - {{sequoia}}/plugable--scss--accordion
-    - core/components.{{sequoia}}--accordion-item
+    - core/components.{{sequoia}}--sq-accordion-item
