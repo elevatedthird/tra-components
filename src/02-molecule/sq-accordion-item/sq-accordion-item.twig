@@ -1,0 +1,40 @@
+{% set accordion_item_id = id ? id : title|render|striptags|trim|clean_class %}
+
+<div class="molecule--sq-accordion-item accordion-item position-relative" data-accordion-item>
+  {# Accordion Item Header #}
+  {% if title %}
+    <a href="#acc--{{ accordion_item_id }}"
+       class="molecule--accordion-item--header flex-container align-middle position-relative trim-bottom-margin material-symbols-outlined expand-more text-decoration--none py-5">
+      <h3 class="molecule--accordion-item--title {{ title_typography }}">
+        {{ title }}
+      </h3>
+    </a>
+  {% endif %}
+
+  {# Accordion Item Content #}
+  <div class="accordion-content mb-2 large-mb-5 border-none" data-tab-content id="acc--{{ accordion_item_id }}">
+
+    {% if description %}
+      <div class="molecule--accordion-item--description body-l">
+        {{ description }}
+      </div>
+    {% endif %}
+
+    {% if links|render %}
+      <div class="organism--accordion--link-wrapper">
+        {# only tertiary buttons or links allowed #}
+        {{ links }}
+      </div>
+    {% endif %}
+    <div class="disclosure-wrapper">
+      {% if disclosure %}
+        <div class="tooltip-admin tooltip-admin-hidden" aria-hidden="true">{{ disclosure }}</div>
+      {% endif %}
+      {% if disclosure|render %}
+        {% include 'aries:sq-tooltip' with {
+          text: disclosure,
+        } %}
+      {% endif %}
+    </div>
+  </div>
+</div>

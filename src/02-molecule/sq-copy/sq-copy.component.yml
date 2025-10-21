@@ -5,5 +5,4 @@ status: stable
 description: A foundation copy.
 libraryOverrides:
   dependencies:
-    - aries/aries
-    - aries/plugable--scss-table
+    - {{sequoia}}/plugable--scss-table

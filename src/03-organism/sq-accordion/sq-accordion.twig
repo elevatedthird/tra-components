@@ -1,0 +1,22 @@
+<div class="organism--sq-accordion grid-x grid-margin-x display-block xlarge-display-flex">
+
+  <div class="accordion cell {{ narrow == 1 ? 'xlarge-8 xlarge-offset-2' : 'xlarge-10 xlarge-offset-1'}}" data-accordion data-allow-all-closed="true">
+    <div class="organism--accordion--copy">
+      {% include '{{sequoia}}:sq-copy' with {
+        heading: heading,
+        heading_id:heading_id,
+        heading_tag: 'h2',
+        subhead: subhead,
+        subhead_tag: 'h3',
+        description: description,
+        description_font_size: 'body-l',
+      }%}
+    </div>
+    {% if rendered_items %}
+      {{ rendered_items }}
+    {% else %}
+      {{ items }}
+    {% endif %}
+  </div>
+</div>
+

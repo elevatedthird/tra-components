@@ -3,6 +3,3 @@ $schema: >-
 name: Sequoia Single Stat
 status: stable
 description: A foundation single stat.
-libraryOverrides:
-  dependencies:
-    - aries/aries
