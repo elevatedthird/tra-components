@@ -9,7 +9,7 @@ import { Tooltip } from 'foundation-sites/js/foundation.tooltip';
 (function ($, Drupal, once) {
   Drupal.behaviors.ariesTooltip = {
     attach(context) {
-      once('ariesTooltip', context.querySelectorAll('.has-tip')).forEach((tooltip) => {
+      once('ariesTooltip', '.has-tip').forEach((tooltip) => {
         // Find the closest parent element that has background color set.
         var bgClass = $(tooltip).closest("[class*='bg-color-']").attr('class').split(' ')
           .find((c) => c.startsWith('bg-color-'));
@@ -18,7 +18,7 @@ import { Tooltip } from 'foundation-sites/js/foundation.tooltip';
             .find((c) => c.startsWith('sub-bg-color-'));
           bgClass = bgClass.replace('sub-', '');
         }
-        new Tooltip($(tooltip), {
+        const _tooltip = new Tooltip($(tooltip), {
           allowHtml: true,
           hoverDelay: 150,
           tooltipHeight: 8,
