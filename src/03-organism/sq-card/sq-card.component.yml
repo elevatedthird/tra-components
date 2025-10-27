@@ -3,3 +3,95 @@ $schema: >-
 name: Sequoia Card
 status: stable
 description: A foundation card.
+group: Organism
+slots:
+  video:
+    title: Video Slot
+    description: Optional slot for embedding a video.
+  icon:
+    title: Icon Name
+    description: Optional icon to display at the top of the card.
+  media:
+    title: Media Slot
+    description: Optional slot for embedding images or other media.
+    examples:
+      - <img src="https://placehold.co/1920x1020?text=Placeholder"/>
+  links:
+    type: string
+    title: Card Links
+    description: JSON string of link data for CTA buttons.
+    examples:
+      - <a href="#" class="button button--primary">Button</a>
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      control: text
+      title: Lorem Ipsum
+      description: Main heading of the card.
+      default: 'Sunt Aliquip Nostrud'
+    heading_tag:
+      type: string
+      title: Heading Tag
+      description: HTML tag for the heading (e.g., 'h2', 'h3').
+      enum:
+        - h2
+        - h3
+      default: 'h2'
+    heading_id:
+      type: string
+      control: text
+      title: Heading ID
+      description: Optional ID for the heading element.
+      default: ''
+    subhead:
+      type: string
+      control: text
+      title: Subhead Text
+      description: Subheading displayed below the main heading.
+      default: 'Fugiat Exercitation Suscipit'
+    description:
+      type: string
+      control: text
+      title: Description Text
+      description: Rich text or plain content for the card body.
+      default: 'Nulla eros tempor dignissim ex nostrud sunt ultricies sint, ultricies velit ullamco eu ullamco exercitation doming.'
+    disclosure:
+      type: string
+      control: text
+      title: Disclosure Text
+      description: Optional legal or disclaimer text shown in small type.
+      default: 'Laboris quis duis sed amet commodo pulvinar sit ea laboris elit, harmud fugiat tempuribud velaliquam sunt aliquip pariatur.'
+    background_color:
+      type: string
+      title: Background Color
+      description: Background color of the card.
+      enum:
+        - contrasting-crimson-red
+        - contrasting-forest-green
+        - contrasting-lavender-purple
+        - contrasting-night-blue
+        - contrasting-warm-black
+        - vibrant-fresh-lime
+        - vibrant-grass-green
+        - vibrant-hot-pink
+        - vibrant-sky-blue
+        - white
+      default: 'contrasting-night-blue'
+    icon_color:
+      type: string
+      title: Icon Color
+      description: Optional color for the icon
+      enum:
+        - contrasting-crimson-red
+        - contrasting-forest-green
+        - contrasting-lavender-purple
+        - contrasting-night-blue
+        - contrasting-warm-black
+        - vibrant-fresh-lime
+        - vibrant-grass-green
+        - vibrant-hot-pink
+        - vibrant-sky-blue
+        - vibrant-white
+      default: 'vibrant-white'

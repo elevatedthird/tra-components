@@ -3,3 +3,69 @@ $schema: >-
 name: Sequoia Single Stat
 status: stable
 description: A foundation single stat.
+group: Organism
+slots:
+  media:
+    title: Media Slot
+    description: Optional slot for embedding images or other media.
+    examples:
+      - <img src="https://placehold.co/1920x1020?text=Placeholder"/>
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      control: text
+      title: Lorem Ipsum
+      description: Main heading of the card.
+      default: 'Sunt Aliquip Nostrud'
+    heading_tag:
+      type: string
+      title: Heading Tag
+      description: HTML tag for the heading (e.g., 'h2', 'h3').
+      enum:
+        - h2
+        - h3
+      default: 'h2'
+    heading_id:
+      type: string
+      control: text
+      title: Heading ID
+      description: Optional ID for the heading element.
+      default: ''
+    description:
+      type: string
+      control: text
+      title: Description Text
+      description: Rich text or plain content for the card body.
+      default: 'Nulla eros tempor dignissim ex nostrud sunt ultricies sint, ultricies velit ullamco eu ullamco exercitation doming.'
+    disclosure:
+      type: string
+      control: text
+      title: Disclosure Text
+      description: Optional legal or disclaimer text shown in small type.
+      default: 'Laboris quis duis sed amet commodo pulvinar sit ea laboris elit, harmud fugiat tempuribud velaliquam sunt aliquip pariatur.'
+    background_color:
+      type: string
+      title: Background Color
+      description: Background color of the card.
+      enum:
+        - contrasting-crimson-red
+        - contrasting-forest-green
+        - contrasting-lavender-purple
+        - contrasting-night-blue
+        - contrasting-warm-black
+        - vibrant-fresh-lime
+        - vibrant-grass-green
+        - vibrant-hot-pink
+        - vibrant-sky-blue
+        - white
+      default: 'contrasting-night-blue'
+    alignment:
+      type: string
+      title: Alignment
+      description: Text alignment within the single stat component.
+      enum:
+        - left
+        - right
+      default: 'left'
