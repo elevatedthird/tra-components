@@ -1,7 +1,7 @@
 <div class="molecule--modal--sq-video-modal {{ play_icon ? 'video-play' : '' }}">
   {% include '{{sequoia}}:sq-modal' with {
     trigger_classes: 'button--media button ' ~ trigger_classes|join(' '),
-    modal_content,
+    modal_content: modal_content,
     trigger_label
   }%}
 </div>
