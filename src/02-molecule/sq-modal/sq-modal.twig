@@ -10,7 +10,7 @@
     {% include '{{sequoia}}:sq-modal-trigger' with {
       id: 'modal--' ~ hash,
       trigger: trigger ?? trigger_label,
-      trigger_classes: [trigger_classes|join(' ')],
+      trigger_classes: trigger_classes,
     } only %}
   </div>
 </div>
