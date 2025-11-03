@@ -5,5 +5,25 @@ status: stable
 description: A foundation disclaimer.
 libraryOverrides:
   dependencies:
-    - {{sequoia}}/plugable--scss--accordion
-    - core/components.{{sequoia}}--sq-accordion-item
+    - aries/plugable--scss--accordion
+    - core/components.aries--sq-accordion-item
+props:
+  type: object
+  properties:
+    title:
+      type: string
+      control: text
+      title: Lorem Ipsum
+      description: Title of the disclaimer.
+      default: 'Sunt Aliquip Nostrud'
+    description:
+      type: string
+      control: text
+      title: Description Text
+      description: Rich text or plain content for the card body.
+      default: 'Nulla eros tempor dignissim ex nostrud sunt ultricies sint, ultricies velit ullamco eu ullamco exercitation doming.'
+    narrow:
+      type: boolean
+      title: Narrow Layout
+      description: Enable a narrow layout for the accordion component.
+      default: true

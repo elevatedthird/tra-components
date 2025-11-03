@@ -5,5 +5,55 @@ status: stable
 description: A foundation accordion.
 libraryOverrides:
   dependencies:
-    - {{sequoia}}/plugable--js--accordion
-    - {{sequoia}}/plugable--scss--accordion
+    - aries/plugable--js--accordion
+    - aries/plugable--scss--accordion
+group: Organism
+slots:
+  media:
+    title: Media Slot
+    description: Optional slot for embedding images or other media.
+    examples:
+      - <img src="https://placehold.co/1920x1020?text=Placeholder"/>
+  items:
+    title: Accordion Items Slot
+    description: Slot for accordion items.
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      control: text
+      title: Lorem Ipsum
+      description: Main heading of the card.
+      default: 'Sunt Aliquip Nostrud'
+    heading_tag:
+      type: string
+      title: Heading Tag
+      description: HTML tag for the heading (e.g., 'h2', 'h3').
+      enum:
+        - h2
+        - h3
+      default: 'h2'
+    heading_id:
+      type: string
+      control: text
+      title: Heading ID
+      description: Optional ID for the heading element.
+      default: ''
+    subhead:
+      type: string
+      control: text
+      title: Subhead Text
+      description: Subheading displayed below the main heading.
+      default: 'Fugiat Exercitation Suscipit'
+    description:
+      type: string
+      control: text
+      title: Description Text
+      description: Rich text or plain content for the card body.
+      default: 'Nulla eros tempor dignissim ex nostrud sunt ultricies sint, ultricies velit ullamco eu ullamco exercitation doming.'
+    narrow:
+      type: boolean
+      title: Narrow Layout
+      description: Enable a narrow layout for the accordion component.
+      default: true
