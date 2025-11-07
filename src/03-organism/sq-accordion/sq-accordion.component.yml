@@ -21,33 +21,35 @@ props:
   type: object
   properties:
     heading:
-      type: string
+      type: ['string', 'null']
       control: text
       title: Lorem Ipsum
       description: Main heading of the card.
       default: 'Sunt Aliquip Nostrud'
     heading_tag:
-      type: string
+      type: ['string', 'null']
       title: Heading Tag
       description: HTML tag for the heading (e.g., 'h2', 'h3').
       enum:
+        -
+        - ''
         - h2
         - h3
       default: 'h2'
     heading_id:
-      type: string
+      type: ['string', 'null']
       control: text
       title: Heading ID
       description: Optional ID for the heading element.
       default: ''
     subhead:
-      type: string
+      type: ['string', 'null']
       control: text
       title: Subhead Text
       description: Subheading displayed below the main heading.
       default: 'Fugiat Exercitation Suscipit'
     description:
-      type: string
+      type: ['string', 'null']
       control: text
       title: Description Text
       description: Rich text or plain content for the card body.

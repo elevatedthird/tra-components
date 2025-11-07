@@ -11,13 +11,13 @@ props:
   type: object
   properties:
     title:
-      type: string
+      type: ['string', 'null']
       control: text
       title: Lorem Ipsum
       description: Title of the disclaimer.
       default: 'Sunt Aliquip Nostrud'
     description:
-      type: string
+      type: ['string', 'null']
       control: text
       title: Description Text
       description: Rich text or plain content for the card body.
