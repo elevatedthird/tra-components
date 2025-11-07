@@ -29,6 +29,7 @@ props:
         - ''
         - h2
         - h3
+        - h4
       default: 'h2'
     heading_id:
       type: ['string', 'null']
