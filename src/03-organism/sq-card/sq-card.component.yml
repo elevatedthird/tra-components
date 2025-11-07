@@ -82,7 +82,7 @@ props:
         - vibrant-grass-green
         - vibrant-hot-pink
         - vibrant-sky-blue
-        - white
+        - vibrant-white
       default: 'contrasting-night-blue'
     icon_color:
       type: ['string', 'null']
@@ -101,5 +101,5 @@ props:
         - vibrant-grass-green
         - vibrant-hot-pink
         - vibrant-sky-blue
-        - white
+        - vibrant-white
       default: 'vibrant-white'

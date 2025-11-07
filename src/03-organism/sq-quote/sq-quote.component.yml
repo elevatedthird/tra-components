@@ -68,7 +68,7 @@ props:
         - vibrant-grass-green
         - vibrant-hot-pink
         - vibrant-sky-blue
-        - white
+        - vibrant-white
       default: 'contrasting-night-blue'
     narrow:
       type: ['boolean', 'null', 'string', 'number']

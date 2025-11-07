@@ -79,7 +79,7 @@ props:
         - vibrant-grass-green
         - vibrant-hot-pink
         - vibrant-sky-blue
-        - white
+        - vibrant-white
       default: 'contrasting-night-blue'
     image_width:
       type: ['string', 'null', 'number']
@@ -146,5 +146,5 @@ props:
         - vibrant-grass-green
         - vibrant-hot-pink
         - vibrant-sky-blue
-        - white
+        - vibrant-white
       default: 'contrasting-night-blue'
