@@ -23,7 +23,7 @@ props:
       description: Rich text or plain content for the card body.
       default: 'Nulla eros tempor dignissim ex nostrud sunt ultricies sint, ultricies velit ullamco eu ullamco exercitation doming.'
     narrow:
-      type: ['boolean', 'null']
+      type: ['boolean', 'null', 'string', 'number']
       title: Narrow Layout
       description: Enable a narrow layout for the accordion component.
       default: true

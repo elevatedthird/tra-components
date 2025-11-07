@@ -71,7 +71,7 @@ props:
         - white
       default: 'contrasting-night-blue'
     narrow:
-      type: ['boolean', 'null']
+      type: ['boolean', 'null', 'string', 'number']
       title: Narrow Layout
       description: Enable a narrow layout for the quote component.
       default: true
