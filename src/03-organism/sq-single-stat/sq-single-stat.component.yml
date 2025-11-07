@@ -50,11 +50,14 @@ props:
       title: Background Color
       description: Background color of the card.
       enum:
+        - ''
+        -
         - contrasting-crimson-red
         - contrasting-forest-green
         - contrasting-lavender-purple
         - contrasting-night-blue
         - contrasting-warm-black
+        - contrasting-chocolate-brown
         - vibrant-fresh-lime
         - vibrant-grass-green
         - vibrant-hot-pink
