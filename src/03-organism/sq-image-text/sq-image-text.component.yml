@@ -104,6 +104,7 @@ props:
         - ''
         - left
         - right
+        - center
       default: 'left'
     shape:
       type: ['string', 'null']

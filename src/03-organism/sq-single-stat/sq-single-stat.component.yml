@@ -70,6 +70,9 @@ props:
       title: Alignment
       description: Text alignment within the single stat component.
       enum:
+        - ''
+        -
         - left
+        - center
         - right
       default: 'left'
