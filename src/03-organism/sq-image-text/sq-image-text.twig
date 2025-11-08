@@ -33,7 +33,7 @@
     {% else %}
       {% include '{{sequoia}}:sq-background-media' with {
         media: media,
-        additionalClasses: [shape ? 'shape', shape_position ? shape ~ '--' ~  shape_position : shape, media ? 'has-media' : 'no-media', shape_color ? 'bg-color-' ~ shape_color]
+        additionalClasses: [(shape ? 'shape'), (shape_position ? shape ~ '--' ~  shape_position : shape), (media ? 'has-media' : 'no-media'), (shape_color ? 'bg-color-' ~ shape_color)]
       } %}
     {% endif %}
     {% if video %}
