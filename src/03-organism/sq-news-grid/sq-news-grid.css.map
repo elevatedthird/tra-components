@@ -1,0 +1,1 @@
+{"version":3,"file":"03-organism/sq-news-grid/sq-news-grid.css","mappings":"AAEI,kCACE,W","sources":["webpack://tra-components/./node_modules/tra-global-styles/src/02-components/03-organism/sq-news-grid/_sq-news-grid.scss"],"sourcesContent":[".organism--sq-news-grid {\n  .left {\n    img {\n      width: 100%;\n    }\n  }\n}\n"],"names":[],"sourceRoot":""}
