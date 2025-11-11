@@ -22,7 +22,7 @@
 <div class="molecule--sq-npr-teaser {{ variant ? 'variant--' ~ variant : '' }}">
   {{ copy }}
   <div class="npr-teaser-link {{ description_classes|join(' ') }}">
-    {% include 'aries:button' with {
+    {% include '{{sequoia}}:button' with {
       url: url,
       title: cta_text,
       classes: button_classes|default(link_classes),
