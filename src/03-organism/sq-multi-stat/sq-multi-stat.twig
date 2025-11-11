@@ -1,0 +1,48 @@
+{% if background_color is empty %}
+  {% set background_color = 'contrasting-night-blue' %}
+{% endif %}
+
+{% set left_content_copy %}
+  <div class="organism--multi-stat--copy-wrapper">
+    {% if microTitle %}
+      <{{ microTitle_tag|default('h4') }} class="micro-title {{ microTitle_font_size|default('body-m')}}">{{ microTitle }}</{{ microTitle_tag|default('h4') }}>
+    {% endif %}
+    {% if heading %}
+      <{{ heading_tag|default('h2') }} class="heading {{ heading_font_size|default('h1')}}"
+      {% if heading_id %}
+        id="{{ heading_id }}"
+      {% endif %}
+      >{{ heading }}</{{ heading_tag|default('h2') }}>
+    {% endif %}
+    {% if description %}
+      <div class="description mt-4 {{ description_font_size|default('body-l')}}">{{ description }}</div>
+    {% endif %}
+    {% if disclosure %}
+      {% include 'aries:sq-tooltip' with {
+        text: disclosure,
+        classes: ['mt-4']
+      } %}
+    {% endif %}
+  </div>
+{% endset %}
+
+{% set left_content_media %}
+  <div class="organism--multi-stat--media-wrapper pt-6 flex-child-grow">
+    <div class="organism--multi-stat--media height-100 width-100 {{ shape ? 'shape' }} {{ shape_position ? shape ~ '--' ~  shape_position : shape }} {{ shape_color ? 'bg-color-' ~ shape_color }}">
+      {{ media }}
+    </div>
+  </div>
+{% endset %}
+
+<div class="organism--sq-multi-stat default sections-{{ rightSectionsCount }} flex-container flex-wrap--wrap flex-dir-column large-flex-dir-row">
+  <div class="column left cell xsmall-12 large-6 media {{ background_color ? 'bg-color-' ~ background_color }} pt-10 flex-container flex-dir-column overflow-hidden">
+    {{ left_content_copy }}
+    {{ left_content_media }}
+  </div>
+  <div class="column right cell xsmall-12 large-6 copy">
+    <div class="main-section flex-container flex-dir-column {{ background_color ? 'sub-bg-color-' ~ background_color }}">
+      {# insert molecule--muti-stat-item divs here #}
+      {{ rightSections }}
+    </div>
+  </div>
+</div>
