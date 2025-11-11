@@ -1,0 +1,15 @@
+{%
+  set classes = [
+  'ac',
+  'tabs__panel',
+  'js-tab-panel',
+  'grid-x',
+  'grid-margin-x',
+]
+%}
+{% if content %}
+  <div class="molecule--sq-tabs-item--tabs-content {{ classes|join(' ') }}" id="{{ label }}" role="tabpanel">
+    {{ content }}
+  </div>
+{% endif %}
+

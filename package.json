@@ -15,7 +15,8 @@
   "dependencies": {
     "foundation-sites": "^6.7",
     "tra-global-styles": "github:elevatedthird/tra-global-styles#develop",
-    "webpack-remove-empty-scripts": "^1.1.1"
+    "webpack-remove-empty-scripts": "^1.1.1",
+    "@glidejs/glide": "^3.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.27.4",

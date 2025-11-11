@@ -1,0 +1,10 @@
+$schema: >-
+  https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Sequoia Tab Slider
+status: stable
+description: A tab slider component for Sequoia design system.
+libraryOverrides:
+  dependencies:
+    - {{sequoia}}/plugable--js--tabslider-tabs
+    - {{sequoia}}/plugable--scss--glide
+    - {{sequoia}}/plugable--scss--reset-list-styles
