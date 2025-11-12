@@ -1,0 +1,1 @@
+{"version":3,"file":"02-molecule/sq-tabs-list/sq-tabs-list.css","mappings":"AAAA,mBAEE,S","sources":["webpack://tra-components/./node_modules/tra-global-styles/src/02-components/02-molecule/sq-tabs-list/_sq-tabs-list.scss"],"sourcesContent":[".sq-tabs__tab-list {\n  // Reset margins.\n  margin: 0;\n}\n"],"names":[],"sourceRoot":""}
