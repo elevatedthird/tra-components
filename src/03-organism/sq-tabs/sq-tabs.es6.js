@@ -3,167 +3,169 @@
  *
  * Add accordion functionality
  */
-
-Drupal.behaviors.ariesTabs = {
-  attach(context) {
-    const tabs = (context.classList && context.classList.contains('aries-tabs-wrapper')) ? context : context.querySelectorAll('.aries-tabs-wrapper');
-    let abort = new AbortController();
-    if (!tabs || tabs.length === 0) return;
-    function debounce(callback, delay) {
-      let timeout;
-      return () => {
-        clearTimeout(timeout);
-        timeout = setTimeout(callback, delay);
-      };
-    }
-
-    function checkSize(tabListNested, tabList) {
-      // Check if the list is wider then the available space
-      if (tabListNested.scrollWidth > (tabList.offsetWidth + 5) && window.innerWidth > tabList.getAttribute('data-no-scroll-breakpoint')) {
-        tabList.classList.add('has-scroll');
-      } else {
-        tabList.classList.remove('has-scroll');
+(function ($, Drupal, once) {
+  Drupal.behaviors.ariesTabs = {
+    attach(context) {
+      const tabs = (context.classList && context.classList.contains('aries-tabs-wrapper')) ? context : context.querySelectorAll('.aries-tabs-wrapper');
+      let abort = new AbortController();
+      if (!tabs || tabs.length === 0) return;
+      function debounce(callback, delay) {
+        let timeout;
+        return () => {
+          clearTimeout(timeout);
+          timeout = setTimeout(callback, delay);
+        };
       }
-    }
-    function checkDropdown(tabList) {
-      // check for data-dropwdown-breakpopint attribute
-      if (tabList.getAttribute('data-dropdown-breakpoint')) {
-        // if window.innerWidth is smaller then the data-dropdown-breakpoint attribute
-        if (window.innerWidth < tabList.getAttribute('data-dropdown-breakpoint')) {
-          abort = new AbortController();
-          // add the dropdown class
-          tabList.classList.add('is-dropdown');
-          // if button with .dropdown-button class doesn't exist
-          if (!tabList.querySelector('.dropdown-button')) {
-            // also add a div with the class dropdown-button right before the tab list
-            const dropdownButton = document.createElement('button');
-            dropdownButton.classList.add('dropdown-button');
-            // add appropriate wcag attributes
-            dropdownButton.setAttribute('aria-haspopup', 'true');
-            dropdownButton.setAttribute('aria-expanded', 'false');
-            dropdownButton.setAttribute('aria-label', 'Select a tab');
-            // generate an id with the words tab-list and a hash and
-            // set the aria controls attribute to that id
-            const hash = `tab-list-${Math.random().toString(36).substr(2, 9)}`;
-            dropdownButton.setAttribute('id', hash);
-            // set the id on the tablist
-            tabList.setAttribute('id', hash);
-            dropdownButton.innerHTML = '<span class="dropdown-button__text"></span>';
-            tabList.prepend(dropdownButton);
-            // dropdown-button__text should contain the text of the selected tab
-            const selectedTab = tabList.querySelector('.is-selected');
-            dropdownButton.querySelector('.dropdown-button__text').textContent = selectedTab.textContent;
-            // add event listener to the dropdown button
-            dropdownButton.addEventListener('click', () => {
-              // toggle the aria-expanded attribute
-              const expanded = dropdownButton.getAttribute('aria-expanded') === 'true' || false;
-              dropdownButton.setAttribute('aria-expanded', !expanded);
-              // toggle the is-open class
-              dropdownButton.classList.toggle('is-open');
-            }, { signal: abort.signal });
-          }
+
+      function checkSize(tabListNested, tabList) {
+        // Check if the list is wider then the available space
+        if (tabListNested.scrollWidth > (tabList.offsetWidth + 5) && window.innerWidth > tabList.getAttribute('data-no-scroll-breakpoint')) {
+          tabList.classList.add('has-scroll');
         } else {
-          // remove the dropdown class
-          tabList.classList.remove('is-dropdown');
-          // remove the dropdown button
-          if (tabList.querySelector('.dropdown-button')) {
-            tabList.querySelector('.dropdown-button').remove();
-          }
-          // Abort the event listeners
-          abort.abort();
+          tabList.classList.remove('has-scroll');
         }
       }
-    }
-
-
-
-    tabs.forEach((tab) => {
-      new TabWidget(tab);
-
-      const tabList = tab.querySelector('.tab-list');
-      const tabsElements = tabList.querySelectorAll('li');
-      const tabListNested = tab.querySelector('.tabs__tab-list');
-      const moveBtns = tab.querySelectorAll('.move-list');
-      const prevBtn = tab.querySelector('[data-direction="left"]');
-      const nextBtn = tab.querySelector('[data-direction="right"]');
-
-      // Button to move the tab list left/right on smaller windows
-      moveBtns.forEach((btn) => {
-        // if the button already has an event listener, don't add another one
-        if (btn.getAttribute('data-event-listener') === 'added') return;
-        // add a data attr to mark event listenr as added
-        btn.setAttribute('data-event-listener', 'added');
-
-        btn.addEventListener('click', (e) => {
-          const selected = tabList.querySelector('.is-selected').parentElement;
-          const prev = selected.previousElementSibling ? selected.previousElementSibling.querySelector('a') : null;
-          const next = selected.nextElementSibling ? selected.nextElementSibling.querySelector('a') : null;
-          if (next && e.target.dataset.direction === 'right') {
-            next.click();
-          } else if (prev) {
-            prev.click();
-          }
-        });
-      });
-
-      tabsElements.forEach((item, index) => {
-        const itemTotal = tabsElements.length - 2;
-        const disabledClass = 'disabled';
-
-        item.addEventListener('click', (e) => {
-          if (index === 0) {
-            prevBtn.classList.add(disabledClass);
-            nextBtn.classList.remove(disabledClass);
-          } else if (index === itemTotal) {
-            nextBtn.classList.add(disabledClass);
-            prevBtn.classList.remove(disabledClass);
-          }
-          e.stopPropagation();
-        });
-
-        nextBtn.addEventListener('click', (event) => {
-          const selected = item.querySelector('a').classList.contains('is-selected');
-          if (index === itemTotal && selected) {
-            event.target.classList.add(disabledClass);
+      function checkDropdown(tabList) {
+        // check for data-dropwdown-breakpopint attribute
+        if (tabList.getAttribute('data-dropdown-breakpoint')) {
+          // if window.innerWidth is smaller then the data-dropdown-breakpoint attribute
+          if (window.innerWidth < tabList.getAttribute('data-dropdown-breakpoint')) {
+            abort = new AbortController();
+            // add the dropdown class
+            tabList.classList.add('is-dropdown');
+            // if button with .dropdown-button class doesn't exist
+            if (!tabList.querySelector('.dropdown-button')) {
+              // also add a div with the class dropdown-button right before the tab list
+              const dropdownButton = document.createElement('button');
+              dropdownButton.classList.add('dropdown-button');
+              // add appropriate wcag attributes
+              dropdownButton.setAttribute('aria-haspopup', 'true');
+              dropdownButton.setAttribute('aria-expanded', 'false');
+              dropdownButton.setAttribute('aria-label', 'Select a tab');
+              // generate an id with the words tab-list and a hash and
+              // set the aria controls attribute to that id
+              const hash = `tab-list-${Math.random().toString(36).substr(2, 9)}`;
+              dropdownButton.setAttribute('id', hash);
+              // set the id on the tablist
+              tabList.setAttribute('id', hash);
+              dropdownButton.innerHTML = '<span class="dropdown-button__text"></span>';
+              tabList.prepend(dropdownButton);
+              // dropdown-button__text should contain the text of the selected tab
+              const selectedTab = tabList.querySelector('.is-selected');
+              dropdownButton.querySelector('.dropdown-button__text').textContent = selectedTab.textContent;
+              // add event listener to the dropdown button
+              dropdownButton.addEventListener('click', () => {
+                // toggle the aria-expanded attribute
+                const expanded = dropdownButton.getAttribute('aria-expanded') === 'true' || false;
+                dropdownButton.setAttribute('aria-expanded', !expanded);
+                // toggle the is-open class
+                dropdownButton.classList.toggle('is-open');
+              }, { signal: abort.signal });
+            }
           } else {
-            prevBtn.classList.remove(disabledClass);
+            // remove the dropdown class
+            tabList.classList.remove('is-dropdown');
+            // remove the dropdown button
+            if (tabList.querySelector('.dropdown-button')) {
+              tabList.querySelector('.dropdown-button').remove();
+            }
+            // Abort the event listeners
+            abort.abort();
           }
+        }
+      }
+
+
+
+      tabs.forEach((tab) => {
+        new TabWidget(tab);
+
+        const tabList = tab.querySelector('.tab-list');
+        const tabsElements = tabList.querySelectorAll('li');
+        const tabListNested = tab.querySelector('.tabs__tab-list');
+        const moveBtns = tab.querySelectorAll('.move-list');
+        const prevBtn = tab.querySelector('[data-direction="left"]');
+        const nextBtn = tab.querySelector('[data-direction="right"]');
+
+        // Button to move the tab list left/right on smaller windows
+        moveBtns.forEach((btn) => {
+          // if the button already has an event listener, don't add another one
+          if (btn.getAttribute('data-event-listener') === 'added') return;
+          // add a data attr to mark event listenr as added
+          btn.setAttribute('data-event-listener', 'added');
+
+          btn.addEventListener('click', (e) => {
+            const selected = tabList.querySelector('.is-selected').parentElement;
+            const prev = selected.previousElementSibling ? selected.previousElementSibling.querySelector('a') : null;
+            const next = selected.nextElementSibling ? selected.nextElementSibling.querySelector('a') : null;
+            if (next && e.target.dataset.direction === 'right') {
+              next.click();
+            } else if (prev) {
+              prev.click();
+            }
+          });
         });
 
-        prevBtn.addEventListener('click', (event) => {
-          const selected = item.querySelector('a').classList.contains('is-selected');
-          if (index === 0 && selected) {
-            event.target.classList.add(disabledClass);
-          } else {
-            nextBtn.classList.remove(disabledClass);
-          }
-        });
-      });
+        tabsElements.forEach((item, index) => {
+          const itemTotal = tabsElements.length - 2;
+          const disabledClass = 'disabled';
 
-      // Scroll to the item clicked
-      const tabItems = tabListNested.querySelectorAll('a.aries-tabs__trigger');
-      tabItems.forEach((item) => {
-        item.addEventListener('click', () => {
-          if (document.querySelector('button.dropdown-button')) {
-            document.querySelector('.dropdown-button__text').textContent = item.innerHTML;
-            document.querySelector('button.dropdown-button').setAttribute('aria-expanded', 'false');
-            document.querySelector('button.dropdown-button').classList.remove('is-open');
-          }
-          tabListNested.scrollLeft = item.parentElement.offsetLeft - 24;
-          if (tabListNested.getAttribute('data-center-tabs')) {
-            tabListNested.scrollLeft = item.sparentElement.offsetLeft - (tabList.offsetWidth / 2) + (item.parentElement.offsetWidth / 2) - 24;
-          }
+          item.addEventListener('click', (e) => {
+            if (index === 0) {
+              prevBtn.classList.add(disabledClass);
+              nextBtn.classList.remove(disabledClass);
+            } else if (index === itemTotal) {
+              nextBtn.classList.add(disabledClass);
+              prevBtn.classList.remove(disabledClass);
+            }
+            e.stopPropagation();
+          });
+
+          nextBtn.addEventListener('click', (event) => {
+            const selected = item.querySelector('a').classList.contains('is-selected');
+            if (index === itemTotal && selected) {
+              event.target.classList.add(disabledClass);
+            } else {
+              prevBtn.classList.remove(disabledClass);
+            }
+          });
+
+          prevBtn.addEventListener('click', (event) => {
+            const selected = item.querySelector('a').classList.contains('is-selected');
+            if (index === 0 && selected) {
+              event.target.classList.add(disabledClass);
+            } else {
+              nextBtn.classList.remove(disabledClass);
+            }
+          });
         });
-      });
-      checkSize(tabListNested, tabList);
-      checkDropdown(tabList);
-      window.addEventListener('resize', debounce(() => {
+
+        // Scroll to the item clicked
+        const tabItems = tabListNested.querySelectorAll('a.aries-tabs__trigger');
+        tabItems.forEach((item) => {
+          item.addEventListener('click', () => {
+            if (document.querySelector('button.dropdown-button')) {
+              document.querySelector('.dropdown-button__text').textContent = item.innerHTML;
+              document.querySelector('button.dropdown-button').setAttribute('aria-expanded', 'false');
+              document.querySelector('button.dropdown-button').classList.remove('is-open');
+            }
+            tabListNested.scrollLeft = item.parentElement.offsetLeft - 24;
+            if (tabListNested.getAttribute('data-center-tabs')) {
+              tabListNested.scrollLeft = item.sparentElement.offsetLeft - (tabList.offsetWidth / 2) + (item.parentElement.offsetWidth / 2) - 24;
+            }
+          });
+        });
         checkSize(tabListNested, tabList);
         checkDropdown(tabList);
-      }, 100));
-    });
-  },
-};
+        window.addEventListener('resize', debounce(() => {
+          checkSize(tabListNested, tabList);
+          checkDropdown(tabList);
+        }, 100));
+      });
+    },
+  };
+})(jQuery, Drupal, once);
+
 
 /*
 *  @file TabWidget.js
