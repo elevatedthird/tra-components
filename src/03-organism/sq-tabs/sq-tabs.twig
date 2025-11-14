@@ -12,7 +12,7 @@
       <div class="tab-dropdown-label body-l">{{ dropdown_label }}</div>
     {% endif %}
     <div class="tab-list" data-no-scroll-breakpoint="{{ no_scroll_breakpoint|default(600) }}" data-dropdown-breakpoint="{{ dropdown_breakpoint|default(600) }}">
-      <ul role="tablist" class="sq-tabs__tab-list">
+      <ul role="tablist" class="tabs__tab-list">
         {#  The left spacer was present in the tab slider version but seemed not needed. add an arg to turn on if we find we do need it.  #}
         {#    <li aria-hidden="true" class="ul-spacers ul-spacer--left"></li>#}
         {% for tab_label in tab_labels %}
