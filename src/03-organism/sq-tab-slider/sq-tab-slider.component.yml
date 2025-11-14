@@ -5,6 +5,4 @@ status: stable
 description: A tab slider component for Sequoia design system.
 libraryOverrides:
   dependencies:
-    - {{sequoia}}/plugable--js--tabslider-tabs
     - {{sequoia}}/plugable--scss--glide
-    - {{sequoia}}/plugable--scss--reset-list-styles

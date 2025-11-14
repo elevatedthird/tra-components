@@ -1,20 +1,11 @@
-<div class="organism--sq-tab-slider aries-tabs-wrapper">
-  {% if heading %}
-    <h2 class="organism--tab-slider-heading h2">{{ heading }}</h2>
-  {% endif %}
-  {% if description %}
-    <div class="organism--tab-slider-description body-l">
-      {{ description }}
-    </div>
-  {% endif %}
-  {% if tab_labels %}
-    {#    #}
-    <div class="tab-dropdown-label body-l">Select a solution</div>
-    {{ include('{{sequoia}}:tabs-list', {
-      no_scroll_breakpoint: 960,
-      dropdown_breakpoint: 960,
-      tab_labels,
-    }, with_context = false) }}
-  {% endif %}
-  {{ tabs }}
+<div class="organism--tab-slider aries-tabs-wrapper">
+  {{ include('aries:tabs', {
+    tab_lables,
+    tabs,
+    heading,
+    description,
+    dropdown_label,
+    no_scroll_breakpoint: 960,
+    dropdown_breakpoint: 960,
+  }, with_context = false) }}
 </div>
