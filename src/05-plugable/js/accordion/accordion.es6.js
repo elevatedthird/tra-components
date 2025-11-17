@@ -8,7 +8,7 @@ import { Accordion } from 'foundation-sites/js/foundation.accordion';
 
 Drupal.behaviors.ariesAccordion = {
   attach(context) {
-    once('ariesAccordion', context.querySelectorAll('.accordion')).forEach((accordion) => {
+    once('ariesAccordion', '.accordion').forEach((accordion) => {
       const accordionEl = new Accordion($(accordion), { multiExpand: true });
 
       // @todo i think this can be removed.

@@ -3,14 +3,14 @@
 <div class="molecule--modal">
   {% include '{{sequoia}}:sq-modal-content' with {
     id: 'modal--' ~ hash,
-    modal_content,
+    modal_content: modal_content,
   } only %}
   {# Trigger Button #}
   <div class="molecule--modal--trigger">
     {% include '{{sequoia}}:sq-modal-trigger' with {
       id: 'modal--' ~ hash,
       trigger: trigger ?? trigger_label,
-      trigger_classes: [trigger_classes|join(' ')],
+      trigger_classes: trigger_classes,
     } only %}
   </div>
 </div>

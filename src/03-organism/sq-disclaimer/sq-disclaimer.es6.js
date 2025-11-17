@@ -4,7 +4,7 @@ import { Accordion } from 'foundation-sites/js/foundation.accordion';
   Drupal.behaviors.ariesdisclaimer= {
     attach(context) {
       // @todo should probably only target disclaimer accordions.
-      once('ariesdisclaimer', context.querySelectorAll('.accordion')).forEach((accordion) => {
+      once('ariesdisclaimer', '.accordion').forEach((accordion) => {
         const accordionEl = new Accordion($(accordion), { multiExpand: true });
 
         if ($(accordion).closest('.disclaimer-expand-1').length > 0) {

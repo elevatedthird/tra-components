@@ -3,3 +3,95 @@ $schema: >-
 name: Sequoia Text
 status: stable
 description: A flexible text component.
+group: Organism
+slots:
+  links:
+    type: ['string', 'null']
+    title: Card Links
+    description: JSON string of link data for CTA buttons.
+    examples:
+      - <a href="#" class="button button--primary">Button</a>
+props:
+  type: object
+  properties:
+    heading:
+      type: ['string', 'null']
+      control: text
+      title: Lorem Ipsum
+      description: Main heading of the card.
+      default: 'Sunt Aliquip Nostrud'
+    heading_tag:
+      type: ['string', 'null']
+      title: Heading Tag
+      description: HTML tag for the heading (e.g., 'h2', 'h3').
+      enum:
+        -
+        - ''
+        - h2
+        - h3
+        - h4
+      default: 'h2'
+    heading_id:
+      type: ['string', 'null']
+      control: text
+      title: Heading ID
+      description: Optional ID for the heading element.
+      default: ''
+    subhead:
+      type: ['string', 'null']
+      control: text
+      title: Subhead Text
+      description: Subheading displayed below the main heading.
+      default: 'Fugiat Exercitation Suscipit'
+    description:
+      type: ['string', 'null']
+      control: text
+      title: Description Text
+      description: Rich text or plain content for the card body.
+      default: 'Nulla eros tempor dignissim ex nostrud sunt ultricies sint, ultricies velit ullamco eu ullamco exercitation doming.'
+    disclosure:
+      type: ['string', 'null']
+      control: text
+      title: Disclosure Text
+      description: Optional legal or disclaimer text shown in small type.
+      default: 'Laboris quis duis sed amet commodo pulvinar sit ea laboris elit, harmud fugiat tempuribud velaliquam sunt aliquip pariatur.'
+    background_color:
+      type: ['string', 'null']
+      title: Background Color
+      description: Background color of the card.
+      enum:
+        -
+        - ''
+        - contrasting-crimson-red
+        - contrasting-forest-green
+        - contrasting-lavender-purple
+        - contrasting-night-blue
+        - contrasting-warm-black
+        - contrasting-chocolate-brown
+        - vibrant-fresh-lime
+        - vibrant-grass-green
+        - vibrant-hot-pink
+        - vibrant-sky-blue
+        - vibrant-white
+      default: 'contrasting-night-blue'
+    alignment:
+      type: ['string', 'null']
+      title: Alignment
+      description: Text alignment.
+      enum:
+        -
+        - ''
+        - left
+        - right
+      default: 'left'
+    width:
+      type: ['string', 'null']
+      title: Width
+      description: Width of the text component.
+      enum:
+        -
+        - ''
+        - 8_col
+        - 10_col
+        - 12_col
+      default: '12_col'
