@@ -1,0 +1,25 @@
+{% set theme = ('contrasting' in background_color ? 'contrasting' : 'vibrant') %}
+
+<div class="organism--sq-news-grid default">
+  <div class="grid-x align-center organism--news--grid rg-8">
+    <div class="cell">
+      {{ title_prefix }}
+      <h2 class="component-title mb-0">{{ heading }}</h2>
+      {{ title_suffix }}
+    </div>
+    <div class="cell news-items grid-x align-top g-8 mobile_menu-g-6">
+      <div class="left cell mobile_menu-auto {{ background_color ? 'bg-color-' ~ background_color }} {{ theme }}">
+        {{ media }}
+        <div class="featured-item pt-6 px-6 pb-10 medium-pt-8 medium-px-8 xlarge-p-10">
+          {{ featured_press_release }}
+        </div>
+      </div>
+      <div class="right cell mobile_menu-auto flex-container flex-dir-column g-8 mobile_menu-g-6 large-g-8 xlarge-pl-4 mobile_menu-pl-2">
+        {{ press_releases }}
+        <div class="organism--news--links grid-x flex-container cg-6 mobile_menu-cg-4 large-cg-6 rg-4">
+          {{ links }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
