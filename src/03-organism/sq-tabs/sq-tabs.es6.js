@@ -4,7 +4,7 @@
  * Add accordion functionality
  */
 (function ($, Drupal, once) {
-  Drupal.behaviors.ariesTabs = {
+  Drupal.behaviors.sqTabs = {
     attach(context) {
       const tabs = (context.classList && context.classList.contains('aries-tabs-wrapper')) ? context : context.querySelectorAll('.aries-tabs-wrapper');
       let abort = new AbortController();

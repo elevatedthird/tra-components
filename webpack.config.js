@@ -78,6 +78,7 @@ module.exports = {
                 includePaths: [
                   path.resolve(__dirname, 'node_modules/tra-global-styles/src/00-config'),
                   path.resolve(__dirname, 'node_modules/foundation-sites/scss'),
+                  path.resolve(__dirname, 'node_modules'),
                 ],
               },
             },
