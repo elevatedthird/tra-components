@@ -3,6 +3,4 @@ $schema: >-
 name: Sequoia Tab Slider
 status: stable
 description: A tab slider component for Sequoia design system.
-libraryOverrides:
-  dependencies:
-    - {{sequoia}}/plugable--scss--glide
+

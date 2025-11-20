@@ -49,13 +49,7 @@
       tabSlider.classList.add('is-first-slide');
 
       glide.on('run', () => {
-        // const live = tabSlider.querySelector('.liveregion');
         const glideIndex = glide.index;
-        // // if live div exists, update it with the current slide number
-        // if (live) {
-        //   live.textContent = `Item ${glideIndex + 1}`;
-        // }
-
         const slideCount = tabSlider.querySelectorAll('.glide__slide').length;
         // get breakpoint perView value
         // eslint-disable-next-line prefer-destructuring

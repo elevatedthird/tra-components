@@ -31,7 +31,7 @@
         <div class="tooltip-admin tooltip-admin-hidden" aria-hidden="true">{{ disclosure }}</div>
       {% endif %}
       {% if disclosure|render %}
-        {% include 'aries:sq-tooltip' with {
+        {% include '{{sequoia}}:sq-tooltip' with {
           text: disclosure,
         } %}
       {% endif %}
