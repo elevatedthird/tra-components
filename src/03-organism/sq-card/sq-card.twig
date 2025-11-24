@@ -26,7 +26,7 @@
 {% endset %}
 
 <div class="organism--sq-card height-100">
-  <div class="organism--card--inner-wrapper flex-container flex-dir-column height-100 {{ background_color ? 'p-8 bg-color-' ~ background_color }}">
+  <div class="organism--card--inner-wrapper flex-dir-column height-100 {{ background_color ? 'p-8 bg-color-' ~ background_color }} {{ vertical_alignment == 1 ? 'align-middle align-center' : 'flex-container'}}">
     <div class="image-container display-inline-block position-relative">
         {{ media_render }}
     </div>
