@@ -9,7 +9,7 @@
   },
   "bin": {
     "sequoia-sync": "./scripts/sync-components.js",
-    "sequoia-dev": "pwd"
+    "sequoia-dev": "./scripts/sequoia-dev.sh"
   },
   "author": "",
   "license": "ISC",
