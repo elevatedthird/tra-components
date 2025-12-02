@@ -8,7 +8,8 @@
     "sync:components": "node scripts/sync-components.js"
   },
   "bin": {
-    "sequoia-sync": "./scripts/sync-components.js"
+    "sequoia-sync": "./scripts/sync-components.js",
+    "sequoia-dev": "pwd"
   },
   "author": "",
   "license": "ISC",
