@@ -24,8 +24,8 @@
 {% set theme = ('contrasting' in background_color ? 'contrasting' : 'vibrant') %}
 
 {% set media_render %}
-  <div class="position-relative organism--hero--media">
-    {% include '{{sequoia}}:sq-background-media' with {
+  <div class="position-relative organism--sq-hero--media">
+    {% include 'aries:sq-background-media' with {
       media: media,
       position: 'center',
       additionalClasses: [
@@ -38,14 +38,14 @@
   </div>
 {% endset %}
 {% if height_variation  == 'height_auto' or height_variation =='height_560' %}
-   {% set subhead = subhead %}
-   {% set description = description %}
+  {% set subhead = subhead %}
+  {% set description = description %}
 {% else %}
-   {% set subhead = '' %}
-   {% set description = '' %}
+  {% set subhead = '' %}
+  {% set description = '' %}
 {% endif %}
 {% set copy %}
-  <div class="organism--hero--content-wrapper">
+  <div class="organism--sq-hero--content-wrapper">
     {% if heading %}
       <h1 class="heading h2">
         {{ heading }}
@@ -86,8 +86,8 @@
 {% set background_color = 'bg-color-' ~ background_color %}
 
 <div class="organism--sq-hero {{ background_color }} {{ theme }} position-relative">
-  <div class="organism--hero--container">
-    <div class="grid-x organism--hero--grid organism--hero--{{ alignment|replace({'_': '--'}) }} {{ height_variation }}">
+  <div class="organism--sq-hero--container">
+    <div class="grid-x organism--sq-hero--grid organism--sq-hero--{{ alignment|replace({'_': '--'}) }} {{ height_variation }}">
       <div class="left cell xsmall-12 large-6 {{ left_content_class|join(' ') }}">
         {{ left_content }}
       </div>
