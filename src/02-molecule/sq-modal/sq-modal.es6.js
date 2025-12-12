@@ -46,7 +46,7 @@
 
         var formSelectors = [
           '#webform-submission-email-selected-form-wizard-items-block-content-16731-form-ajax',
-          '#webform-submission-email-selected-form-wizard-items-block-content-83721-form-ajax-content'
+          '#webform-submission-email-selected-form-wizard-items-block-content-18316-form-ajax'
         ];
 
         formSelectors.forEach(function (selector) {
