@@ -1,0 +1,35 @@
+{% set theme = ('contrasting' in background_color|default('contrasting-night-blue') ? 'contrasting' : 'vibrant') %}
+
+<div class="molecule--sq-hero-slide position-relative" data-bg-color="bg-color-{{ background_color|default('contrasting-night-blue') }}">
+  <div class="molecule--sq-hero-slide--container">
+    <div class="molecule--sq-hero-slide--grid--media">
+      {% include 'aries:sq-background-media' with {
+        media: media,
+      } %}
+    </div>
+    <div class="grid-x grid-container molecule--sq-hero-slide--grid">
+      <div class="left content-wrapper cell xsmall-12 large-7 plus-large-6">
+        <div class="bg-container position-relative shape mobile--arrow--top arrow--right bg-color-{{ background_color|default('contrasting-night-blue') }}">
+          <div class="molecule--sq-hero-slide--content-wrapper flex-container flex-dir-column">
+            {# if this is the first slide then it can have the h1 tag.  #}
+            <h2 class="heading h1" id="{{ heading_id }}">{{ heading }}</h2>
+            {% if subhead %}
+              <div class="subhead nmblc">
+                {{ subhead }}
+              </div>
+            {% elseif description %}
+              <div class="description nmblc body-l">
+                {{ description }}
+              </div>
+            {% endif %}
+            {% if links %}
+              <div class="links p mt-5 medium-mt-8">
+                {{ links }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
