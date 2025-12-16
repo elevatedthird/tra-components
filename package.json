@@ -13,8 +13,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@glidejs/glide": "^3.4.1",
     "foundation-sites": "^6.7",
-    "tra-global-styles": "github:elevatedthird/tra-global-styles#develop",
+    "tra-global-styles": "github:elevatedthird/tra-global-styles#TRA001-745",
     "webpack-remove-empty-scripts": "^1.1.1"
   },
   "devDependencies": {
