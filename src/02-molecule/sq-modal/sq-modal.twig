@@ -1,14 +1,14 @@
 {% set hash = random(0, 1000) %}
 
 <div class="molecule--modal">
-  {% include '{{sequoia}}:sq-modal-content' with {
-    id: 'modal--' ~ hash,
+  {% include 'aries:sq-modal-content' with {
+    id: id ? id : 'modal--' ~ hash,
     modal_content,
   } only %}
   {# Trigger Button #}
   <div class="molecule--modal--trigger">
-    {% include '{{sequoia}}:sq-modal-trigger' with {
-      id: 'modal--' ~ hash,
+    {% include 'aries:sq-modal-trigger' with {
+      id: id ? id : 'modal--' ~ hash,
       trigger: trigger ?? trigger_label,
       trigger_classes: [trigger_classes|join(' ')],
     } only %}
