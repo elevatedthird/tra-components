@@ -1,0 +1,5 @@
+$schema: >-
+  https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Sequoia Hero Slider
+status: stable
+description: A slider component that displays a series of hero components with smooth transitions.

@@ -1,0 +1,17 @@
+{% set attributes = create_attribute().addClass(classes.wrapper).addClass('glide') %}
+{% if behavior_name %}
+  {% set attributes = attributes.setAttribute('data-behavior-name', behavior_name) %}
+{% endif %}
+
+{% set attributes = attributes.setAttribute('data-slide-length', slide_count) %}
+
+<div {{ attributes }}>
+  <div class="glide__track" data-glide-el="track">
+    {{ items }}
+  </div>
+  <div aria-live="polite" aria-atomic="true" class="visually-hidden liveregion">
+
+  </div>
+  {{ controls }}
+</div>
+

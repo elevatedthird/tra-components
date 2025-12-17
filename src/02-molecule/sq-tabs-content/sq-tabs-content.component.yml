@@ -1,0 +1,5 @@
+\$schema: >-
+  https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Sequoia Tabs Content
+status: stable
+description: Tabs content component for Sequoia design system.
