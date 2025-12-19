@@ -1,0 +1,31 @@
+{% set description_classes = [
+  variant == 'featured' ? 'mt-6' : 'mt-4'
+] %}
+
+{% set links_classes = [
+  variant == 'featured' ? 'mt-6' : 'mt-4'
+] %}
+
+{% set link_classes = [
+  variant == 'featured' ? 'button--secondary' ~ button_variant : 'button--tertiary'
+] %}
+
+{% set copy %}
+  {% if heading %}
+    <h3 class="heading mb-0">{{ heading }}</h3>
+  {% endif %}
+  {% if description %}
+    <div class="description mb-0 nmblc {{ description_classes|join(' ') }} body-l">{{ description }}</div>
+  {% endif %}
+{% endset %}
+
+<div class="molecule--sq-npr-teaser {{ variant ? 'variant--' ~ variant : '' }}">
+  {{ copy }}
+  <div class="npr-teaser-link {{ description_classes|join(' ') }}">
+    {% include '{{sequoia}}:button' with {
+      url: url,
+      title: cta_text,
+      classes: button_classes|default(link_classes),
+    } %}
+  </div>
+</div>

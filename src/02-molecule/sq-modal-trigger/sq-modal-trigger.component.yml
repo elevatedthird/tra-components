@@ -5,5 +5,4 @@ status: stable
 description: A foundation modal trigger so the two pieces can be used separately.
 libraryOverrides:
   dependencies:
-    - {{sequoia}}/{{sequoia}}
     - core/components.{{sequoia}}--sq-modal

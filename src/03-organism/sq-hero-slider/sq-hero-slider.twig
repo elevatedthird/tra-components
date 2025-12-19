@@ -1,0 +1,36 @@
+<div class="organism--sq-hero-slider">
+  <h1 class="visually-hidden">{{ page_title }}</h1>
+  {% set controls %}
+    <div class="controls grid-container flex-container">
+      <div class="glide__arrows" data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+          <span class="material-symbols-outlined">
+            arrow_upward
+          </span>
+          <span class='sr-only'>Previous Step</span>
+        </button>
+        <button class="play-pause-icon playing" aria-label="pause slides">
+          <span></span>
+        </button>
+        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+          <span class="material-symbols-outlined">
+            arrow_downward
+          </span>
+          <span class='sr-only'>Next Step</span>
+        </button>
+      </div>
+      {{ include('aries:sq-glide-bullets', {item_count}, with_context = false) }}
+    </div>
+  {% endset %}
+  {% set slides %}
+    <div class="glide__slides">
+      {{ items }}
+    </div>
+  {% endset %}
+  {% include 'aries:sq-glide' with {
+    items: slides,
+    behavior_name: 'sqHeroSlider',
+    classes: {wrapper: 'organism--hero-slider--glide-wrapper'},
+    controls,
+  } %}
+</div>
