@@ -3,3 +3,38 @@
 name: Sequoia Accordion Item
 status: stable
 description: A foundation accordion item.
+group: Organism
+slots:
+  links:
+    type: ['string', 'null']
+    title: CTA Buttons
+    description: Optional slot for one or more CTA buttons.
+    examples:
+      - <a href="#" class="button button--primary">Button</a>
+props:
+  type: object
+  properties:
+    title:
+      type: ['string', 'null']
+      control: text
+      title: Lorem Ipsum
+      description: Main heading of the card.
+      default: 'Sunt Aliquip Nostrud'
+    description:
+      type: ['string', 'null']
+      control: text
+      title: Description Text
+      description: Rich text or plain content for the accordion item body.
+      default: 'Nulla eros tempor dignissim ex nostrud sunt ultricies sint, ultricies velit ullamco eu ullamco exercitation doming.'
+    disclosure:
+      type: ['string', 'null']
+      control: text
+      title: Disclosure Text
+      description: Optional legal or disclaimer text shown in small type.
+      default: 'Nulla eros tempor dignissim ex nostrud sunt ultricies sint, ultricies velit ullamco eu ullamco exercitation doming.'
+    id:
+      type: ['string', 'null']
+      control: text
+      title: Accordion Item ID
+      description: Randomly generated ID for the accordion item element.
+      default: ''
