@@ -3,3 +3,108 @@ $schema: >-
 name: Sequoia Multi Stat
 status: stable
 description: A component that displays multiple statistics in a structured format.
+slots:
+  media:
+    title: Media Slot
+    description: Optional slot for embedding images or other media.
+    examples:
+      - <img src="https://placehold.co/1920x1020?text=Placeholder"/>
+  rightSections:
+    title: Right Sections Slot
+    description: Optional slot for adding content to the right side of the component.
+props:
+  type: object
+  properties:
+    microTitle:
+      type: [ 'string', 'null' ]
+      control: text
+      title: Lorem Ipsum
+      description: micro title of the card.
+      default: 'Sunt Aliquip Nostrud'
+    heading:
+      type: [ 'string', 'null' ]
+      control: text
+      title: Lorem Ipsum
+      description: Main heading of the card.
+      default: 'Sunt Aliquip Nostrud'
+    description:
+      type: [ 'string', 'null' ]
+      control: text
+      title: Description Text
+      description: Rich text or plain content for the card body.
+      default: 'Nulla eros tempor dignissim ex nostrud sunt ultricies sint, ultricies velit ullamco eu ullamco exercitation doming.'
+    disclosure:
+      type: [ 'string', 'null' ]
+      control: text
+      title: Disclosure Text
+      description: Optional legal or disclaimer text shown in small type.
+      default: 'Laboris quis duis sed amet commodo pulvinar sit ea laboris elit, harmud fugiat tempuribud velaliquam sunt aliquip pariatur.'
+    rightSectionsCount:
+      type: [ 'string', 'null', 'integer' ]
+      control: text
+      title: Right Sections Count
+      description: Number of sections to display on the right side.
+      default: '3'
+    background_color:
+      type: [ 'string', 'null' ]
+      title: Background Color
+      description: Background color of the card.
+      enum:
+        - ''
+        -
+        - contrasting-crimson-red
+        - contrasting-forest-green
+        - contrasting-lavender-purple
+        - contrasting-night-blue
+        - contrasting-warm-black
+        - contrasting-chocolate-brown
+        - vibrant-fresh-lime
+        - vibrant-grass-green
+        - vibrant-hot-pink
+        - vibrant-sky-blue
+        - vibrant-white
+      default: 'contrasting-night-blue'
+    shape_color:
+      type: [ 'string', 'null' ]
+      title: Shape Color
+      description: The color of the shape when there is no image
+      enum:
+        -
+        - ''
+        - contrasting-crimson-red
+        - contrasting-forest-green
+        - contrasting-lavender-purple
+        - contrasting-night-blue
+        - contrasting-warm-black
+        - contrasting-chocolate-brown
+        - vibrant-fresh-lime
+        - vibrant-grass-green
+        - vibrant-hot-pink
+        - vibrant-sky-blue
+        - vibrant-white
+      default: 'vibrant-white'
+    shape:
+      type: [ 'string', 'null' ]
+      title: Shape
+      description: The shape
+      enum:
+        -
+        - ''
+        - octagon
+        - hexagon
+        - hourglass
+        - umbrella
+        - arrow
+      default: 'octagon'
+    shape_position:
+      type: [ 'string', 'null' ]
+      title: Shape Position
+      description: The position of the shape
+      enum:
+        -
+        - ''
+        - top
+        - bottom
+        - left
+        - right
+      default: 'top'

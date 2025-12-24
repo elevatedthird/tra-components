@@ -3,3 +3,15 @@
 name: Sequoia Multi Stat Item
 status: stable
 description: A component that displays a single statistic within a multi-stat component.
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      description: Text for the disclosure link.
+    description:
+      type: string
+      description: Text for the disclosure link.
+    label:
+      type: string
+      description: Text for the disclosure link.
