@@ -3,3 +3,16 @@
 name: Sequoia Tabs Content
 status: stable
 description: Tabs content component for Sequoia design system.
+slots:
+  content:
+    title: Content
+    description: The content to be displayed within the tabs content component.
+props:
+  type: object
+  properties:
+    label:
+      type: ['string', 'null']
+      control: text
+      title: Label
+      description: The label for the tabs content component.
+      default: 'Sunt Aliquip Nostrud'

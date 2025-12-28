@@ -3,3 +3,22 @@ $schema: >-
 name: Sequoia Hero Slider
 status: stable
 description: A slider component that displays a series of hero components with smooth transitions.
+slots:
+  items:
+    title: slides
+    description: A collection of hero slides to be displayed in the slider.
+props:
+  type: object
+  properties:
+    page_title:
+      type: ['string', 'null']
+      control: text
+      title: Page Title
+      description: An optional title for the hero slider component.
+      default: Page Title
+    item_count:
+      type: ['integer', 'null', 'string']
+      control: text
+      title: Item Count
+      description: The number of hero slides to display in the slider.
+      default: 3

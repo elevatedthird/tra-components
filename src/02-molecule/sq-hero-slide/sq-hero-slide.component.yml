@@ -3,3 +3,55 @@
 name: Sequoia Hero Slide
 status: stable
 description: A single hero slide.
+slots:
+  media:
+    title: Media Slot
+    description: Optional slot for embedding images or other media.
+    examples:
+      - <img src="https://placehold.co/1920x1020?text=Placeholder"/>
+  links:
+    type: ['string', 'null']
+    title: Links
+    description: JSON string of link data for CTA buttons.
+    examples:
+      - <a href="#" class="button button--primary">Button</a>
+props:
+  types: object
+  properties:
+    heading:
+      type: ['string', 'null']
+      control: text
+      title: Lorem Ipsum
+      description: Main heading of the card.
+      default: 'Sunt Aliquip Nostrud'
+    subhead:
+      type: ['string', 'null']
+      control: text
+      title: Subhead Text
+      description: Subheading displayed below the main heading.
+      default: 'Fugiat Exercitation Suscipit'
+    description:
+      type: ['string', 'null']
+      control: text
+      title: Description Text
+      description: Rich text or plain content for the card body.
+      default: 'Nulla eros tempor dignissim ex nostrud sunt ultricies sint, ultricies velit ullamco eu ullamco exercitation doming.'
+    background_color:
+      type: ['string', 'null']
+      title: Background Color
+      description: Background color of the card.
+      enum:
+        - ''
+        -
+        - contrasting-crimson-red
+        - contrasting-forest-green
+        - contrasting-lavender-purple
+        - contrasting-night-blue
+        - contrasting-warm-black
+        - contrasting-chocolate-brown
+        - vibrant-fresh-lime
+        - vibrant-grass-green
+        - vibrant-hot-pink
+        - vibrant-sky-blue
+        - vibrant-white
+      default: 'contrasting-night-blue'

@@ -6,3 +6,18 @@ description: Provides a glidejs slider.
 libraryOverrides:
   dependencies:
     - {{sequoia}}/plugable--scss--glide
+slots:
+  items:
+    title: Items
+    description: The slides to be displayed within the glide slider.
+  controls:
+    title: Controls
+    description: The controls for the glide slider.
+props:
+  type: object
+  properties:
+    behavior_name:
+      type: ['string', 'null']
+      control: text
+      title: Behavior Name
+      description: The behavior name for the glide slider.

@@ -1,5 +1,38 @@
-$schema: >-
-  https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
-name: Sequoia Tabs
-status: stable
-description: A Tabs organism component.
+slots:
+  tabs:
+    title: Tabs
+    description: Tab items to be displayed within the tabs component.
+props:
+  type: object
+  properties:
+    tab_labels:
+      type: array
+      title: Tab Labels
+    heading:
+      type: ['string', 'null']
+      control: text
+      title: Heading
+      description: Main heading of the card.
+      default: 'Sunt Aliquip Nostrud'
+    description:
+      type: ['string', 'null']
+      control: text
+      title: Description Text
+      description: Rich text or plain content for the card body.
+      default: 'Nulla eros tempor dignissim ex nostrud sunt ultricies sint, ultricies velit ullamco eu ullamco exercitation doming.'
+    dropdown_label:
+      type: ['string', 'null']
+      control: text
+      title: Dropdown Label
+      description: Main heading of the card.
+      default: 'Sunt Aliquip Nostrud'
+    no_scroll_breakpoint:
+      type: ['string', 'null', 'integer']
+      control: text
+      title: Scroll Breakpoint
+      default: 960
+    dropdown_breakpoint:
+      type: ['string', 'null', 'integer']
+      control: text
+      title: Dropdown Breakpoint
+      default: 960

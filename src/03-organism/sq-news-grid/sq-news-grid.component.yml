@@ -3,3 +3,51 @@ $schema: >-
 name: News Grid
 status: stable
 description: A grid layout for displaying news articles.
+slots:
+  media:
+    title: Media Slot
+    description: Optional slot for embedding images or other media.
+    examples:
+      - <img src="https://placehold.co/1920x1020?text=Placeholder"/>
+  links:
+    type: [ 'string', 'null' ]
+    title: Card Links
+    description: JSON string of link data for CTA buttons.
+    examples:
+      - <a href="#" class="button button--primary">Button</a>
+  featured_press_release:
+    type: [ 'string', 'null' ]
+    title: Featured Press Release
+    description: JSON string of link data for the featured press release.
+  press_releases:
+    type: [ 'string', 'null' ]
+    title: Press Releases
+    description: JSON string of link data for press releases.
+props:
+  type: object
+  properties:
+    heading:
+      type: [ 'string', 'null' ]
+      control: text
+      title: Heading Text
+      description: The heading text for the teaser.
+      default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    background_color:
+      type: [ 'string', 'null' ]
+      title: Background Color
+      description: Background color of the card.
+      enum:
+        -
+        - ''
+        - contrasting-crimson-red
+        - contrasting-forest-green
+        - contrasting-lavender-purple
+        - contrasting-night-blue
+        - contrasting-warm-black
+        - contrasting-chocolate-brown
+        - vibrant-fresh-lime
+        - vibrant-grass-green
+        - vibrant-hot-pink
+        - vibrant-sky-blue
+        - vibrant-white
+      default: 'contrasting-night-blue'
