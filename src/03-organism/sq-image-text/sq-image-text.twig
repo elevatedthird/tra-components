@@ -51,6 +51,11 @@
 {% set stack_bp = (is_2_col ? 'large' : 'medium') %}
 
 {% set copy %}
+  {% if icon_logo %}
+  <div class="img-txt-icon-wrapper mb-6 medium-mb-8">
+    {{ icon_logo }}
+  </div>
+  {% endif %}
   {% include '{{sequoia}}:sq-copy' with {
     heading: heading,
     heading_tag: heading_tag,
@@ -77,7 +82,7 @@
 {# right classes align with the copy side #}
 {% set copy_classes = [
   'flex-container',
-  'align-middle',
+  'flex-dir-column',
   'p-6',
   'xlarge-p-8'
 ] %}
