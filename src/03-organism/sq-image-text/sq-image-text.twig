@@ -32,13 +32,13 @@
       {{ media }}
     </div>
     {% else %}
-      {% include '{{sequoia}}:sq-background-media' with {
+      {% include 'aries:sq-background-media' with {
         media: media,
-        additionalClasses: [(shape ? 'shape'), (shape_position ? shape ~ '--' ~  shape_position : shape), (media ? 'has-media' : 'no-media'), (shape_color ? 'bg-color-' ~ shape_color)]
+        additionalClasses: [shape ? 'shape', shape_position ? shape ~ '--' ~  shape_position : shape, media ? 'has-media' : 'no-media', shape_color ? 'bg-color-' ~ shape_color]
       } %}
     {% endif %}
     {% if video %}
-      {% include '{{sequoia}}:sq-video-modal' with {
+      {% include 'aries:sq-video-modal' with {
         modal_content: video,
         trigger_label: 'Play',
         play_icon: 1,
@@ -51,7 +51,12 @@
 {% set stack_bp = (is_2_col ? 'large' : 'medium') %}
 
 {% set copy %}
-  {% include '{{sequoia}}:sq-copy' with {
+  {% if icon_logo %}
+  <div class="img-txt-icon-wrapper mb-6 medium-mb-8">
+    {{ icon_logo }}
+  </div>
+  {% endif %}
+  {% include 'aries:sq-copy' with {
     heading: heading,
     heading_tag: heading_tag,
     classes: [is_2_col],
@@ -77,7 +82,7 @@
 {# right classes align with the copy side #}
 {% set copy_classes = [
   'flex-container',
-  'align-middle',
+  'flex-dir-column',
   'p-6',
   'xlarge-p-8'
 ] %}
