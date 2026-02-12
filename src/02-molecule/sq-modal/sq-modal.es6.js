@@ -65,9 +65,12 @@
         reloadForm();
       });
 
-      $(document).on('open.zf.reveal', function (event) {
-        var modal = $(event.target);
-        Drupal.attachBehaviors(modal.get(0), Drupal.settings);
+      const elements = once('reveal-init-once', '.reveal[data-reveal]', context);
+      elements.forEach(function (element) {
+        $(element).on('open.zf.reveal', function (event) {
+          var modal = $(event.target);
+          Drupal.attachBehaviors(modal.get(0), Drupal.settings);
+        });
       });
     }
   };
