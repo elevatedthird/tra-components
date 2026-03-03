@@ -82,7 +82,7 @@
 {# right classes align with the copy side #}
 {% set copy_classes = [
   'flex-container',
-  'flex-dir-column',
+  (icon_logo ? 'flex-dir-column' : 'align-middle'),
   'p-6',
   'xlarge-p-8'
 ] %}
