@@ -1,0 +1,28 @@
+// ==========================================================================
+// Sequoia Design System — Global Stylesheet Entry Point
+// ==========================================================================
+//
+// Compiles to dist/css/global.css
+// Replaces the legacy src/01-global/scss/global.scss entry point.
+//
+// Load order:
+//   1. Font definitions (CSS imports)
+//   2. Main configuration entry point (_index.scss)
+//   3. Base application styles
+//   4. Global overrides
+// ==========================================================================
+
+// 1. Font definitions
+@import "assets/fonts/font-definitions.css";
+@import "assets/fonts/icomoon/style.css";
+
+// 2. Main configuration (tokens, vendor, settings, mixins)
+@import "index";
+
+// 3. Base application styles
+@import 'base/app';
+
+// 4. Global overrides
+button {
+  cursor: pointer;
+}

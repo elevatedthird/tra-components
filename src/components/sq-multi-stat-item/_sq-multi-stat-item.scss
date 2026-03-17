@@ -1,0 +1,84 @@
+.molecule--sq-multi-stat-item {
+  --right-column-copy-left-right-padding: 16px;
+  --right-column-copy-top-bottom-padding: 16px;
+  --right-column-description-font-size: 18px;
+  --right-column-description-line-height: 27px;
+  --right-column-section-height: 274px;
+
+  @include breakpoint(small) { // 360
+    --right-column-section-height: 224px;
+  }
+
+  @include breakpoint(medium) { // 600
+    --right-column-copy-left-right-padding: 24px;
+    --right-column-description-font-size: 20px;
+    --right-column-description-line-height: 30px;
+    --right-column-section-height: 255px;
+  }
+
+  @include breakpoint(large) { // 960
+    --right-column-copy-left-right-padding: 24px;
+    --right-column-description-font-size: 20px;
+    --right-column-description-line-height: 30px;
+    .sections-2 & {
+      --right-column-section-height: 284px;
+      --right-column-copy-left-right-padding: 32px;
+      --right-column-description-font-size: 20px;
+      --right-column-description-line-height: 30px;
+    }
+    .sections-3 & {
+      --right-column-section-height: 224px;
+      --right-column-description-font-size: 20px;
+      --right-column-description-line-height: 30px;
+    }
+    .sections-4 & {
+      --right-column-section-height: 194px;
+      --right-column-copy-top-bottom-padding: 8px;
+      --right-column-description-font-size: 16px;
+      --right-column-description-line-height: 24px;
+    }
+  }
+  @include breakpoint(xlarge) {  // 1440
+    --right-column-copy-left-right-padding: 64px;
+    --right-column-copy-top-bottom-padding: 16px;
+    --right-column-description-font-size: 20px;
+    --right-column-description-line-height: 30px;
+    .sections-2 & {
+      --right-column-section-height: 316px;
+      --right-column-copy-left-right-padding: 64px;
+      --right-column-copy-top-bottom-padding: 24px;
+      --right-column-description-font-size: 24px;
+      --right-column-description-line-height: 36px;
+    }
+    .sections-3 & {
+      --right-column-section-height: 204px;
+      --right-column-description-font-size: 20px;
+      --right-column-description-line-height: 30px;
+    }
+    .sections-4 & {
+      --right-column-section-height: 204px;
+      --right-column-copy-top-bottom-padding: 16px;
+      --right-column-description-font-size: 20px;
+      --right-column-description-line-height: 30px;
+    }
+  }
+}
+
+.molecule--sq-multi-stat-item {
+
+
+
+  height: var(--right-column-section-height);
+
+  .heading {
+    @include breakpoint(medium) {
+      font-size: 48px;
+      line-height: 52.8px;
+    }
+  }
+  .description {
+    font-size: var(--right-column-description-font-size);
+    line-height: var(--right-column-description-line-height);
+  }
+  padding: var(--right-column-copy-top-bottom-padding) var(--right-column-copy-left-right-padding);
+}

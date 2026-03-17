@@ -1,0 +1,187 @@
+// ==========================================================================
+// Foundation Adapter
+// ==========================================================================
+//
+// Sequoia-namespaced wrappers around Foundation Sites mixins and functions.
+// This file is the single point of Foundation dependency for the design system.
+// All Foundation mixin calls outside of src/vendor/foundation/ should use
+// these sq-* wrappers instead of calling Foundation directly.
+//
+// This enables future replacement of Foundation with custom implementations
+// without changing consumer code.
+// ==========================================================================
+
+// ---------------------------------------------------------------------------
+// Global Styles
+// ---------------------------------------------------------------------------
+
+/// Wraps Foundation's global styles (resets, box-sizing, etc.)
+@mixin sq-global-styles {
+  @include foundation-global-styles;
+}
+
+// ---------------------------------------------------------------------------
+// Typography
+// ---------------------------------------------------------------------------
+
+/// Wraps Foundation's base typography styles (headings, paragraphs, lists, etc.)
+@mixin sq-typography-base {
+  @include foundation-typography-base;
+}
+
+/// Wraps Foundation's typography helper classes
+@mixin sq-typography-helpers {
+  @include foundation-typography-helpers;
+}
+
+// ---------------------------------------------------------------------------
+// XY Grid
+// ---------------------------------------------------------------------------
+
+/// Wraps Foundation's XY grid class generator
+/// @param {Boolean} $xy-grid [$xy-grid] - Generate XY grid classes
+/// @param {Boolean} $grid-x [true] - Generate .grid-x classes
+/// @param {Boolean} $grid-y [true] - Generate .grid-y classes
+/// @param {Boolean} $cell [true] - Generate .cell classes
+/// @param {Boolean} $offset [true] - Generate offset classes
+/// @param {Boolean} $gutter [true] - Generate gutter classes
+/// @param {Boolean} $order [true] - Generate order classes
+/// @param {Boolean} $collapse [true] - Generate collapse classes
+@mixin sq-xy-grid-classes($args...) {
+  @include foundation-xy-grid-classes($args...);
+}
+
+/// Wraps Foundation's xy-grid-container mixin
+/// @param {Number} $width [$grid-container] - Max width of the container
+/// @param {Map} $padding [$grid-container-padding] - Padding for the container
+@mixin sq-xy-grid-container($args...) {
+  @include xy-grid-container($args...);
+}
+
+/// Wraps Foundation's xy-gutters mixin
+/// @param {Number|Map} $gutters - Gutter value(s)
+/// @param {String} $gutter-type [margin] - Type of gutter (margin or padding)
+/// @param {List} $gutter-position [right left] - Sides to apply gutters
+/// @param {Boolean} $negative [false] - Use negative margins
+@mixin sq-xy-gutters($args...) {
+  @include xy-gutters($args...);
+}
+
+/// Wraps Foundation's xy-cell-size mixin
+/// @param {Number} $size - Cell size as fraction
+/// @param {Number|Map} $gutters - Gutter value(s)
+/// @param {String} $gutter-type [margin] - Type of gutter
+/// @param {String} $breakpoint [null] - Breakpoint context
+/// @param {Boolean} $vertical [false] - Vertical grid
+@mixin sq-xy-cell-size($args...) {
+  @include xy-cell-size($args...);
+}
+
+/// Wraps Foundation's xy-cell-gutters mixin
+/// @param {Number|Map} $gutters - Gutter value(s)
+/// @param {String} $gutter-type [margin] - Type of gutter
+/// @param {List} $gutter-position [right left] - Sides to apply gutters
+/// @param {String} $breakpoint [null] - Breakpoint context
+/// @param {Boolean} $vertical [false] - Vertical grid
+@mixin sq-xy-cell-gutters($args...) {
+  @include xy-cell-gutters($args...);
+}
+
+// ---------------------------------------------------------------------------
+// Flexbox Utilities
+// ---------------------------------------------------------------------------
+
+/// Wraps Foundation's flex utility classes
+@mixin sq-flex-classes {
+  @include foundation-flex-classes;
+}
+
+// ---------------------------------------------------------------------------
+// Visibility
+// ---------------------------------------------------------------------------
+
+/// Wraps Foundation's visibility utility classes (show/hide at breakpoints)
+@mixin sq-visibility-classes {
+  @include foundation-visibility-classes;
+}
+
+// ---------------------------------------------------------------------------
+// Text Alignment
+// ---------------------------------------------------------------------------
+
+/// Wraps Foundation's text alignment utility classes
+@mixin sq-text-alignment {
+  @include foundation-text-alignment;
+}
+
+// ---------------------------------------------------------------------------
+// Prototype Utilities (text-transformation, text-decoration, border, sizing, display)
+// ---------------------------------------------------------------------------
+
+/// Wraps Foundation's text transformation prototype classes
+@mixin sq-text-transformation {
+  @include foundation-prototype-text-transformation;
+}
+
+/// Wraps Foundation's text decoration prototype classes
+@mixin sq-text-decoration {
+  @include foundation-prototype-text-decoration;
+}
+
+/// Wraps Foundation's border-none prototype classes
+@mixin sq-border-none {
+  @include foundation-prototype-border-none;
+}
+
+/// Wraps Foundation's sizing prototype classes
+@mixin sq-sizing {
+  @include foundation-prototype-sizing;
+}
+
+/// Wraps Foundation's display prototype classes
+@mixin sq-display {
+  @include foundation-prototype-display;
+}
+
+// ---------------------------------------------------------------------------
+// Responsive Embed
+// ---------------------------------------------------------------------------
+
+/// Wraps Foundation's responsive embed classes
+@mixin sq-responsive-embed {
+  @include foundation-responsive-embed;
+}
+
+// ---------------------------------------------------------------------------
+// Component Mixins
+// ---------------------------------------------------------------------------
+
+/// Wraps Foundation's accordion component styles
+@mixin sq-accordion {
+  @include foundation-accordion;
+}
+
+/// Wraps Foundation's reveal (modal) component styles
+@mixin sq-reveal {
+  @include foundation-reveal;
+}
+
+// ---------------------------------------------------------------------------
+// Breakpoint Utilities
+// ---------------------------------------------------------------------------
+
+/// Wraps Foundation's breakpoint mixin for responsive media queries
+/// @param {String|List} $value - Breakpoint value (e.g., 'medium', 'large down')
+@mixin sq-breakpoint($value) {
+  @include breakpoint($value) {
+    @content;
+  }
+}
+
+/// Wraps Foundation's -zf-each-breakpoint iterator mixin
+/// Iterates through each defined breakpoint, exposing $-zf-size
+@mixin sq-each-breakpoint {
+  @include -zf-each-breakpoint {
+    @content;
+  }
+}

@@ -1,0 +1,36 @@
+.organism--sq-image-text {
+  &--media {
+    @include breakpoint(large) {
+      aspect-ratio: initial;
+    }
+  }
+
+  &--top {
+    align-items: flex-start !important;
+
+  }
+
+  .no-crop {
+    aspect-ratio: initial !important;
+  }
+
+  &.image-right:not([class*="bg-color-"]) .copy {
+    padding-left: 0;
+  }
+
+  .organism--image-text--media {
+    aspect-ratio: 1.5/1;
+
+    @include breakpoint(medium) {
+      aspect-ratio: 1.35/1;
+    }
+
+    @include breakpoint(mobile_menu) {
+      aspect-ratio: 1.728/1;
+    }
+
+    @include breakpoint(xlarge) {
+      aspect-ratio: initial;
+    }
+  }
+}

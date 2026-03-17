@@ -1,0 +1,5 @@
+@each $key, $value in $link-profiles {
+  .links--#{$key} .link, .links--#{$key} a, .link--#{$key} {
+    @include link(#{$key});
+  }
+}

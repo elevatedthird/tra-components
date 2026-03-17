@@ -1,0 +1,59 @@
+.organism--sq-single-stat {
+  .media {
+    svg, img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  @include breakpoint(medium down) {
+    &.image-right {
+      flex-direction: column-reverse;
+    }
+    .media {
+      height: auto;
+      width: 100%;
+    }
+  }
+  @include breakpoint(large) {
+    .media {
+      height: 300px;
+      width: 400px;
+    }
+    .copy {
+      width: auto;
+      flex: 1 1 0;
+    }
+  }
+  .copy {
+    margin: auto 0;
+
+    h2.heading.h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    .description p {
+      font-size: $body-md-smallscreen;
+    }
+
+    @include breakpoint(medium) {
+      h2.heading.h1 {
+        font-size: 48px;
+        line-height: 1.1;
+      }
+      .description.body-m  {
+        font-size: 24px;
+        line-height: 1.5;
+      }
+    }
+    @include breakpoint(large only) {
+      .description.body-m  {
+        font-size: 20px;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+.no-media .media {
+  display: none;
+}

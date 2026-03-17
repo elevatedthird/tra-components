@@ -1,0 +1,16 @@
+////
+/// General theme configuration.
+/// @group Configuration
+////
+
+$box-shadows: (
+  primary: 0 6px 20px rgba($color--brand--warm-black, 0.34902),
+);
+
+// Message Types.
+$message-types: (
+  error: $color--error--bg,
+  warning: $color--alert--bg,
+  info: $color--info--bg,
+  positive: $color--success--bg,
+);

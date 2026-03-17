@@ -1,0 +1,12 @@
+// ==========================================================================
+// Legacy Index Compatibility Shim
+// ==========================================================================
+//
+// Forwards to the new main entry point (src/_index.scss).
+// This file exists so that any consumer referencing the old
+// src/00-config/_index.scss path continues to work after the restructure.
+//
+// See also: src/00-config/_index.scss (which imports this shim)
+// ==========================================================================
+
+@import '../_index';

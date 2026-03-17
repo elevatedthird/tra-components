@@ -1,0 +1,64 @@
+.organism--sq-quote {
+  &.narrow {
+    max-width: 1188px;
+    margin: auto;
+  }
+  @include breakpoint(small down) {
+    &.image-right {
+      flex-direction: column-reverse;
+    }
+  }
+  @include breakpoint(medium) {
+    .media {
+      height: auto;
+      width: 270px;
+    }
+  }
+  @include breakpoint(medium up) {
+    .copy {
+      width: auto;
+      flex: 1 1 0;
+    }
+  }
+  @include breakpoint(large up) {
+    .media {
+      height: auto;
+      width: 324px;
+    }
+  }
+  .copy {
+    @include breakpoint(small down) {
+      h2.heading.h2 p {
+        font-size: $body-xl-smallscreen;
+        line-height: $heading-xs-line-height;
+      }
+      .attribution.body-l {
+        font-size: $body-md-font-size;
+        line-height: $heading-md-line-height;
+      }
+    }
+    @include breakpoint(medium only) {
+      h2.heading.h2 p {
+        font-size: $heading-xs-font-size;
+        line-height: $heading-xs-line-height;
+      }
+      .attribution.body-l {
+        font-size: $body-sm-smallscreen;
+        line-height: $body-sm-line-height;
+      }
+    }
+    @include breakpoint(large only) {
+      h2.heading.h2 p {
+        font-size: $label-xl-font-size;
+        line-height: $heading-md-line-height;
+      }
+      .attribution.body-l {
+        font-size: $label-md-font-size;
+        line-height: $label-xl-line-height;
+      }
+    }
+  }
+}
+.no-media .media {
+  display: none;
+}

@@ -1,0 +1,12 @@
+{
+  "color": {
+    "brand": {
+      "warm-black": { "value": "#281805", "type": "color" },
+      "aegon-blue": { "value": "#0069b4", "type": "color" },
+      "pure-white": { "value": "#FFFFFF", "type": "color" },
+      "focus-yellow": { "value": "#FDC828", "type": "color" },
+      "aegon-blue-800": { "value": "#0c2440", "type": "color" },
+      "warm-black-light": { "value": "#4F4F59", "type": "color" }
+    }
+  }
+}

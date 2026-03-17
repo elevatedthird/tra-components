@@ -1,0 +1,10 @@
+{
+  "typography": {
+    "font-family": {
+      "body": { "value": "\"Forever Forma Body\", \"Arial\", san-serif", "type": "fontFamily" },
+      "heading": { "value": "\"Forever Forma Heading\", \"Arial\", san-serif", "type": "fontFamily" },
+      "monospace": { "value": "Consolas, 'Liberation Mono', Courier, monospace", "type": "fontFamily" },
+      "icon": { "value": "\"Material Symbols Outlined\"", "type": "fontFamily" }
+    }
+  }
+}

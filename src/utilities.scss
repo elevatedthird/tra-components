@@ -1,0 +1,65 @@
+// ==========================================================================
+// Sequoia Design System — Utilities Stylesheet Entry Point
+// ==========================================================================
+//
+// Compiles to dist/css/utilities.css
+// Replaces the legacy src/01-global/scss/utilities.scss entry point.
+//
+// Load order:
+//   1. Foundation wrapper mixins (sq-* from vendor adapter)
+//   2. Custom Sequoia mixins (tra-*)
+//   3. Inline utility classes
+//   4. Layout-scoped utility partials
+// ==========================================================================
+
+// 1. Foundation wrapper mixins
+//@include foundation-typography;
+//
+@include sq-xy-grid-classes(true, true, true, true, true, true, true, true);
+@include sq-flex-classes;
+@include sq-visibility-classes;
+@include sq-text-alignment;
+@include sq-text-transformation;
+@include sq-text-decoration;
+@include sq-border-none;
+@include sq-sizing;
+@include sq-display;
+@include sq-responsive-embed;
+
+// 2. Custom Sequoia mixins
+@include tra-spacing();
+@include tra-min-sizing();
+@include tra-gap();
+
+// 3. Inline utility classes
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.stretched-link {
+  position: relative;
+}
+
+.stretched-link a::after, .stretched-link-tag-before::before {
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// 4. Layout-scoped utility partials
+.layout-container, .reveal {
+  @import 'utilities/typography';
+  @import 'utilities/general';
+  @import 'utilities/grid';
+  @import 'utilities/colors';
+  @import 'utilities/links';
+  @import 'utilities/buttons';
+  @import 'utilities/animation';
+}

@@ -1,0 +1,46 @@
+{
+  "typography": {
+    "font-size": {
+      "display": {
+        "xl": { "value": "192px", "type": "dimension" },
+        "xl-smallscreen": { "value": "96px", "type": "dimension" },
+        "lg": { "value": "144px", "type": "dimension" },
+        "lg-smallscreen": { "value": "72px", "type": "dimension" },
+        "md": { "value": "96px", "type": "dimension" },
+        "md-smallscreen": { "value": "64px", "type": "dimension" },
+        "sm": { "value": "64px", "type": "dimension" },
+        "sm-smallscreen": { "value": "48px", "type": "dimension" },
+        "xs": { "value": "40px", "type": "dimension" },
+        "xs-smallscreen": { "value": "32px", "type": "dimension" }
+      },
+      "heading": {
+        "xl": { "value": "60px", "type": "dimension" },
+        "xl-smallscreen": { "value": "40px", "type": "dimension" },
+        "lg": { "value": "48px", "type": "dimension" },
+        "lg-smallscreen": { "value": "36px", "type": "dimension" },
+        "md": { "value": "36px", "type": "dimension" },
+        "md-smallscreen": { "value": "32px", "type": "dimension" },
+        "sm": { "value": "26px", "type": "dimension" },
+        "sm-smallscreen": { "value": "26px", "type": "dimension" },
+        "xs": { "value": "20px", "type": "dimension" },
+        "xs-smallscreen": { "value": "22px", "type": "dimension" }
+      },
+      "body": {
+        "xl": { "value": "24px", "type": "dimension" },
+        "xl-smallscreen": { "value": "22px", "type": "dimension" },
+        "lg": { "value": "20px", "type": "dimension" },
+        "lg-smallscreen": { "value": "20px", "type": "dimension" },
+        "md": { "value": "16px", "type": "dimension" },
+        "md-smallscreen": { "value": "18px", "type": "dimension" },
+        "sm": { "value": "14px", "type": "dimension" },
+        "sm-smallscreen": { "value": "14px", "type": "dimension" }
+      },
+      "label": {
+        "xl": { "value": "26px", "type": "dimension" },
+        "lg": { "value": "20px", "type": "dimension" },
+        "md": { "value": "16px", "type": "dimension" },
+        "sm": { "value": "14px", "type": "dimension" }
+      }
+    }
+  }
+}

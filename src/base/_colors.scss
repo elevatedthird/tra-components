@@ -1,0 +1,18 @@
+//.bg-color--blue-pattern {
+//  background-repeat: no-repeat;
+//  background-size: cover;
+//  background-image: $blue-pattern;
+//}
+
+.dark-theme {
+  label, em, strong, i, small, .form-item, input, textarea, div, p, h1, h2, h3, h4, h5, h6, span, small, .p, .h1, .h2, .h3, .h4, .h5, .h6, .span, .small {
+    color: $color--white;
+  }
+}
+
+.light-theme {
+  color: $color--brand--warm-black;
+  .eyebrow {
+    color: $color--brand--contrasting--night-blue;
+  }
+}

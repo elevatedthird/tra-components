@@ -1,0 +1,74 @@
+.glide {
+  .glide__arrows {
+    position: relative;
+    order: -1;
+    width: 100%;
+    margin: $spacing-4 auto 0;
+    justify-content: center;
+    display: flex;
+    column-gap: $spacing-6;
+
+    @include breakpoint(large) {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      width: calc(100% + 84px);
+      justify-content: space-between;
+      margin: auto;
+      margin-left: -42px;
+    }
+    @include breakpoint(xlarge) {
+      width: calc(100% + 96px);
+      margin-left: -48px;
+    }
+
+    .glide__arrow {
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+
+      &:after, &:before {
+        background: $color--brand--warm-black;
+        padding-top: 9px;
+        border-radius: 50%;
+        font-weight: 600;
+        height: 36px;
+        width: 36px;
+        font-family: $icon-font-family;
+        font-size: 24px;
+        line-height: 18px;
+        display: inline-block;
+      }
+      &:hover, &:focus-visible {
+        opacity: .5;
+      }
+    }
+    .glide__arrow--left {
+      &:before {
+        content: "\e5cb"; // left arrow alt
+        padding-right: 1px;
+      }
+    }
+    .glide__arrow--right {
+      &:before {
+        content: "\e5cc"; // right arrow alt
+        padding-left: 1px;
+      }
+    }
+  }
+}
+
+.is-first-slide {
+  .glide__arrow--left {
+    opacity: .6;
+    pointer-events: none;
+  }
+}
+
+.is-last-slide {
+  .glide__arrow--right {
+    opacity: .6;
+    pointer-events: none;
+  }
+}

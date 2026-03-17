@@ -1,0 +1,123 @@
+////
+/// Framework - Buttons
+/// @group frameworkComponents
+////
+
+/*
+  Handle the combination of type and color profiles to build a
+  complete profile for a button
+  See config docroot/themes/custom/aries/source/00-config/settings/_buttons.scss
+ */
+@mixin btn($button-key: tertiary) {
+  $button-profile: extend-in-map($button-profiles, $button-key);
+  @if map-has-key($button-profile, color-profile) {
+    @include button-color-profile(map-get($button-profile, color-profile));
+  }
+  @if map-has-key($button-profile, type-profile) {
+    @include button-type-profile(map-get($button-profile, type-profile));
+  }
+}
+
+/*
+  Handle the color profile default and hover state.
+ */
+@mixin button-color-profile($key: tertiary) {
+  $profile: extend-in-map($button-color-profiles, $key);
+  @if map-has-key($profile, initial) {
+    @include button-color-profile-state($profile, initial);
+  }
+  @if map-has-key($profile, hover) {
+    &:hover, &:visited:hover {
+      @include button-type-profile-state($profile, hover)
+    }
+  }
+  @if map-has-key($profile, focus) {
+    &:focus-visible {
+      @include button-type-profile-state($profile, focus)
+    }
+  }
+  @if map-has-key($profile, active) {
+    &:active {
+      @include button-type-profile-state($profile, active)
+    }
+  }
+}
+
+
+/*
+  Handle the button type profile default and hover state.
+ */
+@mixin button-type-profile($key: tertiary) {
+  $profile: extend-in-map($button-type-profiles, $key);
+  @if map-has-key($profile, initial) {
+    @include button-type-profile-state($profile, initial)
+  }
+  @if map-has-key($profile, hover) {
+    &:hover, &:visited:hover {
+      @include button-type-profile-state($profile, hover)
+    }
+  }
+  @if map-has-key($profile, focus) {
+    &:focus-visible {
+      @include button-type-profile-state($profile, focus)
+    }
+  }
+  @if map-has-key($profile, active) {
+    &:active {
+      @include button-type-profile-state($profile, active)
+    }
+  }
+}
+
+
+/*
+  Handle the button type css thats printed
+ */
+@mixin button-type-profile-state($map, $key: initial) {
+  $state: extend-in-map($map, $key);
+  // Default global props and rules
+  cursor: pointer;
+  display: inline-block;
+  text-align: left;
+
+  @each $prop, $value in $state {
+    @if $prop != icon and $prop != icon-placement {
+      #{$prop}: $value;
+    }
+    @else {
+      @if $prop == icon {
+        @if $value == true {
+          &:after {
+            content: "\e941"; // right arrow alt
+            font-family: $icon-font-family;
+            margin-left: 5px;
+            font-size: 24px;
+            line-height: 0;
+            vertical-align: -7px;
+            display: inline-block;
+            transform: translateX(0px);
+            transition: transform 300ms linear;
+          }
+          &:hover, &:focus {
+            &:after {
+              transform: translateX(4px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+  Handle the button color css thats printed
+ */
+@mixin button-color-profile-state($map, $key: initial) {
+  $state: extend-in-map($map, $key);
+  @each $prop, $value in $state {
+    @if $prop != icon-color {
+      #{$prop}: $value;
+    }
+    //  @todo handle icon-color
+  }
+}

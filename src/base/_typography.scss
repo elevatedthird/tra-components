@@ -1,0 +1,134 @@
+@include extend_typography();
+
+// @todo Paragraph text can be controlled from
+body {
+  @include breakpoint(medium) {
+    font-size: rem-calc(18);
+  }
+
+  &.menu-active {
+    @include breakpoint(medium down) {
+      height: 100vh;
+      overflow: hidden;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  p {
+    margin: 0;
+  }
+}
+
+.text-formatted,
+.cke_editable,
+.simple-styleguide {
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    font-size: inherit;
+
+    &.file {
+      @include link(primary);
+
+      &:after {
+        content: "\f1c3";
+        font-family: 'Material Symbols Outlined', sans-serif;
+        margin-left: $spacing-sm;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      &:hover,
+      &:active,
+      &:visited {
+        color: $color--brand--warm-black;
+      }
+
+      &:focus-visible {
+        color: $color--brand--focus-yellow;
+      }
+    }
+  }
+
+  a.button {
+    &.button--primary {
+      @include btn(primary);
+    }
+
+    &.button--secondary {
+      @include btn(secondary);
+    }
+
+    &.button--tertiary {
+      @include btn(tertiary);
+    }
+
+    &+.button {
+      margin-left: $spacing-sm;
+    }
+  }
+}
+
+// Common List Styles.
+ul:not([class]),
+ul[class=""],
+ol {
+  li:not(:first-child) {
+    margin-top: $paragraph-margin-bottom;
+  }
+
+  ul,
+  ol {
+    margin-top: $paragraph-margin-bottom;
+
+    ul,
+    ol {
+      margin-left: 42px;
+    }
+  }
+}
+
+ol {
+  list-style-type: decimal;
+  margin-left: 28px;
+
+  ol {
+    list-style-type: lower-latin;
+
+    ol {
+      list-style-type: lower-roman;
+    }
+  }
+}
+
+.default-text-spacing:has(+ *) {
+
+  h1,
+  h2,
+  h3 {
+    margin-bottom: 1rem;
+  }
+}
+
+.form-type-processed-text, .nmblc {
+  *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+
+p.text__small {
+  font-size: $body-sm-smallscreen;
+  line-height: $body-sm-line-height;
+}

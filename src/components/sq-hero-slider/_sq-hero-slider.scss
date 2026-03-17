@@ -1,0 +1,259 @@
+@keyframes wipe-right {
+  0% {
+    clip-path: polygon(calc((100vw / var(--polygon-calc-key, 2.81) / 2)) 50%, 0% 0%, 100% 0%, 100% 100%, 0% 100%)
+  }
+  100% {
+    clip-path: polygon(calc(100% + (100vw / var(--polygon-calc-key, 2.81) / 2)) 50%, 100% 0%, 100% 0%, 100% 100%, 100% 100%);
+
+  }
+}
+
+@keyframes wipe-up {
+  0% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% calc(100% - var(--polygon-wipe-up, 13%)), 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 50% calc(0% - var(--polygon-wipe-up, 13%)), 0% 0%);
+  }
+}
+
+.organism--sq-hero-slider {
+  --play-icon: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2224px%22%20viewBox%3D%220%20-960%20960%20960%22%20width%3D%2224px%22%20fill%3D%22%235985E1%22%3E%3Cpath%20d%3D%22M320-200v-560l440%20280-440%20280Z%22%2F%3E%3C%2Fsvg%3E');
+  --pause-icon: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2224px%22%20viewBox%3D%220%20-960%20960%20960%22%20width%3D%2224px%22%20fill%3D%22%235985E1%22%3E%3Cpath%20d%3D%22M560-200v-560h160v560H560Zm-320%200v-560h160v560H240Z%22%2F%3E%3C%2Fsvg%3E');
+  @each $name, $color in $contrasting-colors {
+    &:has(.glide__slide--active .bg-color-contrasting-#{$name}) {
+      background-color: #{$color};
+    }
+  }
+  @each $name, $color in $vibrant-colors {
+    &:has(.glide__slide--active .bg-color-vibrant-#{$name}) {
+      background-color: #{$color};
+    }
+  }
+
+  --polygon-calc-key: 2.81;
+  @include breakpoint(xlarge) {
+    --polygon-calc-key: 3.41;
+  }
+
+  --polygon-wipe-up: 13%;
+  @include breakpoint(medium) {
+    --polygon-wipe-up: 17%;
+  }
+
+  .play-pause-icon {
+    span {
+      display: block;
+      height: 48px;
+      width: 48px;
+      margin-left: -16px;
+      margin-bottom: -16px;
+      background-color: $color--brand--pure-white;
+      mask-repeat: no-repeat;
+      mask-size: 24px;
+      mask-position: center;
+    }
+
+    &.paused span {
+      mask-image: var(--play-icon);
+    }
+
+    &.playing span {
+      mask-image: var(--pause-icon);
+    }
+
+    &:focus-visible {
+      outline: 4px auto $color--brand--focus-yellow;
+    }
+  }
+  @include breakpoint(mobile_menu) {
+    .glide__slides {
+      height: 100%;
+    }
+  }
+  .glide__slide {
+    height: auto;
+  }
+
+  .controls {
+    bottom: 17px;
+    left: 0;
+
+    .glide__arrows {
+      top: calc(337px - 110px - 25px);
+    }
+
+    // Small UI
+    @include breakpoint(xsmall only) {
+      .glide__arrows {
+        position: absolute;
+        right: 0;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        padding: 8px;
+
+        .play-pause-icon span, .material-symbols-outlined {
+          margin: 0;
+          width: 24px;
+          height: 24px;
+          color: white;
+        }
+      }
+    }
+
+    @include breakpoint(small) {
+      .glide__arrows {
+        position: static;
+        width: auto;
+        left: unset;
+        margin: 0;
+        display: inline-flex;
+        top: calc(426px - 110px - 19px);
+      }
+    }
+
+    // Small UI
+    @include breakpoint(small) {
+      position: absolute;
+
+      .glide__arrows {
+        margin-top: unset;
+      }
+
+      .glide__arrow {
+        display: none;
+      }
+    }
+
+    @media screen and #{breakpoint(small)} and #{breakpoint(medium down)} {
+      width: 50%;
+      left: 50%;
+      bottom: 48px;
+      justify-content: flex-end;
+    }
+
+    @include breakpoint(xlarge) {
+      padding-left: calc((100vw - 81rem) / 2);
+    }
+  }
+
+  .glide__bullets {
+    margin-left: 20px;
+    display: none;
+    margin-bottom: -16px;
+    align-items: center;
+
+    @media screen and #{breakpoint(small)} and #{breakpoint(medium down)} {
+      margin-left: 0px;
+    }
+
+    // Small UI
+    @include breakpoint(small) {
+      display: flex;
+    }
+
+    .glide__bullet {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:focus-visible {
+        outline: 4px auto $color--brand--focus-yellow;
+      }
+
+      &:after {
+        content: "";
+        width: 12px;
+        height: 12px;
+        display: block;
+        border-radius: 50%;
+        border: 1px solid $color--brand--pure-white;
+      }
+    }
+
+    .glide__bullet--active:after  {
+      background-color: $color--brand--pure-white;
+    }
+  }
+
+  &:has(.glide__slide--active [class*="bg-color-vibrant"]) {
+    .glide__bullet:after {
+      border: 1px solid $color--brand--warm-black;
+    }
+
+    .glide__bullets .glide__bullet--active:after, .play-pause-icon span {
+      background-color: $color--brand--warm-black;
+    }
+
+    .material-symbols-outlined {
+      color: $color--brand--warm-black;
+    }
+  }
+
+  .glide__slides {
+    transform: translate3d(0, 0, 0) !important;
+  }
+
+  .glide__slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    order: 2;
+    //opacity: 0;
+    transition: z-index 0ms linear 1000ms;
+
+    .molecule--sq-hero-slide--content-wrapper {
+      opacity: 0;
+      transition: opacity 900ms linear;
+    }
+  }
+
+  .glide__slide.glide__slide--active {
+    position: relative;
+    order: 1;
+    z-index: 2;
+
+    .molecule--sq-background-media {
+      clip-path: unset;
+    }
+
+    .molecule--sq-hero-slide--content-wrapper {
+      opacity: 1;
+    }
+  }
+
+  .glide__slide.pending {
+    order: 1;
+    //opacity: 1;
+    z-index: 1;
+
+    .molecule--sq-background-media {
+      clip-path: unset;
+    }
+
+  }
+
+  .glide__slide.slide-transitioning {
+    @include breakpoint(medium down) {
+      .molecule--sq-background-media {
+        animation: wipe-up 1000ms linear forwards;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 50% -10%, 0% 0%);
+      }
+    }
+    @include breakpoint(mobile_menu) {
+      .molecule--sq-background-media {
+        animation: wipe-right 1000ms linear forwards;
+        clip-path: polygon(calc(100% + (100vw / var(--polygon-calc-key, 1.71) / 2)) 50%, 100% 0%, 100% 0%, 100% 100%, 100% 100%);
+      }
+    }
+
+    .molecule--hero-slide--content-wrapper {
+      opacity: 0;
+    }
+  }
+}

@@ -1,0 +1,231 @@
+.organism--sq-tabs {
+  width: 100%;
+  .organism--tabs-description {
+    margin-top: $spacing-6;
+  }
+
+  .tab-list {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: $spacing-12;
+    width: 100%;
+
+    .move-list {
+      display: none;
+    }
+
+    &.has-scroll {
+      .tabs__tab-list {
+        margin-left: 1.5rem;
+      }
+
+      .ul-spacer--right {
+        min-width: 200px;
+      }
+
+      position: relative;
+      .move-list {
+        cursor: pointer;
+        padding: $spacing-3 0;
+        display: block;
+        position: absolute;
+        top: 2px;
+        z-index: 2;
+        color: $color--brand--warm-black;
+        border-bottom: 2px solid $color--brand--warm-black;
+
+        &.move-list-left {
+          left: 0;
+        }
+        &.move-list-right {
+          padding-left: 2rem;
+          right: 0;
+          background: linear-gradient(90deg, rgba(255,255,255,0) 0%, $white 50%, $white);
+        }
+      }
+
+
+    }
+  }
+
+  .tabs__tab-list {
+    display: flex;
+    list-style: none;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin: 0;
+    @include breakpoint(medium) {
+      overflow-x: hidden;
+      width: 100%;
+    }
+    // Make sure horizontal scroll bar doesn't show on IE11
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      overflow-x: hidden;
+    }
+
+    .ul-spacers {
+      border-bottom: 2px solid $color--brand--warm-black;
+      flex-grow: 1;
+    }
+
+    li {
+      display: block;
+      > a {
+        text-decoration: none;
+        position: relative;
+        display: inline-flex;
+        height: 52px;
+        padding: $spacing-3 $spacing-4 $spacing-3;
+
+        font-size: $body-md-font-size;
+        line-height: $body-md-line-height;
+        font-weight: $global-weight-medium;
+        white-space: nowrap;
+
+        box-sizing: border-box;
+
+        @include breakpoint(medium) {
+          padding: 12px 32px 12px;
+          border-top: 2px solid transparent;
+          border-bottom: 2px solid $color--brand--warm-black;
+          &.is-selected {
+            border: 2px solid $color--brand--warm-black;
+            border-bottom-color: transparent;
+          }
+        }
+
+        @include selectors(active) {
+          color: $color--brand--warm-black;
+        }
+        &:visited {
+          color: $color--brand--warm-black;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 32px;
+          right: 32px;
+          top: calc(100% - 13px);
+          height: 2px;
+          background-color: $color--brand--warm-black;
+          opacity: 1;
+          transform: scaleX(0);
+          transform-origin: center;
+          transition: opacity 300ms, transform 300ms;
+        }
+        &:hover::after,
+        &.is-active::after,
+        &.is-selected::after,
+        &:focus-visible::after {
+          color: $color--brand--warm-black;
+          transform: scaleX(1); // Show the line when hide-line is present
+          transform-origin: center;
+        }
+        &:focus-visible {
+          background-color: $color--brand--focus-yellow;
+        }
+      }
+    }
+  }
+
+  .tab-items {
+    @include breakpoint(medium) {
+      padding: 0 $spacing-8 $spacing-6 $spacing-8;
+    }
+  }
+
+
+  .tab-dropdown-label {
+    font-weight: $font-weight-bold;
+    margin-top: $spacing-8;
+    font-size: $body-xl-smallscreen;
+
+    @include left-right(margin, 0);
+    @include breakpoint(medium) {
+      display: none;
+    }
+  }
+
+  .tab-list.is-dropdown {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    @include breakpoint(medium) {
+      //width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    button.dropdown-button {
+      display: flex;
+      align-items: flex-start;
+      position: relative;
+      color: $color--brand--aegon-blue;
+      font-weight: 400;
+      width: 100%;
+      font-size: 16px;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border: 2px solid $color--brand--warm-black;
+      &:after {
+        color: $color--brand--warm-black;
+        font-weight: 600;
+        font-family: $icon-font-family;
+        font-size: 24px;
+        line-height: 18px;
+        display: inline-block;
+        content: "\e316";
+        transform: rotate(180deg);
+        transition: transform .25s;
+      }
+
+      .dropdown-button__text {
+        font-size: $label-lg-font-size;
+        font-weight: $font-weight-medium;
+      }
+
+      .dropdown-button__text, .dropdown-button__label, &:after {
+        color: $color--brand--warm-black;
+      }
+
+      &.is-open {
+        .dropdown-button__text, &:after, .dropdown-button__label {
+          color: $color--brand--warm-black;
+        }
+        &:after {
+          transform: none;
+        }
+      }
+    }
+    .tabs__tab-list {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      overflow-x: auto;
+      background: white;
+      z-index: 10;
+      display: none;
+      flex-direction: column;
+      .aries-tabs__trigger {
+        &:after {
+          left: 15px;
+          right: 15px;
+          bottom: 17px;
+          top: auto;
+          //display: none;
+        }
+      }
+    }
+    button.dropdown-button.is-open + .tabs__tab-list {
+      border: 2px solid $color--brand--warm-black;
+      li {
+        border: 0;
+      }
+      display: flex;
+    }
+  }
+}

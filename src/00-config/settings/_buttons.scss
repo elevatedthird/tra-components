@@ -1,0 +1,315 @@
+/// Button config
+/*
+  Config to control non color attributes of buttons default and hover state.
+   Will automatically use real css props and values but you will need to handle
+   custom props in the mixin:
+   See docroot/themes/custom/aries/source/00-config/mixins/_buttons.scss
+ */
+$button-type-profiles: (
+  primary: (
+    // state
+    initial: (
+      font-family: $body-font-family,
+      padding: 10px 24px,
+      icon: true,
+      icon-placement: after,
+      text-decoration: none,
+      border-width: 2px,
+      font-size: 1rem,
+      line-height: 1.5,
+      border-radius:24px,
+      font-weight: 500,
+      border-style: solid,
+      box-sizing: border-box,
+    ),
+  ),
+  tertiary: (
+    // state
+    initial: (
+      font-family: $body-font-family,
+      padding: 12px 0 10px 0,
+      icon: true,
+      icon-placement: after,
+      text-decoration: none,
+      font-size: 1rem,
+      line-height: 1.5,
+      font-weight: 500,
+      box-sizing: border-box,
+      border-bottom: 2px solid transparent
+    ),
+  ),
+  admin: (
+    initial: (
+      font-family: $body-font-family,
+      padding: 4px 8px,
+      icon: false,
+      text-decoration: none,
+      border-width: 1px,
+      font-size: 14px,
+      line-height: 1.5,
+      border-radius: 0,
+      font-weight: 500,
+      border-style: solid,
+      box-sizing: border-box,
+    ),
+  ),
+);
+
+/*
+ Config that only controls the color tones of buttons inactive/active state.
+ Will automatically use real css props and values but you will need to handle
+ custom props in the mixin:
+
+ See docroot/themes/custom/aries/source/00-config/mixins/_buttons.scss
+*/
+$button-color-profiles: (
+  primary: (
+    initial: (
+      color: $color--brand--pure-white,
+      background-color: $color--brand--warm-black,
+      icon-color: $color--brand--pure-white,
+      border-color: $color--brand--warm-black,
+    ),
+    hover: (
+      color: $color--white,
+      background-color: $color--brand--warm-black,
+      icon-color: $color--white,
+      text-decoration: underline,
+      text-underline-offset: 6px,
+      text-decoration-thickness: 2px,
+      border-color: $color--brand--warm-black,
+    ),
+    focus: (
+      background-color: $color--brand--focus-yellow,
+      color: $color--brand--warm-black,
+      border-color: $color--brand--warm-black,
+    ),
+    active: (
+      background-color: $color--brand--warm-black,
+      border-color: $color--brand--warm-black,
+      opacity: 0.6,
+      color: $color--brand--pure-white,
+    ),
+    disabled: (
+      background-color: $color--inactive-grey,
+      border-color: $color--inactive-grey,
+      color: $color--brand--pure-white,
+    )
+  ),
+  primary-contrasting: (
+    initial: (
+      color: $color--brand--warm-black,
+      background-color: $color--brand--pure-white,
+      icon-color: $color--brand--warm-black,
+      border-color: $color--brand--pure-white,
+    ),
+    hover: (
+      color: $color--brand--warm-black,
+      background-color: $color--brand--pure-white,
+      icon-color: $color--brand--warm-black,
+      border-color: $color--brand--pure-white,
+      text-decoration: underline,
+      text-underline-offset: 6px,
+      text-decoration-thickness: 2px,
+    ),
+    focus: (
+      background-color: $color--brand--focus-yellow,
+      color: $color--brand--warm-black,
+      border-color: $color--brand--warm-black,
+    ),
+    active: (
+      background-color: $color--brand--pure-white,
+      border-color: $color--brand--pure-white,
+      opacity: 0.6,
+    ),
+    disabled: (
+      background-color: $color--inactive-grey,
+      border-color: $color--inactive-grey,
+      color: $color--brand--warm-black,
+    )
+  ),
+  secondary: (
+    initial: (
+      background-color: transparent,
+      border-color: $color--brand--warm-black,
+      color: $color--brand--warm-black,
+      icon-color: $color--brand--warm-black,
+    ),
+    hover: (
+      text-decoration: underline,
+      text-underline-offset: 6px,
+      text-decoration-thickness: 2px,
+      color: $color--brand--warm-black,
+      border-color: $color--brand--warm-black,
+    ),
+    focus: (
+      background-color: $color--brand--focus-yellow,
+      border-color: $color--brand--warm-black,
+    ),
+    active: (
+      border-color: $color--brand--warm-black,
+      background-color: transparent,
+      color: $color--brand--warm-black,
+      opacity: 0.6,
+    ),
+    disabled: (
+      border-color: $color--inactive-grey,
+      color: $color--inactive-grey,
+    )
+  ),
+  secondary-contrasting: (
+    initial: (
+      background-color: transparent,
+      border-color: $color--brand--pure-white,
+      color: $color--brand--pure-white,
+      icon-color: $color--brand--pure-white,
+    ),
+    hover: (
+      text-decoration: underline,
+      color: $color--brand--pure-white,
+      border-color: $color--brand--pure-white,
+      text-underline-offset: 6px,
+      text-decoration-thickness: 2px,
+    ),
+    focus: (
+      background-color: $color--brand--focus-yellow,
+      border-color: $color--brand--warm-black,
+    ),
+    active: (
+      border-color: $color--brand--pure-white,
+      background-color: transparent,
+      color: $color--brand--pure-white,
+      opacity: 0.6,
+    ),
+    disabled: (
+      border-color: $color--inactive-grey,
+      color: $color--inactive-grey,
+    )
+  ),
+  tertiary: (
+    initial: (
+      color: $color--brand--warm-black,
+      icon-color: $color--brand--warm-black,
+    ),
+    hover: (
+      text-decoration: underline,
+      text-underline-offset: 6px,
+      text-decoration-thickness: 2px,
+      color: $color--brand--warm-black,
+    ),
+    focus: (
+      background-color: $color--brand--focus-yellow,
+      border-color: $color--brand--warm-black,
+      color: $color--brand--warm-black,
+    ),
+    active: (
+      background-color: transparent,
+      color: $color--brand--warm-black,
+      opacity: 0.6,
+      border-color: trasparent,
+    ),
+    disabled: (
+      color: $color--inactive-grey,
+    )
+  ),
+  tertiary-contrasting: (
+    initial: (
+      color: $color--brand--pure-white,
+      icon-color: $color--brand--pure-white,
+    ),
+    hover: (
+      color: $color--brand--pure-white,
+      text-decoration: underline,
+      text-underline-offset: 6px,
+      text-decoration-thickness: 2px,
+    ),
+    focus: (
+      background-color: $color--brand--focus-yellow,
+      border-color: $color--brand--warm-black,
+      color: $color--brand--warm-black,
+    ),
+    active: (
+      background-color: transparent,
+      color: $color--brand--pure-white,
+      opacity: 0.6,
+      border-color: trasparent,
+    ),
+    disabled: (
+      color: $color--inactive-grey,
+    )
+  ),
+  admin: (
+    initial: (
+      background-color: transparent,
+      border-color: $color--brand--warm-black,
+      color: $color--brand--warm-black,
+    ),
+    hover: (
+      text-decoration: none,
+      color: $color--brand--warm-black,
+      background-color: $color--light-grey-7,
+    ),
+    focus: (
+      background-color: $color--brand--focus-yellow,
+      border-color: $color--brand--warm-black,
+      color: $color--brand--warm-black,
+    ),
+    active: (
+      background-color: transparent,
+      color: $color--brand--warm-black,
+      opacity: 0.6,
+    ),
+    disabled: (
+      color: $color--inactive-grey,
+    )
+  ),
+);
+
+
+/*
+  Config to combine type and color profiles.
+  See docroot/themes/custom/aries/source/01-global/scss/general/_buttons.scss
+  See docroot/themes/custom/aries/source/00-config/mixins/_buttons.scss
+ */
+$button-profiles: (
+  primary: (
+    type-profile: primary,
+    color-profile: primary,
+  ),
+  primary-vibrant: (
+    type-profile: primary,
+    color-profile: primary,
+  ),
+  primary-contrasting: (
+    type-profile: primary,
+    color-profile: primary-contrasting,
+  ),
+  secondary: (
+    type-profile: primary,
+    color-profile: secondary,
+  ),
+  secondary-vibrant: (
+    type-profile: primary,
+    color-profile: secondary,
+  ),
+  secondary-contrasting: (
+    type-profile: primary,
+    color-profile: secondary-contrasting,
+  ),
+  tertiary: (
+    type-profile: tertiary,
+    color-profile: tertiary,
+  ),
+  tertiary-vibrant: (
+    type-profile: tertiary,
+    color-profile: tertiary,
+  ),
+  tertiary-contrasting: (
+    type-profile: tertiary,
+    color-profile: tertiary-contrasting,
+  ),
+  admin: (
+    type-profile: admin,
+    color-profile: admin,
+  ),
+);

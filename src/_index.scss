@@ -1,0 +1,40 @@
+// ==========================================================================
+// Sequoia Design System — Main Configuration Entry Point
+// ==========================================================================
+//
+// This file is the primary entry point for all Sequoia configuration,
+// variables, mixins, and settings. It replaces the legacy
+// src/00-config/_index.scss entry point.
+//
+// Load order:
+//   1. Generated token variables (from Style Dictionary)
+//   2. Foundation vendor layer (utilities, framework, adapter)
+//   3. Settings (colors, typography, sizing, config, etc.)
+//   4. Sequoia mixins (all custom mixins via framework barrel)
+//   5. Post-setting includes (icons, silent typography)
+// ==========================================================================
+
+// 1. Generated design token variables
+@import 'generated/variables';
+
+// 2. Foundation vendor layer (utilities + framework + adapter)
+@import 'vendor/foundation/index';
+
+// 3. Settings
+@import '00-config/settings/colors';
+@import '00-config/settings/settings';
+@import '00-config/settings/links';
+@import '00-config/settings/buttons';
+@import '00-config/settings/config';
+@import '00-config/settings/sizing';
+@import '00-config/settings/typography';
+@import '00-config/settings/lists';
+@import '00-config/settings/theme-profiles';
+@import '00-config/settings/shapes';
+
+// 4. Sequoia mixins (all custom mixins)
+@import 'mixins/framework';
+
+// 5. Post-setting includes
+@include aries-icons(false);
+@include silent_typography();

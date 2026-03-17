@@ -1,0 +1,20 @@
+@each $key, $value in $button-profiles {
+  // These are a combination of type and color
+  .buttons--#{$key} .button, .button.button--#{$key} {
+    @include btn($key);
+  }
+}
+
+@each $key, $value in $button-color-profiles {
+  // control the color state of the button
+  .buttons--color--#{$key} .button, .button.button--color--#{$key} {
+    @include button-color-profile($key);
+  }
+}
+
+@each $key, $value in $button-type-profiles {
+  // Controls the type, border, border-width and such of a button
+  .buttons--type--#{$key} .button, .button.button--type--#{$key} {
+    @include button-type-profile($key);
+  }
+}

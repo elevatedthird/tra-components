@@ -1,0 +1,178 @@
+// split out video component
+// recommend not using image background
+// not using specific height or changing min-height
+// talk about it with TRA.
+.organism--sq-hero {
+  overflow: hidden;
+
+  &--media {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 1.2 / 1;
+
+    @include breakpoint(large) {
+      aspect-ratio: initial;
+    }
+  }
+
+  .organism--sq-hero--grid {
+    //height: 800px;
+    .cell.media {
+      height: 400px;
+    }
+
+    @include breakpoint(small down) {
+      //height: 600px;
+      .cell.media {
+        height: 300px;
+      }
+    }
+
+    @include breakpoint(large) {
+      height: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 90rem;
+      .cell.media {
+        height: 100%;
+      }
+    }
+
+    @include breakpoint(xlarge) {
+      .left {
+        padding-right: 4.5rem;
+      }
+
+      .right {
+        padding-left: 4.5rem;
+      }
+    }
+
+  }
+
+  &--content-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-13 0;
+    justify-content: center;
+
+    @include breakpoint(medium) {
+      padding: $spacing-23 0;
+      //height: 600px;
+    }
+
+    .heading {
+      margin-bottom: 0;
+
+      @include breakpoint(small) {
+        font-size: $heading-md-smallscreen;
+        line-height: $heading-md-line-height;
+      }
+
+      @include breakpoint(medium) {
+        font-size: $heading-xl-font-size;
+        line-height: $heading-xl-line-height;
+      }
+    }
+
+    .subhead {
+      font-size: $body-md-smallscreen;
+      @include breakpoint(medium) {
+        font-size: $heading-sm-font-size;
+      }
+      @include breakpoint(xlarge) {
+        font-size: $heading-md-font-size;
+      }
+    }
+    .description {
+      font-size: $body-md-font-size;
+      line-height: $body-xl-line-height;
+      @include breakpoint(medium) {
+        font-size: $body-xl-font-size;
+        line-height: $body-xl-line-height;
+      }
+    }
+
+    .links {
+      margin-bottom: 0;
+      display: grid;
+      margin-top: $spacing-4;
+      justify-content: space-between;
+      grid-template-columns: auto;
+      column-gap: 1rem;
+      row-gap: 1rem;
+
+      @include breakpoint(large) {
+        margin-top: $spacing-6;
+      }
+
+      @include breakpoint(xlarge) {
+        display: flex;
+        margin-top: $spacing-8;
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  @include breakpoint(mobile_menu down) {
+    .grid-x {
+      .xsmall-12 {
+        height: 50%;
+      }
+    }
+
+    .media {
+      order: 1;
+    }
+
+    .copy {
+      order: 2;
+    }
+  }
+
+  @include breakpoint('large') {
+    .height_560 {
+      height: 560px;
+
+      .organism--sq-hero--grid--media img {
+        height: 560px;
+      }
+    }
+
+    .height_480 {
+      height: 480px;
+
+      .organism--sq-hero--grid--media img {
+        height: 480px;
+      }
+
+    }
+
+    .height_280 {
+      height: 280px;
+
+      .organism--sq-hero--grid--media img {
+        height: 280px;
+      }
+
+      .organism--sq-hero--content-wrapper {
+        .heading {
+          font-size: $heading-lg-font-size;
+          line-height: $heading-lg-line-height;
+        }
+
+        .links {
+          display: none;
+        }
+      }
+    }
+
+  }
+
+  @include breakpoint(small only) {
+    .grid-container {
+      padding: 0 1.875rem;
+    }
+  }
+}

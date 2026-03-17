@@ -1,0 +1,78 @@
+.molecule--sq-accordion-item.molecule--sq-accordion-item {
+  a {
+    &:hover, &:focus {
+      color: $color--brand--warm-black;
+    }
+  }
+
+  &:after {
+    background: $color--light-grey-5;
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  &:first-of-type:before {
+    height: 1px;
+  }
+
+  .accordion-content {
+    padding: 0;
+  }
+
+  .expand-more:after {
+    content: "\e5cf";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    transition: all ease-in-out 0.4s;
+    font-size: 26px;
+    height: 26px;
+  }
+
+  &.is-active {
+    border-color: $color--light-grey-5;
+
+    .expand-more:after {
+      transform: rotate(180deg);
+      transition: all ease-in-out 0.4s;
+    }
+  }
+
+  &:last-child > .accordion-content:last-child {
+    border: none;
+  }
+
+  .molecule--accordion-item--title {
+    font-weight: $global-weight-medium;
+    padding-right: 2rem;
+  }
+  .molecule--accordion-item--title,
+  .molecule--accordion-item--description  {
+    word-wrap: break-word;
+    white-space: normal;
+    @include breakpoint(small) {
+    font-size: $body-lg-smallscreen;
+    line-height: $body-lg-line-height;
+    }
+  }
+
+  // @todo should probably have this be a component called link-list. list of links with alternating background colors.
+  .organism--accordion--link-wrapper {
+    display: inline-block;
+    width: 100%;
+    border-collapse: collapse;
+
+    > a {
+      width: 100%;
+    }
+
+    > a:nth-child(even) {
+      background-color: #F5F4F2;
+    }
+  }
+}

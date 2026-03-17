@@ -1,0 +1,17 @@
+{
+  "color": {
+    "ui": {
+      "error": { "value": "#CF0000", "type": "color" },
+      "error-bg": { "value": "#FFEAEB", "type": "color" },
+      "success": { "value": "#0D7406", "type": "color" },
+      "success-bg": { "value": "#E3F5E1", "type": "color" },
+      "alert": { "value": "#8A610E", "type": "color" },
+      "alert-bg": { "value": "#FFF7E6", "type": "color" },
+      "info": { "value": "#0061F4", "type": "color" },
+      "info-bg": { "value": "#E0ECFE", "type": "color" },
+      "focus": { "value": "#0061F4", "type": "color" },
+      "focus-yellow": { "value": "#FDC828", "type": "color" },
+      "footer-bg": { "value": "#1F355E", "type": "color" }
+    }
+  }
+}
