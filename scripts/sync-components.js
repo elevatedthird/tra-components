@@ -4,7 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 const [,, target, themeArg] = process.argv;
-const srcDir = path.resolve(__dirname, '../src');
+const srcDir = path.resolve(__dirname, '../src/components');
 const targetDir = path.resolve(target);
 const themeName = themeArg || path.basename(targetDir);
 
