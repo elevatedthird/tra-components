@@ -12,17 +12,13 @@
 //   4. Global overrides
 // ==========================================================================
 
-// 1. Font definitions
-@import "assets/fonts/font-definitions.css";
-@import "assets/fonts/icomoon/style.css";
-
-// 2. Main configuration (tokens, vendor, settings, mixins)
+// 1. Main configuration (tokens, vendor, settings, mixins)
 @import "index";
 
-// 3. Base application styles
+// 2. Base application styles
 @import 'base/app';
 
-// 4. Global overrides
+// 3. Global overrides
 button {
   cursor: pointer;
 }
