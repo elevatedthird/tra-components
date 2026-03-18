@@ -11,6 +11,26 @@ import StyleDictionary from 'style-dictionary';
 // Custom transform name constants
 const SCSS_LEGACY_NAME_TRANSFORM = 'name/scss-legacy';
 const CSS_SQ_PREFIX_TRANSFORM = 'name/css-sq-prefix';
+const FONT_FAMILY_VALUE_TRANSFORM = 'value/font-family-unquote';
+
+/**
+ * Strips wrapping quotes from font-family token values so that
+ * Style Dictionary's scss/variables format does not double-quote them.
+ *
+ * Token value: "Forever Forma Body", "Arial", san-serif
+ * Without transform → $var: '"Forever Forma Body"', "Arial", san-serif  (broken)
+ * With transform    → $var: Forever Forma Body, Arial, san-serif        (correct — Sass re-quotes as needed)
+ */
+StyleDictionary.registerTransform({
+  name: FONT_FAMILY_VALUE_TRANSFORM,
+  type: 'value',
+  filter: (token) => token.path[1] === 'font-family',
+  transform: (token) => {
+    // Remove wrapping double-quotes from each segment of the comma-separated list
+    // e.g. '"Forever Forma Body"' → 'Forever Forma Body'
+    return token.value.replace(/"([^"]+)"/g, '$1');
+  },
+});
 
 /**
  * Generates SCSS variable names matching legacy naming conventions.
@@ -236,7 +256,7 @@ const config = {
   platforms: {
     scss: {
       transformGroup: 'scss',
-      transforms: ['attribute/cti', 'name/kebab', SCSS_LEGACY_NAME_TRANSFORM],
+      transforms: ['attribute/cti', 'name/kebab', SCSS_LEGACY_NAME_TRANSFORM, FONT_FAMILY_VALUE_TRANSFORM],
       buildPath: 'src/generated/',
       files: [
         {
@@ -261,7 +281,7 @@ const config = {
 
     css: {
       transformGroup: 'css',
-      transforms: ['attribute/cti', 'name/kebab', CSS_SQ_PREFIX_TRANSFORM],
+      transforms: ['attribute/cti', 'name/kebab', CSS_SQ_PREFIX_TRANSFORM, FONT_FAMILY_VALUE_TRANSFORM],
       prefix: 'sq',
       buildPath: 'src/generated/',
       files: [
