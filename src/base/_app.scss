@@ -12,7 +12,6 @@
 
 .layout-container, .reveal {
   @include aries-icons();
-  @import "theme-profiles";
   @import "general";
   @import "grid";
   @import "typography";

@@ -17,6 +17,9 @@
 // Foundation pre-setting utilities (rem-calc, unit functions, breakpoint, etc.)
 @import 'foundation-sites/scss/util/util';
 
+// Foundation settings (depends on util for rem-calc, etc.)
+@import 'settings';
+
 // Foundation framework (components, grid, typography, etc.)
 @import 'foundation-sites/scss/foundation';
 

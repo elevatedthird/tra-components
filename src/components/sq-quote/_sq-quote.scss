@@ -29,7 +29,7 @@
   .copy {
     @include breakpoint(small down) {
       h2.heading.h2 p {
-        font-size: $body-xl-smallscreen;
+        font-size: $body-xl-smallscreen-font-size;
         line-height: $heading-xs-line-height;
       }
       .attribution.body-l {
@@ -43,7 +43,7 @@
         line-height: $heading-xs-line-height;
       }
       .attribution.body-l {
-        font-size: $body-sm-smallscreen;
+        font-size: $body-sm-smallscreen-font-size;
         line-height: $body-sm-line-height;
       }
     }

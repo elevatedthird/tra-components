@@ -90,13 +90,15 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              additionalData: '@import "./src/_index.scss";',
+              api: 'modern',
+              additionalData: `@import "${path.resolve(__dirname, 'src/_index.scss').replace(/\\/g, '/')}";`,
               sassOptions: {
-                includePaths: [
+                loadPaths: [
                   path.resolve(__dirname, 'src'),
                   path.resolve(__dirname, 'node_modules'),
                   path.resolve(__dirname, 'node_modules/foundation-sites/scss'),
                 ],
+                silenceDeprecations: ['import', 'global-builtin'],
               },
             },
           }
@@ -110,6 +112,9 @@ module.exports = {
       filename: '[name].css'
     })
   ],
+  performance: {
+    hints: false,
+  },
   devtool: 'source-map',
   mode: 'development'
 };

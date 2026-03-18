@@ -56,7 +56,7 @@
     word-wrap: break-word;
     white-space: normal;
     @include breakpoint(small) {
-    font-size: $body-lg-smallscreen;
+    font-size: $body-lg-smallscreen-font-size;
     line-height: $body-lg-line-height;
     }
   }

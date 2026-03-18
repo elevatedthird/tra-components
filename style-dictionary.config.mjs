@@ -116,6 +116,120 @@ StyleDictionary.registerTransform({
   },
 });
 
+// ---------------------------------------------------------------------------
+// Custom Format: SCSS Spacing Map
+// ---------------------------------------------------------------------------
+// Generates $spacing-map from spacing.scale tokens, referencing $spacing-N vars.
+
+StyleDictionary.registerFormat({
+  name: 'scss/spacing-map',
+  format: ({ dictionary }) => {
+    const header = [
+      '// Do not edit directly, this file was auto-generated.',
+      '',
+      '$base-spacing: 1rem !default;',
+      '$spacing-sm: ($base-spacing * 0.5) !default;',
+      '',
+    ];
+
+    const tokens = dictionary.allTokens
+      .filter((t) => t.path[0] === 'spacing' && t.path[1] === 'scale')
+      .sort((a, b) => Number(a.path[2]) - Number(b.path[2]));
+
+    const entries = ['  0: 0,'];
+    for (const t of tokens) {
+      const key = t.path[2];
+      entries.push(`  ${key}: $spacing-${key},`);
+    }
+
+    return [
+      ...header,
+      '$spacing-map: (',
+      ...entries,
+      ') !default;',
+      '',
+    ].join('\n');
+  },
+});
+
+// ---------------------------------------------------------------------------
+// Custom Format: SCSS Color Maps
+// ---------------------------------------------------------------------------
+// Generates $contrasting-colors, $vibrant-colors, and neutral short-form
+// aliases from color tokens.
+
+StyleDictionary.registerFormat({
+  name: 'scss/color-maps',
+  format: ({ dictionary }) => {
+    const lines = [
+      '// Do not edit directly, this file was auto-generated.',
+      '',
+    ];
+
+    // --- Neutral short-form aliases ---
+    lines.push('// Neutral color aliases');
+    const neutrals = dictionary.allTokens.filter(
+      (t) =>
+        t.path[0] === 'color' &&
+        t.path[1] === 'neutral' &&
+        // Only the legacy short-form names (exclude newer tokens like neutral-100)
+        /^(white|black|black-base|inactive-grey|light-grey-\d|dark-grey-\d)$/.test(
+          t.path[2]
+        )
+    );
+    for (const t of neutrals) {
+      lines.push(
+        `$color--${t.path[2]}: $color--neutral--${t.path[2]} !default;`
+      );
+    }
+
+    // --- Contrasting colors map ---
+    lines.push('');
+    lines.push('// Contrasting colors map');
+    const contrasting = dictionary.allTokens.filter(
+      (t) =>
+        t.path[0] === 'color' &&
+        t.path[1] === 'brand' &&
+        t.path[2] === 'contrasting'
+    );
+    const contrastingEntries = contrasting.map(
+      (t) =>
+        `  "${t.path[3]}": $color--brand--contrasting--${t.path[3]},`
+    );
+    // Include warm-black as the last entry (it's a brand token, not contrasting)
+    contrastingEntries.push('  "warm-black": $color--brand--warm-black,');
+    lines.push(
+      '$contrasting-colors: (',
+      ...contrastingEntries,
+      ') !default;',
+    );
+
+    // --- Vibrant colors map ---
+    lines.push('');
+    lines.push('// Vibrant colors map');
+    const vibrant = dictionary.allTokens.filter(
+      (t) =>
+        t.path[0] === 'color' &&
+        t.path[1] === 'brand' &&
+        t.path[2] === 'vibrant'
+    );
+    const vibrantEntries = vibrant.map(
+      (t) =>
+        `  "${t.path[3]}": $color--brand--vibrant--${t.path[3]},`
+    );
+    // Include pure-white as the last entry
+    vibrantEntries.push('  "white": $color--brand--pure-white,');
+    lines.push(
+      '$vibrant-colors: (',
+      ...vibrantEntries,
+      ') !default;',
+    );
+
+    lines.push('');
+    return lines.join('\n');
+  },
+});
+
 const config = {
   source: ['tokens/**/*.json'],
 
@@ -131,6 +245,16 @@ const config = {
           options: {
             outputReferences: true,
           },
+        },
+        {
+          destination: '_spacing-map.scss',
+          format: 'scss/spacing-map',
+          filter: (token) => token.path[0] === 'spacing',
+        },
+        {
+          destination: '_color-maps.scss',
+          format: 'scss/color-maps',
+          filter: (token) => token.path[0] === 'color',
         },
       ],
     },

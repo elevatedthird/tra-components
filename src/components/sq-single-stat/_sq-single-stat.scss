@@ -33,7 +33,7 @@
     }
 
     .description p {
-      font-size: $body-md-smallscreen;
+      font-size: $body-md-smallscreen-font-size;
     }
 
     @include breakpoint(medium) {

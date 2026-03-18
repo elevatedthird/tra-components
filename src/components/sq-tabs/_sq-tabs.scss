@@ -139,7 +139,7 @@
   .tab-dropdown-label {
     font-weight: $font-weight-bold;
     margin-top: $spacing-8;
-    font-size: $body-xl-smallscreen;
+    font-size: $body-xl-smallscreen-font-size;
 
     @include left-right(margin, 0);
     @include breakpoint(medium) {

@@ -1,3 +1,11 @@
+// ---------------------------------------------------------------------------
+// Computed Link Colors (derived from generated tokens)
+// ---------------------------------------------------------------------------
+
+$color--link--active: rgba($color--link--default, 0.6) !default;
+$color--link--rev--hover: rgba($color--link--rev--default, 0.4) !default;
+$color--link--rev--active: rgba($color--link--rev--default, 0.6) !default;
+
 /// Links config
 $link-profiles: (
   default: (

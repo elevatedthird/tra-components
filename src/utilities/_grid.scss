@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use 'sass:meta';
 
 .grid-container.small-gutters {
   @include -zf-each-breakpoint {
@@ -165,7 +166,7 @@
 
 .layout {
   @each $name, $size in $bottom-margins {
-    @if type-of($size) == 'map' {
+    @if meta.type-of($size) == 'map' {
       @each $breakpoint, $value in $size {
         @include breakpoint($breakpoint) {
           &.bottom-margin--#{$name}:not(.collapse-margins):not(.layout-builder__layout) {
@@ -182,7 +183,7 @@
 
   @each $name, $size in $top-margins {
     // check is $size is a map
-    @if type-of($size) == 'map' {
+    @if meta.type-of($size) == 'map' {
       @each $breakpoint, $value in $size {
         @include breakpoint($breakpoint) {
           &.top-margin--#{$name}:not(.collapse-margins):not(.layout-builder__layout) {

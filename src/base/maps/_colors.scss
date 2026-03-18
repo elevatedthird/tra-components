@@ -1,0 +1,18 @@
+$gradients: (
+  white-fade: linear-gradient(90deg, $color--white 64.72%, transparent 96.07%),
+);
+
+$color--focus--yellow: $color--brand--focus-yellow !default;
+
+$box-shadows: (
+  primary: $box-shadow-primary,
+) !default;
+
+$text-color-profiles: (
+  light: (
+    default: white,
+  ),
+  dark: (
+    default: $color--brand--warm-black,
+  ),
+) !default;
