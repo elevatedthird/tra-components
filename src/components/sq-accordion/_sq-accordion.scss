@@ -1,0 +1,11 @@
+.organism--sq-accordion {
+  z-index: 0;
+
+  .molecule--sq-accordion-item:first-of-type:before {
+    background: $color--light-grey-5;
+    content: "";
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+}

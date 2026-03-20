@@ -1,0 +1,198 @@
+// split out video component
+// recommend not using image background
+// not using specific height or changing min-height
+// talk about it with TRA.
+
+.molecule--sq-hero-slide.molecule--sq-hero-slide {
+  height: 100%;
+
+  .molecule--sq-hero-slide--grid {
+    min-height: 490px;
+    @include breakpoint(mobile_menu down) {
+      padding: 0;
+    }
+  }
+  .molecule--sq-hero-slide--grid--media {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1.5/1;
+    position: absolute;
+
+    @include breakpoint(large) {
+      aspect-ratio: unset;
+      .molecule--sq-background-media {
+        padding-left: calc((100vw - 26rem) / 2);
+        img {
+          object-position: top right;
+        }
+      }
+    }
+  }
+
+  .shape.shape.shape {
+    transition: unset;
+    @include breakpoint(mobile_menu down) {
+      padding: 0 $spacing-5;
+      & > div {
+        height: auto;
+      }
+    }
+  }
+  // need to alter the arrow shape to squeeze text in it.
+  @include breakpoint(mobile_menu down) {
+    .mobile--arrow--top.mobile--arrow--top {
+      clip-path: polygon(50% 0%, 100% 17%, 100% 100%, 0% 100%, 0% 17%);
+    }
+  }
+
+  @include breakpoint(small down) {
+    .mobile--arrow--top.mobile--arrow--top {
+      clip-path: polygon(50% 0%, 100% 13%, 100% 100%, 0% 100%, 0% 13%);
+    }
+  }
+
+  @include breakpoint(large) {
+    .arrow--right.arrow--right {
+      clip-path: polygon(0% 0%, 60% 0%, 90% 50%, 60% 100%, 0% 100%);
+    }
+  }
+
+
+  .molecule--sq-hero-slide--content-wrapper {
+    justify-content: center;
+    margin-top: 337px;
+    padding-top: 7rem;
+    //padding-bottom: 4rem;
+    // Small UI
+    padding-bottom: 2rem;
+    height: calc(100% - 337px) !important;
+
+    .heading {
+      font-size: 36px;
+      margin-bottom: 0;
+    }
+
+    .subhead {
+      font-size: 18px;
+      line-height: 120%;
+      margin-top: 8px;
+      margin-bottom: 0;
+    }
+
+    .description {
+      font-size: 16px;
+      line-height: 150%;
+      margin-top: 8px;
+      margin-bottom: 0;
+    }
+
+
+    @media screen and #{breakpoint(small)} and #{breakpoint(medium down)} {
+      margin-top: 436px;
+      height: calc(100% - 436px) !important;
+      padding-top: 8rem;
+      padding-bottom: calc(48px + 32px + 1.25rem);
+      position: relative;
+      justify-content: flex-start;
+
+      .links {
+        width: 50%;
+        position: absolute;
+        bottom: 32px;
+      }
+
+      &:not(:has(.links)) {
+        .description, .subhead {
+          padding-bottom: 4.25rem;
+        }
+      }
+
+    }
+
+    // Small UI
+    @include breakpoint(xsmall only) {
+      .links {
+        width: 100%;
+      }
+    }
+
+    @include breakpoint(medium only) {
+      padding-top: 10rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-bottom: calc(48px + 32px + 2rem);
+
+      .heading {
+        font-size: 54px;
+        margin-top: -6px;
+      }
+
+      .subhead {
+        font-size: 28px;
+        line-height: 120%;
+        margin-top: 18px;
+      }
+
+      .description {
+        font-size: 24px;
+        margin-top: 18px;
+      }
+
+      &:not(:has(.links)) {
+        .description, .subhead {
+          padding-bottom: 5rem;
+        }
+      }
+    }
+
+    @include breakpoint(medium down) {
+      .heading,  .description, .subhead {
+        margin-bottom: 0;
+      }
+    }
+
+    @include breakpoint(mobile_menu) {
+      margin-top: unset;
+      padding-top: 4rem;
+      width: 75%;
+      padding-bottom: 4rem;
+      height: 100% !important;
+
+      .heading {
+        font-size: 60px;
+        margin-top: -6px;
+      }
+
+      .subhead {
+        font-size: 36px;
+        line-height: 120%;
+        margin-top: 12px;
+      }
+
+      .description {
+        font-size: 24px;
+        margin-top: 12px;
+      }
+
+      .links {
+        position: static;
+        width: 100%;
+      }
+
+      &:not(:has(.links)) {
+        .description, .subhead {
+          padding-bottom: 0;
+        }
+      }
+    }
+    @include breakpoint(large) {
+      width: 72%;
+    }
+  }
+
+}

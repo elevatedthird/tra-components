@@ -1,0 +1,15 @@
+.layout {
+  &:not(.collapse-margins):not(.layout-builder__layout) {
+    margin-bottom: key($bottom-margins, default);
+  }
+
+  .layout__row + .layout__row {
+    margin-top: $spacing-10;
+  }
+}
+
+.layout__row .layout__region {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1.5rem;
+}

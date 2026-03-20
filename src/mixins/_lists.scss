@@ -1,0 +1,52 @@
+////
+/// Framework - lists
+/// @group frameworkComponents
+////
+
+/// Standard list style mixin
+/// @param {String} $list-key - the key in the $buttons map to use from config
+/// @example
+///   @include list(inline)
+@mixin list($list-key: default, $checkmark: false) {
+  $list-conf: extend-in-map($lists, $list-key);
+
+  list-style-type: key($list-conf, list-style-type);
+  margin: key($list-conf, margin);
+  padding-left: key($list-conf, padding-left--ul);
+
+  li {
+    padding: key($list-conf, padding--li);
+    @if $checkmark {
+      color: key($list-conf, color);
+    }
+  }
+}
+
+/// Reset default list styles coming from Foundation.
+/// Useful for components that use lists but want to style them differently.
+/// Ideally this should be used via the reset-list-styles plugable but it can be used directly if needed.
+@mixin reset-list-styles {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+/* add li before psuedo element with the checkbox url as background-image
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    position: relative;
+    top: 1px;
+    background-image: url(/sites/all/themes/occu2016/icons/icon-check.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+*/

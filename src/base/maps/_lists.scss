@@ -1,0 +1,16 @@
+$lists: (
+  default: (
+    list-style-type: disc,
+    margin: $spacing-3 $spacing-6,
+    padding-left--ul: $spacing-4,
+    padding--li: 0 0 0 $spacing-2,
+  ),
+  checkmark: (
+    list-style-type: none,
+    margin: $spacing-7 0,
+    padding-left--ul: $spacing-7,
+    padding--li: 0 0 $spacing-1 $spacing-3,
+    color: $color--white,
+  ),
+);
+

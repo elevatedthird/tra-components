@@ -1,0 +1,59 @@
+@each $name, $color in $contrasting-colors {
+  .text-color-#{$name} {
+    color: $color;
+  }
+
+  .bg-color-contrasting-#{$name},
+  .sub-bg-color-contrasting-#{$name} > * {
+    background-color: #{$color};
+    color: $color--brand--pure-white;
+    p {
+      color: $color--brand--pure-white;
+    }
+    a {
+      @include link(contrasting);
+    }
+  }
+
+  .icon-color--contrasting-#{$name} {
+    svg {
+      fill: $color;
+    }
+  }
+
+  .color-contrasting-#{$name} {
+    --theme-accent-color-contrasting: #{$color};
+  }
+}
+
+@each $name, $color in $vibrant-colors {
+  .text-color-#{$name} {
+    color: $color;
+  }
+
+  .bg-color-vibrant-#{$name},
+  .sub-bg-color-vibrant-#{$name} * {
+    background-color: #{$color};
+    color: $color--brand--warm-black;
+    p {
+      color: $color--brand--warm-black;
+    }
+  }
+
+  .icon-color--vibrant-#{$name} {
+    svg {
+      fill: $color;
+    }
+  }
+
+  .color-vibrant-#{$name} {
+    --theme-accent-color-vibrant: #{$color};
+  }
+}
+
+@each $name, $gradient in $gradients {
+  .gradient--#{"" + $name} {
+    background-image: $gradient;
+  }
+}
+

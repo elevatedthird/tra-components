@@ -1,0 +1,38 @@
+// Do not edit directly, this file was auto-generated.
+
+// Neutral color aliases
+$color--white: $color--neutral--white !default;
+$color--light-grey-1: $color--neutral--light-grey-1 !default;
+$color--light-grey-2: $color--neutral--light-grey-2 !default;
+$color--light-grey-3: $color--neutral--light-grey-3 !default;
+$color--light-grey-4: $color--neutral--light-grey-4 !default;
+$color--light-grey-5: $color--neutral--light-grey-5 !default;
+$color--light-grey-6: $color--neutral--light-grey-6 !default;
+$color--light-grey-7: $color--neutral--light-grey-7 !default;
+$color--dark-grey-1: $color--neutral--dark-grey-1 !default;
+$color--dark-grey-2: $color--neutral--dark-grey-2 !default;
+$color--dark-grey-3: $color--neutral--dark-grey-3 !default;
+$color--dark-grey-4: $color--neutral--dark-grey-4 !default;
+$color--dark-grey-5: $color--neutral--dark-grey-5 !default;
+$color--black: $color--neutral--black !default;
+$color--black-base: $color--neutral--black-base !default;
+$color--inactive-grey: $color--neutral--inactive-grey !default;
+
+// Contrasting colors map
+$contrasting-colors: (
+  "lavender-purple": $color--brand--contrasting--lavender-purple,
+  "crimson-red": $color--brand--contrasting--crimson-red,
+  "chocolate-brown": $color--brand--contrasting--chocolate-brown,
+  "forest-green": $color--brand--contrasting--forest-green,
+  "night-blue": $color--brand--contrasting--night-blue,
+  "warm-black": $color--brand--warm-black,
+) !default;
+
+// Vibrant colors map
+$vibrant-colors: (
+  "fresh-lime": $color--brand--vibrant--fresh-lime,
+  "grass-green": $color--brand--vibrant--grass-green,
+  "hot-pink": $color--brand--vibrant--hot-pink,
+  "sky-blue": $color--brand--vibrant--sky-blue,
+  "white": $color--brand--pure-white,
+) !default;

@@ -1,0 +1,61 @@
+.organism--sq-tab-slider {
+  .organism--tab-slider-description {
+    margin-top: $spacing-6;
+  }
+}
+
+.organism--sq-tab-slider .tab-items {
+  padding: 0;
+}
+
+.organism--sq-tab-slider .tab-list {
+  margin: 0;
+
+  margin-top: $spacing-4;
+  @include breakpoint(large) {
+    margin-top: $spacing-12;
+  }
+  .move-list {
+    display: none;
+  }
+}
+
+.organism--sq-tab-slider .tabs__panel  {
+  display: none;
+  position: relative;
+
+  padding-top: $spacing-8;
+  @include breakpoint(large) {
+    padding-top: $spacing-12;
+  }
+
+  &.is-hidden {
+    display: none;
+  }
+
+  @include breakpoint(xsmall down) {
+    .glide__track {
+      margin-right: calc(-1*(100vw - 100%)/2);
+    }
+
+    .glide {
+      display: flex;
+      flex-direction: column;
+    }
+
+  }
+
+  .glide__slide {
+    height: auto;
+    margin-bottom: 3px;
+  }
+
+  .glide__track {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.is-initialized .tabs__panel {
+  display: inherit;
+}

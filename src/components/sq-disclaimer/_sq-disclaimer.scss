@@ -1,0 +1,49 @@
+.organism--sq-disclaimer.organism--sq-disclaimer {
+  .accordion {
+    background-color: transparent;
+  }
+
+  .molecule--sq-accordion-item {
+    a {
+      &:focus-visible {
+        background-color: $color--brand--focus-yellow;
+      }
+    }
+  }
+
+  .molecule--sq-accordion-item:first-of-type:before {
+    background: $color--white;
+    content: "";
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  @include breakpoint(large) {
+    // removed for utility class, can remove if all good.
+    .molecule--accordion-item--header {
+      display: flex;
+    }
+
+    .molecule--accordion-item--header::after {
+      margin-left: 16px;
+    }
+
+    .molecule--sq-accordion-item ::after {
+      transition: 0.4s ease-in-out;
+      position: relative;
+    }
+  }
+
+  .is-sticky {
+    position: fixed;
+    background-color: $color--white;
+    z-index: 5;
+    width: 95%;
+    top: 48px;
+  }
+
+  .molecule--accordion-item--description p {
+    word-wrap: break-word;
+  }
+}

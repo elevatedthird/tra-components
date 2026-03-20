@@ -1,47 +1,54 @@
 const path = require('path');
-const fs = require('fs');
 const glob = require('glob');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 
-const scssEntries = glob.sync('./src/**/*.scss').reduce((entries, file) => {
-  const absPath = path.resolve(__dirname, file);
-  const outPath = path.relative(path.resolve(__dirname, 'src'), absPath)
-    .replace(/\/_/, '/')
-    .replace(/\.scss$/, '');
-  entries[outPath] = absPath;
-  return entries;
-}, {});
+// Build dynamic component entries
+function getComponentEntries() {
+  const entries = {};
 
-const jsEntries = glob.sync('./src/**/*.es6.js').reduce((entries, file) => {
-  const absPath = path.resolve(__dirname, file);
-  const outPath = path.relative(path.resolve(__dirname, 'src'), absPath)
-    .replace(/\/_/, '/')
-    .replace(/\.es6\.js$/, '');
-  entries[outPath] = absPath;
-  return entries;
-}, {});
+  // Find all component .es6.js files
+  const jsFiles = glob.sync('src/components/sq-*/*.es6.js');
+  jsFiles.forEach(file => {
+    const dir = path.dirname(file);
+    const basename = path.basename(file, '.es6.js');
+    entries[`${dir}/${basename}`] = [`./${file}`];
+  });
 
-// right here need to build up entiries and if there a key exists already then make the value an array of the paths.
-
-const mergedEntries = {};
-[scssEntries, jsEntries].forEach(entryGroup => {
-  Object.entries(entryGroup).forEach(([key, value]) => {
-    if (mergedEntries[key]) {
-      mergedEntries[key] = [].concat(mergedEntries[key], value);
+  // Find all component .scss files (partials prefixed with _sq-)
+  const scssFiles = glob.sync('src/components/sq-*/_sq-*.scss');
+  scssFiles.forEach(file => {
+    const dir = path.dirname(file);
+    // _sq-accordion.scss -> sq-accordion.css
+    const basename = path.basename(file, '.scss').replace(/^_/, '');
+    const entryKey = `${dir}/${basename}`;
+    if (entries[entryKey]) {
+      // Combine with existing JS entry
+      entries[entryKey].push(`./${file}`);
     } else {
-      mergedEntries[key] = value;
+      entries[entryKey] = `./${file}`;
     }
   });
-});
+
+  return entries;
+}
+
+const componentEntries = getComponentEntries();
 
 module.exports = {
-  entry: mergedEntries,
+  entry: {
+    // Global entries -> dist/
+    'dist/css/global': './src/global.scss',
+    'dist/css/utilities': './src/utilities.scss',
+    'dist/css/tokens': './src/generated/_custom-properties.scss',
+    // Component entries -> src/components/sq-*/
+    ...componentEntries,
+  },
   context: __dirname,
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'src'),
-    assetModuleFilename: 'assets/[name][ext]'
+    path: __dirname,
+    assetModuleFilename: 'dist/assets/[name][ext]'
   },
   cache: {
     type: 'filesystem',
@@ -56,7 +63,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.es6.js\.js$/,
+        test: /\.(svg)$/,
+        exclude: '/node_modules/',
+        type: 'asset/inline',
+      },
+      {
+        test: /\.(png|jpg|gif|woff2?|ttf|otf|eot)$/,
+        exclude: '/node_modules/',
+        type: 'asset/resource',
+      },
+      {
+        test: /\.es6\.js$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -73,13 +90,15 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              additionalData: '@import "tra-global-styles/src/00-config/_index.scss";',
+              api: 'modern',
+              additionalData: `@import "${path.resolve(__dirname, 'src/_index.scss').replace(/\\/g, '/')}";`,
               sassOptions: {
-                includePaths: [
-                  path.resolve(__dirname, 'node_modules/tra-global-styles/src/00-config'),
-                  path.resolve(__dirname, 'node_modules/foundation-sites/scss'),
+                loadPaths: [
+                  path.resolve(__dirname, 'src'),
                   path.resolve(__dirname, 'node_modules'),
+                  path.resolve(__dirname, 'node_modules/foundation-sites/scss'),
                 ],
+                silenceDeprecations: ['import', 'global-builtin'],
               },
             },
           }
@@ -93,6 +112,9 @@ module.exports = {
       filename: '[name].css'
     })
   ],
+  performance: {
+    hints: false,
+  },
   devtool: 'source-map',
   mode: 'development'
 };

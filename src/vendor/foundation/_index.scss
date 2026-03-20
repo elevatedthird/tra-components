@@ -1,0 +1,27 @@
+// ==========================================================================
+// Foundation Vendor Index
+// ==========================================================================
+//
+// This is the single entry point for all Foundation Sites imports.
+// No file outside of src/vendor/foundation/ should import from
+// foundation-sites directly. Instead, they should import this index
+// or use the adapter's sq-* wrapper mixins.
+//
+// Load order:
+//   1. Foundation utilities (rem-calc, unit functions, etc.)
+//   2. Foundation settings (via _settings.scss which depends on util)
+//   3. Foundation framework (full component library)
+//   4. Adapter (sq-* namespaced wrappers)
+// ==========================================================================
+
+// Foundation pre-setting utilities (rem-calc, unit functions, breakpoint, etc.)
+@import 'foundation-sites/scss/util/util';
+
+// Foundation settings (depends on util for rem-calc, etc.)
+@import 'settings';
+
+// Foundation framework (components, grid, typography, etc.)
+@import 'foundation-sites/scss/foundation';
+
+// Adapter (sq-* namespaced wrappers for Foundation mixins)
+@import 'adapter';
