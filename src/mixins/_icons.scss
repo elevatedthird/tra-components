@@ -55,12 +55,77 @@ $icons-enabled: false;
   content: '#{$icon}';
 }
 
+$icons: () !default;
+
+/// Add a font icon. This must be used in a before or after pseudo class
+@mixin icon($icon, $replace: false, $map: $icons) {
+  @if (map-has-key($map, $icon)) {
+    $icon: map-get($map, $icon);
+  }
+
+  @if ($replace == false) {
+    @extend %icon-base;
+  }
+
+  content: '#{$icon}';
+}
+
+/// Add an icon to the before pseudo class
+@mixin icon-before($icon, $replace: false) {
+  &:before {
+    @include icon($icon, $replace);
+    @content;
+  }
+}
+
+/// Add an icon to the after pseudo class
+@mixin icon-after($icon, $replace: false) {
+  &:after {
+    @include icon($icon, $replace);
+    @content;
+  }
+}
+
+/// Replace text with icon
+@mixin replace-text-with-icon($icon, $font-size: $global-font-size) {
+  font: 0/0 transparent;
+  text-decoration: none;
+  @include icon-before($icon) {
+    font-size: $font-size;
+    @content;
+  }
+}
+
 // Add an icon to the before pseudo class.
 // Example usage:
 //  @include materialicon-before('library_books') { font-size: 1.25rem; }
 @mixin materialicon-before($icon) {
   &:before {
     @include materialicon($icon);
+    @content;
+  }
+}
+
+// Add an icon to the after pseudo class.
+// Example usage:
+//  @include materialicon-after('east') { font-size: 1.25rem; }
+@mixin materialicon-after($icon) {
+  &:after {
+    @include materialicon($icon);
+    @content;
+  }
+}
+
+/// Replace text with Material icon.
+@mixin replace-text-with-materialicon($icon, $font-size: $body-md-font-size) {
+  font-size: 0;
+  line-height: 0;
+  color: transparent;
+  text-decoration: none;
+
+  @include materialicon-before($icon) {
+    font-size: $font-size;
+
     @content;
   }
 }
