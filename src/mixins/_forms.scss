@@ -11,7 +11,7 @@
   transition-duration: 250ms;
   transition-timing-function: ease-in-out;
   &.error {
-    border-color: $color--form-error;
-    color: $color--form-error;
+    border-color: $color--form--error;
+    color: $color--form--error;
   }
 }
