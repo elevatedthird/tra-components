@@ -30,7 +30,8 @@
       "27": { "value": "6.75rem", "type": "dimension" },
       "28": { "value": "7rem", "type": "dimension" },
       "29": { "value": "7.25rem", "type": "dimension" },
-      "30": { "value": "7.5rem", "type": "dimension" }
+      "30": { "value": "7.5rem", "type": "dimension" },
+      "auto": { "value": "auto", "type": "dimension" }
     }
   }
 }
