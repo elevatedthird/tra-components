@@ -17,6 +17,15 @@
         var video = modal.find('.bf-videojs-container video');
         if (video.length) {
           video[0].pause();
+          var iframe = modal.find('iframe');
+          if (iframe.length) {
+            iframe.each(function () {
+              var src = $(this).attr('src');
+              if (src) {
+                $(this).attr('src', src);
+              }
+            });
+          }
         }
       }
 
