@@ -4,6 +4,9 @@ name: Sequoia Modal
 status: stable
 description: A foundation modal.
 libraryOverrides:
-  dependencies:
-    - {{sequoia}}/plugable--js--reveal
-    - {{sequoia}}/plugable--scss--reveal
+  css:
+    component:
+      sq-reveal.css: {}
+  js:
+    reveal.js: {}
+    sq-modal.js: {}

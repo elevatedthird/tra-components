@@ -5,6 +5,4 @@ status: stable
 description: A foundation modal content so the two pieces can be used separately.
 libraryOverrides:
   dependencies:
-    - {{sequoia}}/plugable--js--reveal
-    - {{sequoia}}/plugable--scss--reveal
     - core/components.{{sequoia}}--sq-modal

@@ -5,4 +5,4 @@ status: stable
 description: A foundation copy.
 libraryOverrides:
   dependencies:
-    - {{sequoia}}/plugable--scss-table
+    - core/components.{{sequoia}}--sq-table

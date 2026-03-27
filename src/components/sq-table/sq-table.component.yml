@@ -1,8 +1,9 @@
 \$schema: >-
   https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
-name: Sequoia Video Modal
+name: Sequoia Table
 status: stable
-description: A foundation video modal.
+description: Table styles for content areas.
 libraryOverrides:
-  dependencies:
-    - core/components.{{sequoia}}--sq-modal
+  css:
+    component:
+      sq-table.css: {}

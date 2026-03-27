@@ -1,8 +1,11 @@
-$schema: >-
+\$schema: >-
   https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
 name: Glide
 status: stable
 description: Provides a glidejs slider.
 libraryOverrides:
-  dependencies:
-    - {{sequoia}}/plugable--scss--glide
+  css:
+    component:
+      sq-glide.css: {}
+  js:
+    sq-glide.js: {}
