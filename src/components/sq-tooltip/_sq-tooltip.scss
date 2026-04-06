@@ -22,8 +22,8 @@
   }
 
   &:focus-visible {
-    background-color: $color--brand--focus-yellow;
-    border-bottom: 2px solid $color--brand--warm-black;
+    background-color: $color--ui--focus-yellow;
+    border-bottom: 2px solid $color--base--warm-black;
     outline-style: none;
   }
 }
@@ -53,10 +53,10 @@
 
 div.tooltip[class*="bg-color-contrasting-"],
 div[class*="bg-color-contrasting-"] .tooltip-admin {
-  background-color: $color--brand--pure-white;
-  color: $color--brand--warm-black;
+  background-color: $color--base--pure-white;
+  color: $color--base--warm-black;
 
   p, p span {
-    color: $color--brand--warm-black;
+    color: $color--base--warm-black;
   }
 }

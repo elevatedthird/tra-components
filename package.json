@@ -19,6 +19,10 @@
     "build": "webpack --config webpack.config.js --mode=production",
     "test": "vitest --run",
     "sync:components": "node scripts/sync-components.js",
+    "sync:figma": "node scripts/sync-figma-variables.mjs",
+    "sync:figma:dry": "node scripts/sync-figma-variables.mjs --dry-run",
+    "pull:figma": "node scripts/pull-figma-variables.mjs",
+    "pull:figma:dry": "node scripts/pull-figma-variables.mjs --dry-run",
     "prepublishOnly": "npm install && npm run build"
   },
   "keywords": [

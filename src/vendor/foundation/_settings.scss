@@ -47,16 +47,16 @@ $color--success: $color--ui--success !default;
 $color--success--bg: $color--ui--success-bg !default;
 $color--alert: $color--ui--alert !default;
 $color--alert--bg: $color--ui--alert-bg !default;
-$primary-color: $color--brand--warm-black !default;
-$secondary-color: $color--brand--warm-black !default;
+$primary-color: $color--base--warm-black !default;
+$secondary-color: $color--base--warm-black !default;
 
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
-$black: $color--black-base;
+$black: $color--neutral--black;
 $white: $color--white;
 $body-background: $white;
-$body-font-color: $color--brand--warm-black;
+$body-font-color: $color--base--warm-black;
 $body-antialiased: true;
 
 // ---------------------------------------------------------------------------

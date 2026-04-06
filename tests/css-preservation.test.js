@@ -18,9 +18,9 @@ import fc from 'fast-check';
 
 // Baseline SHA-256 hashes captured from UNFIXED build
 const BASELINE_HASHES = {
-  'dist/css/global.css': '7baba3c9cd9d7c90928548f732b7cdccdb80c55f80e06cf97e789e7dcb266eb5',
-  'dist/css/utilities.css': '34bc2186fad1e7c304bdd43f287b9d3722cb2515e762a62ad73c6dbff8d3ab14',
-  'dist/css/tokens.css': '0354dada23fd57ac392c5a4a768fc5a96a8ab0a70e906ba2d2acd8713f2413a0',
+  'dist/css/global.css': '8508be1de2ea2a721fdc57ac6e7479aac38a54169fb6775e7025477c6a1100e3',
+  'dist/css/utilities.css': '0ca79b5202c7aa66c1350d5d0fc49a0215ceab9c370360095d442a309a982794',
+  'dist/css/tokens.css': 'e1bf7384865ef40716de0fca29d61183c20f556a4c0557ee62c6c075b021ffff',
 };
 
 const CSS_ENTRY_POINTS = ['dist/css/global.css', 'dist/css/utilities.css', 'dist/css/tokens.css'];

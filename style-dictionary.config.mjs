@@ -17,17 +17,20 @@ const FONT_FAMILY_VALUE_TRANSFORM = 'value/font-family-unquote';
  * Strips wrapping quotes from font-family token values so that
  * Style Dictionary's scss/variables format does not double-quote them.
  *
- * Token value: "Forever Forma Body", "Arial", san-serif
- * Without transform → $var: '"Forever Forma Body"', "Arial", san-serif  (broken)
- * With transform    → $var: Forever Forma Body, Arial, san-serif        (correct — Sass re-quotes as needed)
+ * Applies to both base font-family tokens (typography.font-family.*)
+ * and per-font-id font-family references (typography.{fontId}.font-family).
  */
 StyleDictionary.registerTransform({
   name: FONT_FAMILY_VALUE_TRANSFORM,
   type: 'value',
-  filter: (token) => token.path[1] === 'font-family',
+  filter: (token) => {
+    // Base definitions: typography.font-family.body
+    if (token.path[1] === 'font-family') return true;
+    // Per-font-id references: typography.size.{fontId}.font-family
+    if (token.path[0] === 'typography' && token.path[token.path.length - 1] === 'font-family') return true;
+    return false;
+  },
   transform: (token) => {
-    // Remove wrapping double-quotes from each segment of the comma-separated list
-    // e.g. '"Forever Forma Body"' → 'Forever Forma Body'
     return token.value.replace(/"([^"]+)"/g, '$1');
   },
 });
@@ -36,14 +39,16 @@ StyleDictionary.registerTransform({
  * Generates SCSS variable names matching legacy naming conventions.
  *
  * Mapping rules by category:
- *   color.*          → join all segments with "--"  (e.g. color--brand--warm-black)
- *   spacing.scale.N  → spacing-N  (drop "scale")
- *   typography.font-size.{group}.{size}   → {group}-{size}-font-size
- *   typography.font-family.{name}         → {name}-font-family
- *   typography.font-weight.{name}         → font-weight-{name}
- *   typography.line-height.{group}.{size} → {group}-{size}-line-height
- *   shadow.elevation.{name}               → box-shadow-{name}
- *   breakpoint.screen.{name}              → breakpoint-{name}
+ *   color.*                                              → join all segments with "--"
+ *   spacing.scale.N                                      → spacing-N
+ *   typography.font-family.{name}                        → {name}-font-family
+ *   typography.font-weight.{name}                        → font-weight-{name}
+ *   typography.size.{fontId}.desktop-font-size            → {fontId}-font-size
+ *   typography.size.{fontId}.mobile-font-size             → {fontId}-smallscreen-font-size
+ *   typography.size.{fontId}.line-height                  → {fontId}-line-height
+ *   typography.size.{fontId}.font-family                  → {fontId}-font-family
+ *   shadow.elevation.{name}                              → box-shadow-{name}
+ *   breakpoint.screen.{name}                             → breakpoint-{name}
  */
 StyleDictionary.registerTransform({
   name: SCSS_LEGACY_NAME_TRANSFORM,
@@ -53,52 +58,61 @@ StyleDictionary.registerTransform({
     const category = path[0];
 
     if (category === 'color') {
-      // color tokens: join all segments with "--"
+      if (path[1] === 'contrasting' || path[1] === 'vibrant') {
+        return `color--brand--${path.slice(1).join('--')}`;
+      }
       return path.join('--');
     }
 
     if (category === 'spacing') {
-      // spacing.scale.N → spacing-N
       return `spacing-${path[path.length - 1]}`;
     }
 
     if (category === 'typography') {
-      const subcategory = path[1]; // font-size, font-family, font-weight, line-height
+      const sub = path[1];
 
-      if (subcategory === 'font-size') {
-        // typography.font-size.heading.xl → heading-xl-font-size
-        const rest = path.slice(2);
-        return `${rest.join('-')}-font-size`;
-      }
-
-      if (subcategory === 'font-family') {
-        // typography.font-family.body → body-font-family
+      // Base font-family definitions: typography.font-family.body → body-font-family
+      if (sub === 'font-family') {
         return `${path[2]}-font-family`;
       }
 
-      if (subcategory === 'font-weight') {
-        // typography.font-weight.light → font-weight-light
+      // Font-weight: typography.font-weight.light → font-weight-light
+      if (sub === 'font-weight') {
         return `font-weight-${path[2]}`;
       }
 
-      if (subcategory === 'line-height') {
-        // typography.line-height.heading.xl → heading-xl-line-height
-        const rest = path.slice(2);
-        return `${rest.join('-')}-line-height`;
+      // Size tokens: typography.size.{fontId}.{prop}
+      if (sub === 'size') {
+        const fontId = path[2]; // e.g. "heading-xl"
+        const prop = path[3];   // e.g. "desktop-font-size", "mobile-font-size", "line-height", "font-family"
+
+        if (prop === 'desktop-font-size') {
+          return `${fontId}-font-size`;
+        }
+        if (prop === 'mobile-font-size') {
+          return `${fontId}-smallscreen-font-size`;
+        }
+        if (prop === 'line-height') {
+          return `${fontId}-line-height`;
+        }
+        if (prop === 'font-family') {
+          return `${fontId}-font-family`;
+        }
+        return `${fontId}-${prop}`;
       }
+
+      // Fallback for any other typography sub-token
+      return path.slice(1).join('-');
     }
 
     if (category === 'shadow') {
-      // shadow.elevation.primary → box-shadow-primary
       return `box-shadow-${path[path.length - 1]}`;
     }
 
     if (category === 'breakpoint') {
-      // breakpoint.screen.small → breakpoint-small
       return `breakpoint-${path[path.length - 1]}`;
     }
 
-    // Fallback: kebab-case join
     return path.join('-');
   },
 });
@@ -117,18 +131,35 @@ StyleDictionary.registerTransform({
     const category = path[0];
 
     if (category === 'spacing') {
-      // spacing.scale.N → sq-spacing-N
       return `sq-spacing-${path[path.length - 1]}`;
     }
 
     if (category === 'shadow') {
-      // shadow.elevation.primary → sq-box-shadow-primary
       return `sq-box-shadow-${path[path.length - 1]}`;
     }
 
     if (category === 'breakpoint') {
-      // breakpoint.screen.small → sq-breakpoint-small
       return `sq-breakpoint-${path[path.length - 1]}`;
+    }
+
+    if (category === 'typography') {
+      const sub = path[1];
+
+      // Base definitions: typography.font-family.body → sq-typography-font-family-body
+      if (sub === 'font-family' || sub === 'font-weight') {
+        return `sq-${path.join('-')}`;
+      }
+
+      // Per-font-id: typography.{fontId}.font-size.desktop → sq-typography-{fontId}-font-size-desktop
+      return `sq-${path.join('-')}`;
+    }
+
+    if (category === 'color') {
+      // Preserve legacy CSS naming for contrasting/vibrant
+      if (path[1] === 'contrasting' || path[1] === 'vibrant') {
+        return `sq-color-brand-${path.slice(1).join('-')}`;
+      }
+      return `sq-${path.join('-')}`;
     }
 
     // Default: sq- prefix + all path segments joined with "-"
@@ -209,15 +240,14 @@ StyleDictionary.registerFormat({
     const contrasting = dictionary.allTokens.filter(
       (t) =>
         t.path[0] === 'color' &&
-        t.path[1] === 'brand' &&
-        t.path[2] === 'contrasting'
+        t.path[1] === 'contrasting'
     );
     const contrastingEntries = contrasting.map(
       (t) =>
-        `  "${t.path[3]}": $color--brand--contrasting--${t.path[3]},`
+        `  "${t.path[2]}": $color--brand--contrasting--${t.path[2]},`
     );
     // Include warm-black as the last entry (it's a brand token, not contrasting)
-    contrastingEntries.push('  "warm-black": $color--brand--warm-black,');
+    contrastingEntries.push('  "warm-black": $color--base--warm-black,');
     lines.push(
       '$contrasting-colors: (',
       ...contrastingEntries,
@@ -230,15 +260,14 @@ StyleDictionary.registerFormat({
     const vibrant = dictionary.allTokens.filter(
       (t) =>
         t.path[0] === 'color' &&
-        t.path[1] === 'brand' &&
-        t.path[2] === 'vibrant'
+        t.path[1] === 'vibrant'
     );
     const vibrantEntries = vibrant.map(
       (t) =>
-        `  "${t.path[3]}": $color--brand--vibrant--${t.path[3]},`
+        `  "${t.path[2]}": $color--brand--vibrant--${t.path[2]},`
     );
     // Include pure-white as the last entry
-    vibrantEntries.push('  "white": $color--brand--pure-white,');
+    vibrantEntries.push('  "white": $color--base--pure-white,');
     lines.push(
       '$vibrant-colors: (',
       ...vibrantEntries,

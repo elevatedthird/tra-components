@@ -2,25 +2,15 @@
   "color": {
     "neutral": {
       "white": { "value": "#ffffff", "type": "color" },
-      "light-grey-1": { "value": "#eeeeee", "type": "color" },
-      "light-grey-2": { "value": "#a2a2aa", "type": "color" },
-      "light-grey-3": { "value": "#f8f8f8", "type": "color" },
-      "light-grey-4": { "value": "#d9d9d9", "type": "color" },
-      "light-grey-5": { "value": "#cccccc", "type": "color" },
-      "light-grey-6": { "value": "#f9f9f9", "type": "color" },
-      "light-grey-7": { "value": "#efefef", "type": "color" },
-      "dark-grey-1": { "value": "#444444", "type": "color" },
-      "dark-grey-2": { "value": "#333333", "type": "color" },
-      "dark-grey-3": { "value": "#666666", "type": "color" },
-      "dark-grey-4": { "value": "#888888", "type": "color" },
-      "dark-grey-5": { "value": "#808080", "type": "color" },
-      "black": { "value": "#261808", "type": "color" },
-      "black-base": { "value": "#000000", "type": "color" },
-      "inactive-grey": { "value": "#281805", "type": "color" },
+      "neutral-50": { "value": "#fafafa", "type": "color" },
       "neutral-100": { "value": "#f2f2f2", "type": "color" },
-      "disabled-gray": { "value": "#a3a19e", "type": "color" },
-      "blue-50": { "value": "#F2F7FB", "type": "color" },
-      "gray-800": { "value": "#222222", "type": "color" }
+      "neutral-150": { "value": "#e0e0e0", "type": "color" },
+      "neutral-200": { "value": "#cfcfcf", "type": "color" },
+      "neutral-350": { "value": "#999999", "type": "color" },
+      "neutral-450": { "value": "#757575", "type": "color" },
+      "neutral-600": { "value": "#575757", "type": "color" },
+      "neutral-850": { "value": "#281805", "type": "color" },
+      "black": { "value": "#000000", "type": "color" }
     }
   }
 }

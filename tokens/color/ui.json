@@ -1,17 +1,25 @@
 {
   "color": {
     "ui": {
-      "error": { "value": "#CF0000", "type": "color" },
-      "error-bg": { "value": "#FFEAEB", "type": "color" },
-      "success": { "value": "#0D7406", "type": "color" },
-      "success-bg": { "value": "#E3F5E1", "type": "color" },
-      "alert": { "value": "#8A610E", "type": "color" },
-      "alert-bg": { "value": "#FFF7E6", "type": "color" },
-      "info": { "value": "#0061F4", "type": "color" },
-      "info-bg": { "value": "#E0ECFE", "type": "color" },
-      "focus": { "value": "#0061F4", "type": "color" },
-      "focus-yellow": { "value": "#FDC828", "type": "color" },
-      "footer-bg": { "value": "#1F355E", "type": "color" }
+      "red-highlight": { "value": "#c51321", "type": "color" },
+      "green-highlight": { "value": "#0d7406", "type": "color" },
+      "yellow-highlight": { "value": "#8a610e", "type": "color" },
+      "blue-highlight": { "value": "#0061f4", "type": "color" },
+      "red-background": { "value": "#ffeaeb", "type": "color" },
+      "green-background": { "value": "#e3f5e1", "type": "color" },
+      "yellow-background": { "value": "#fff7e6", "type": "color" },
+      "blue-background": { "value": "#e0ecfe", "type": "color" },
+      "focus-yellow": { "value": "#fdc828", "type": "color" },
+      "focus-blue": { "value": "#E0ECFE", "type": "color" },
+      "outlook-yellow": { "value": "#ffe100", "type": "color" },
+      "error": { "value": "#cf0000", "type": "color" },
+      "error-bg": { "value": "#ffeaeb", "type": "color" },
+      "success": { "value": "#0d7406", "type": "color" },
+      "success-bg": { "value": "#e3f5e1", "type": "color" },
+      "info": { "value": "#0061f4", "type": "color" },
+      "info-bg": { "value": "#e0ecfe", "type": "color" },
+      "alert": { "value": "#8a610e", "type": "color" },
+      "alert-bg": { "value": "#fff7e6", "type": "color" }
     }
   }
 }

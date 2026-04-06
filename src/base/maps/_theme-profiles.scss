@@ -8,7 +8,7 @@ $theme-profiles: (
   //TODO possibly move this below vibrant/contrasting so that it's allowed to override them
   //since vibrant seems to be set by default sometimes, this gets overriden even if it's set below?
   tertiary: (
-    background: $color--brand--warm-black,
+    background: $color--base--warm-black,
     button-profile: border-secondary,
     text-color-profile: light,
     link-profile:secondary,

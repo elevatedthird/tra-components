@@ -51,11 +51,11 @@ h6 {
       &:hover,
       &:active,
       &:visited {
-        color: $color--brand--warm-black;
+        color: $color--base--warm-black;
       }
 
       &:focus-visible {
-        color: $color--brand--focus-yellow;
+        color: $color--ui--focus-yellow;
       }
     }
   }

@@ -6,9 +6,9 @@
   .bg-color-contrasting-#{$name},
   .sub-bg-color-contrasting-#{$name} > * {
     background-color: #{$color};
-    color: $color--brand--pure-white;
+    color: $color--base--pure-white;
     p {
-      color: $color--brand--pure-white;
+      color: $color--base--pure-white;
     }
     a {
       @include link(contrasting);
@@ -34,9 +34,9 @@
   .bg-color-vibrant-#{$name},
   .sub-bg-color-vibrant-#{$name} * {
     background-color: #{$color};
-    color: $color--brand--warm-black;
+    color: $color--base--warm-black;
     p {
-      color: $color--brand--warm-black;
+      color: $color--base--warm-black;
     }
   }
 

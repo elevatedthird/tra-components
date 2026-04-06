@@ -2,7 +2,10 @@ $gradients: (
   white-fade: linear-gradient(90deg, $color--white 64.72%, transparent 96.07%),
 );
 
-$color--focus--yellow: $color--brand--focus-yellow !default;
+$color--focus--yellow: $color--ui--focus-yellow !default;
+$color--inactive-grey: $color--base--warm-black !default;
+$color--dark-grey-1: #444 !default;
+$color--light-grey-7: #e0e0e0 !default;
 
 $box-shadows: (
   primary: $box-shadow-primary,
@@ -13,6 +16,6 @@ $text-color-profiles: (
     default: white,
   ),
   dark: (
-    default: $color--brand--warm-black,
+    default: $color--base--warm-black,
   ),
 ) !default;

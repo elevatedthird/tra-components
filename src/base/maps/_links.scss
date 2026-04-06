@@ -82,7 +82,7 @@ $link-profiles: (
   ),
   primary: (
     initial: (
-      color: $color--brand--warm-black,
+      color: $color--base--warm-black,
       text-decoration: underline,
     ),
     active: (
@@ -94,7 +94,7 @@ $link-profiles: (
   ),
   secondary: (
     initial: (
-      color: $color--brand--warm-black,
+      color: $color--base--warm-black,
       text-decoration: underline,
     ),
     active: (
@@ -117,7 +117,7 @@ $link-profiles: (
       text-decoration: none,
     ),
     focus-visible: (
-      color: $color--brand--warm-black,
+      color: $color--base--warm-black,
     ),
     active: (
       color: currentColor,

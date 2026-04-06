@@ -119,7 +119,7 @@ Token-generated SCSS variables preserve the legacy naming convention:
 
 ```scss
 .my-element {
-  color: $color--brand--warm-black;
+  color: $color--base--warm-black;
   padding: $spacing-4;
   font-size: $heading-xl-font-size;
 }
