@@ -1,16 +1,46 @@
 {
   "color": {
     "neutral": {
-      "white": { "value": "#ffffff", "type": "color" },
-      "neutral-50": { "value": "#fafafa", "type": "color" },
-      "neutral-100": { "value": "#f2f2f2", "type": "color" },
-      "neutral-150": { "value": "#e0e0e0", "type": "color" },
-      "neutral-200": { "value": "#cfcfcf", "type": "color" },
-      "neutral-350": { "value": "#999999", "type": "color" },
-      "neutral-450": { "value": "#757575", "type": "color" },
-      "neutral-600": { "value": "#575757", "type": "color" },
-      "neutral-850": { "value": "#281805", "type": "color" },
-      "black": { "value": "#000000", "type": "color" }
+      "white": {
+        "value": "#FFFFFF",
+        "type": "color"
+      },
+      "neutral-50": {
+        "value": "#FAFAFA",
+        "type": "color"
+      },
+      "neutral-100": {
+        "value": "#F2F2F2",
+        "type": "color"
+      },
+      "neutral-150": {
+        "value": "#E0E0E0",
+        "type": "color"
+      },
+      "neutral-200": {
+        "value": "#CFCFCF",
+        "type": "color"
+      },
+      "neutral-350": {
+        "value": "#999999",
+        "type": "color"
+      },
+      "neutral-450": {
+        "value": "#757575",
+        "type": "color"
+      },
+      "neutral-600": {
+        "value": "#575757",
+        "type": "color"
+      },
+      "neutral-850": {
+        "value": "#281805",
+        "type": "color"
+      },
+      "black": {
+        "value": "#000000",
+        "type": "color"
+      }
     }
   }
 }

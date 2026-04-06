@@ -1,10 +1,22 @@
 {
   "typography": {
     "font-family": {
-      "body": { "value": "\"Forever Forma Body\", \"Arial\", sans-serif", "type": "fontFamily" },
-      "heading": { "value": "\"Forever Forma Heading\", \"Arial\", sans-serif", "type": "fontFamily" },
-      "monospace": { "value": "Consolas, 'Liberation Mono', Courier, monospace", "type": "fontFamily" },
-      "icon": { "value": "\"Material Symbols Outlined\"", "type": "fontFamily" }
+      "body": {
+        "value": "\"Forever Forma Body\", \"Arial\", sans-serif",
+        "type": "fontFamily"
+      },
+      "heading": {
+        "value": "\"Forever Forma Heading\", \"Arial\", sans-serif",
+        "type": "fontFamily"
+      },
+      "monospace": {
+        "value": "Consolas, 'Liberation Mono', Courier, monospace",
+        "type": "fontFamily"
+      },
+      "icon": {
+        "value": "\"Material Symbols Outlined\"",
+        "type": "fontFamily"
+      }
     }
   }
 }

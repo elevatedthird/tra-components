@@ -1,14 +1,35 @@
 {
   "color": {
     "link": {
-      "default": { "value": "#281805", "type": "color" },
-      "hover": { "value": "#641EE0", "type": "color" },
-      "visited": { "value": "#813684", "type": "color" },
-      "disabled": { "value": "#757575", "type": "color" },
+      "default": {
+        "value": "#281805",
+        "type": "color"
+      },
+      "hover": {
+        "value": "#641EE0",
+        "type": "color"
+      },
+      "visited": {
+        "value": "#813684",
+        "type": "color"
+      },
+      "disabled": {
+        "value": "#757575",
+        "type": "color"
+      },
       "rev": {
-        "default": { "value": "#FFFFFF", "type": "color" },
-        "visited": { "value": "#CCCCCC", "type": "color" },
-        "disabled": { "value": "#CFCFCF", "type": "color" }
+        "default": {
+          "value": "#FFFFFF",
+          "type": "color"
+        },
+        "visited": {
+          "value": "#CCCCCC",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#CFCFCF",
+          "type": "color"
+        }
       }
     }
   }

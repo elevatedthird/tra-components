@@ -1,9 +1,18 @@
 {
   "color": {
     "brand": {
-      "transamerica-red": { "value": "#FF2800", "type": "color" },
-      "aegon-blue": { "value": "#0069b4", "type": "color" },
-      "logo-black": { "value": "#1D1D1D", "type": "color" }
+      "transamerica-red": {
+        "value": "#FF2800",
+        "type": "color"
+      },
+      "aegon-blue": {
+        "value": "#0069B4",
+        "type": "color"
+      },
+      "logo-black": {
+        "value": "#1D1D1D",
+        "type": "color"
+      }
     }
   }
 }

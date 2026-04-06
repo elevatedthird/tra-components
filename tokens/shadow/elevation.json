@@ -1,8 +1,14 @@
 {
   "shadow": {
     "elevation": {
-      "primary": { "value": "0 6px 20px rgba(40, 24, 5, 0.34902)", "type": "shadow" },
-      "default": { "value": "0 10px 25px 0 rgba(0, 0, 0, 0.1)", "type": "shadow" }
+      "primary": {
+        "value": "0 6px 20px rgba(40, 24, 5, 0.34902)",
+        "type": "string"
+      },
+      "default": {
+        "value": "0 10px 25px 0 rgba(0, 0, 0, 0.1)",
+        "type": "string"
+      }
     }
   }
 }

@@ -1,11 +1,26 @@
 {
   "color": {
     "contrasting": {
-      "lavender-purple": { "value": "#641EE0", "type": "color" },
-      "crimson-red": { "value": "#CF0000", "type": "color" },
-      "chocolate-brown": { "value": "#5E3930", "type": "color" },
-      "forest-green": { "value": "#0B3F2D", "type": "color" },
-      "night-blue": { "value": "#1D2550", "type": "color" }
+      "lavender-purple": {
+        "value": "#641EE0",
+        "type": "color"
+      },
+      "crimson-red": {
+        "value": "#CF0000",
+        "type": "color"
+      },
+      "chocolate-brown": {
+        "value": "#5E3930",
+        "type": "color"
+      },
+      "forest-green": {
+        "value": "#0B3F2D",
+        "type": "color"
+      },
+      "night-blue": {
+        "value": "#1D2550",
+        "type": "color"
+      }
     }
   }
 }

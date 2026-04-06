@@ -1,11 +1,26 @@
 {
   "typography": {
     "font-weight": {
-      "light": { "value": "300", "type": "fontWeight" },
-      "normal": { "value": "400", "type": "fontWeight" },
-      "medium": { "value": "500", "type": "fontWeight" },
-      "semi-bold": { "value": "600", "type": "fontWeight" },
-      "bold": { "value": "700", "type": "fontWeight" }
+      "light": {
+        "value": "300",
+        "type": "fontWeight"
+      },
+      "normal": {
+        "value": "400",
+        "type": "fontWeight"
+      },
+      "medium": {
+        "value": "500",
+        "type": "fontWeight"
+      },
+      "semi-bold": {
+        "value": "600",
+        "type": "fontWeight"
+      },
+      "bold": {
+        "value": "700",
+        "type": "fontWeight"
+      }
     }
   }
 }

@@ -2,108 +2,312 @@
   "typography": {
     "size": {
       "display-xl": {
-        "desktop-font-size": { "value": "192px", "type": "dimension" },
-        "mobile-font-size": { "value": "96px", "type": "dimension" },
-        "line-height": { "value": "110%", "type": "number" },
-        "font-family": { "value": "{typography.font-family.heading}", "type": "fontFamily" }
+        "desktop-font-size": {
+          "value": "192px",
+          "type": "dimension"
+        },
+        "mobile-font-size": {
+          "value": "96px",
+          "type": "dimension"
+        },
+        "line-height": {
+          "value": "110%",
+          "type": "number"
+        },
+        "font-family": {
+          "value": "{typography.font-family.heading}",
+          "type": "fontFamily"
+        }
       },
       "display-lg": {
-        "desktop-font-size": { "value": "144px", "type": "dimension" },
-        "mobile-font-size": { "value": "72px", "type": "dimension" },
-        "line-height": { "value": "110%", "type": "number" },
-        "font-family": { "value": "{typography.font-family.heading}", "type": "fontFamily" }
+        "desktop-font-size": {
+          "value": "144px",
+          "type": "dimension"
+        },
+        "mobile-font-size": {
+          "value": "72px",
+          "type": "dimension"
+        },
+        "line-height": {
+          "value": "110%",
+          "type": "number"
+        },
+        "font-family": {
+          "value": "{typography.font-family.heading}",
+          "type": "fontFamily"
+        }
       },
       "display-md": {
-        "desktop-font-size": { "value": "96px", "type": "dimension" },
-        "mobile-font-size": { "value": "64px", "type": "dimension" },
-        "line-height": { "value": "110%", "type": "number" },
-        "font-family": { "value": "{typography.font-family.heading}", "type": "fontFamily" }
+        "desktop-font-size": {
+          "value": "96px",
+          "type": "dimension"
+        },
+        "mobile-font-size": {
+          "value": "64px",
+          "type": "dimension"
+        },
+        "line-height": {
+          "value": "110%",
+          "type": "number"
+        },
+        "font-family": {
+          "value": "{typography.font-family.heading}",
+          "type": "fontFamily"
+        }
       },
       "display-sm": {
-        "desktop-font-size": { "value": "64px", "type": "dimension" },
-        "mobile-font-size": { "value": "48px", "type": "dimension" },
-        "line-height": { "value": "110%", "type": "number" },
-        "font-family": { "value": "{typography.font-family.heading}", "type": "fontFamily" }
+        "desktop-font-size": {
+          "value": "64px",
+          "type": "dimension"
+        },
+        "mobile-font-size": {
+          "value": "48px",
+          "type": "dimension"
+        },
+        "line-height": {
+          "value": "110%",
+          "type": "number"
+        },
+        "font-family": {
+          "value": "{typography.font-family.heading}",
+          "type": "fontFamily"
+        }
       },
       "display-xs": {
-        "desktop-font-size": { "value": "40px", "type": "dimension" },
-        "mobile-font-size": { "value": "32px", "type": "dimension" },
-        "line-height": { "value": "110%", "type": "number" },
-        "font-family": { "value": "{typography.font-family.heading}", "type": "fontFamily" }
+        "desktop-font-size": {
+          "value": "40px",
+          "type": "dimension"
+        },
+        "mobile-font-size": {
+          "value": "32px",
+          "type": "dimension"
+        },
+        "line-height": {
+          "value": "110%",
+          "type": "number"
+        },
+        "font-family": {
+          "value": "{typography.font-family.heading}",
+          "type": "fontFamily"
+        }
       },
       "heading-xl": {
-        "desktop-font-size": { "value": "60px", "type": "dimension" },
-        "mobile-font-size": { "value": "40px", "type": "dimension" },
-        "line-height": { "value": "110%", "type": "number" },
-        "font-family": { "value": "{typography.font-family.heading}", "type": "fontFamily" }
+        "desktop-font-size": {
+          "value": "60px",
+          "type": "dimension"
+        },
+        "mobile-font-size": {
+          "value": "40px",
+          "type": "dimension"
+        },
+        "line-height": {
+          "value": "110%",
+          "type": "number"
+        },
+        "font-family": {
+          "value": "{typography.font-family.heading}",
+          "type": "fontFamily"
+        }
       },
       "heading-lg": {
-        "desktop-font-size": { "value": "48px", "type": "dimension" },
-        "mobile-font-size": { "value": "36px", "type": "dimension" },
-        "line-height": { "value": "110%", "type": "number" },
-        "font-family": { "value": "{typography.font-family.heading}", "type": "fontFamily" }
+        "desktop-font-size": {
+          "value": "48px",
+          "type": "dimension"
+        },
+        "mobile-font-size": {
+          "value": "36px",
+          "type": "dimension"
+        },
+        "line-height": {
+          "value": "110%",
+          "type": "number"
+        },
+        "font-family": {
+          "value": "{typography.font-family.heading}",
+          "type": "fontFamily"
+        }
       },
       "heading-md": {
-        "desktop-font-size": { "value": "36px", "type": "dimension" },
-        "mobile-font-size": { "value": "32px", "type": "dimension" },
-        "line-height": { "value": "120%", "type": "number" },
-        "font-family": { "value": "{typography.font-family.heading}", "type": "fontFamily" }
+        "desktop-font-size": {
+          "value": "36px",
+          "type": "dimension"
+        },
+        "mobile-font-size": {
+          "value": "32px",
+          "type": "dimension"
+        },
+        "line-height": {
+          "value": "120%",
+          "type": "number"
+        },
+        "font-family": {
+          "value": "{typography.font-family.heading}",
+          "type": "fontFamily"
+        }
       },
       "heading-sm": {
-        "desktop-font-size": { "value": "26px", "type": "dimension" },
-        "mobile-font-size": { "value": "26px", "type": "dimension" },
-        "line-height": { "value": "120%", "type": "number" },
-        "font-family": { "value": "{typography.font-family.heading}", "type": "fontFamily" }
+        "desktop-font-size": {
+          "value": "26px",
+          "type": "dimension"
+        },
+        "mobile-font-size": {
+          "value": "26px",
+          "type": "dimension"
+        },
+        "line-height": {
+          "value": "120%",
+          "type": "number"
+        },
+        "font-family": {
+          "value": "{typography.font-family.heading}",
+          "type": "fontFamily"
+        }
       },
       "heading-xs": {
-        "desktop-font-size": { "value": "20px", "type": "dimension" },
-        "mobile-font-size": { "value": "22px", "type": "dimension" },
-        "line-height": { "value": "120%", "type": "number" },
-        "font-family": { "value": "{typography.font-family.heading}", "type": "fontFamily" }
+        "desktop-font-size": {
+          "value": "20px",
+          "type": "dimension"
+        },
+        "mobile-font-size": {
+          "value": "22px",
+          "type": "dimension"
+        },
+        "line-height": {
+          "value": "120%",
+          "type": "number"
+        },
+        "font-family": {
+          "value": "{typography.font-family.heading}",
+          "type": "fontFamily"
+        }
       },
       "body-xl": {
-        "desktop-font-size": { "value": "24px", "type": "dimension" },
-        "mobile-font-size": { "value": "22px", "type": "dimension" },
-        "line-height": { "value": "150%", "type": "number" },
-        "font-family": { "value": "{typography.font-family.body}", "type": "fontFamily" }
+        "desktop-font-size": {
+          "value": "24px",
+          "type": "dimension"
+        },
+        "mobile-font-size": {
+          "value": "22px",
+          "type": "dimension"
+        },
+        "line-height": {
+          "value": "150%",
+          "type": "number"
+        },
+        "font-family": {
+          "value": "{typography.font-family.body}",
+          "type": "fontFamily"
+        }
       },
       "body-lg": {
-        "desktop-font-size": { "value": "20px", "type": "dimension" },
-        "mobile-font-size": { "value": "20px", "type": "dimension" },
-        "line-height": { "value": "150%", "type": "number" },
-        "font-family": { "value": "{typography.font-family.body}", "type": "fontFamily" }
+        "desktop-font-size": {
+          "value": "20px",
+          "type": "dimension"
+        },
+        "mobile-font-size": {
+          "value": "20px",
+          "type": "dimension"
+        },
+        "line-height": {
+          "value": "150%",
+          "type": "number"
+        },
+        "font-family": {
+          "value": "{typography.font-family.body}",
+          "type": "fontFamily"
+        }
       },
       "body-md": {
-        "desktop-font-size": { "value": "16px", "type": "dimension" },
-        "mobile-font-size": { "value": "18px", "type": "dimension" },
-        "line-height": { "value": "150%", "type": "number" },
-        "font-family": { "value": "{typography.font-family.body}", "type": "fontFamily" }
+        "desktop-font-size": {
+          "value": "16px",
+          "type": "dimension"
+        },
+        "mobile-font-size": {
+          "value": "18px",
+          "type": "dimension"
+        },
+        "line-height": {
+          "value": "150%",
+          "type": "number"
+        },
+        "font-family": {
+          "value": "{typography.font-family.body}",
+          "type": "fontFamily"
+        }
       },
       "body-sm": {
-        "desktop-font-size": { "value": "14px", "type": "dimension" },
-        "mobile-font-size": { "value": "14px", "type": "dimension" },
-        "line-height": { "value": "150%", "type": "number" },
-        "font-family": { "value": "{typography.font-family.body}", "type": "fontFamily" }
+        "desktop-font-size": {
+          "value": "14px",
+          "type": "dimension"
+        },
+        "mobile-font-size": {
+          "value": "14px",
+          "type": "dimension"
+        },
+        "line-height": {
+          "value": "150%",
+          "type": "number"
+        },
+        "font-family": {
+          "value": "{typography.font-family.body}",
+          "type": "fontFamily"
+        }
       },
       "label-xl": {
-        "desktop-font-size": { "value": "26px", "type": "dimension" },
-        "line-height": { "value": "150%", "type": "number" },
-        "font-family": { "value": "{typography.font-family.body}", "type": "fontFamily" }
+        "desktop-font-size": {
+          "value": "26px",
+          "type": "dimension"
+        },
+        "line-height": {
+          "value": "150%",
+          "type": "number"
+        },
+        "font-family": {
+          "value": "{typography.font-family.body}",
+          "type": "fontFamily"
+        }
       },
       "label-lg": {
-        "desktop-font-size": { "value": "20px", "type": "dimension" },
-        "line-height": { "value": "150%", "type": "number" },
-        "font-family": { "value": "{typography.font-family.body}", "type": "fontFamily" }
+        "desktop-font-size": {
+          "value": "20px",
+          "type": "dimension"
+        },
+        "line-height": {
+          "value": "150%",
+          "type": "number"
+        },
+        "font-family": {
+          "value": "{typography.font-family.body}",
+          "type": "fontFamily"
+        }
       },
       "label-md": {
-        "desktop-font-size": { "value": "16px", "type": "dimension" },
-        "line-height": { "value": "150%", "type": "number" },
-        "font-family": { "value": "{typography.font-family.body}", "type": "fontFamily" }
+        "desktop-font-size": {
+          "value": "16px",
+          "type": "dimension"
+        },
+        "line-height": {
+          "value": "150%",
+          "type": "number"
+        },
+        "font-family": {
+          "value": "{typography.font-family.body}",
+          "type": "fontFamily"
+        }
       },
       "label-sm": {
-        "desktop-font-size": { "value": "14px", "type": "dimension" },
-        "line-height": { "value": "150%", "type": "number" },
-        "font-family": { "value": "{typography.font-family.body}", "type": "fontFamily" }
+        "desktop-font-size": {
+          "value": "14px",
+          "type": "dimension"
+        },
+        "line-height": {
+          "value": "150%",
+          "type": "number"
+        },
+        "font-family": {
+          "value": "{typography.font-family.body}",
+          "type": "fontFamily"
+        }
       }
     }
   }

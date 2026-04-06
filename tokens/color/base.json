@@ -1,8 +1,14 @@
 {
   "color": {
     "base": {
-      "warm-black": { "value": "#281805", "type": "color" },
-      "pure-white": { "value": "#FFFFFF", "type": "color" }
+      "warm-black": {
+        "value": "#281805",
+        "type": "color"
+      },
+      "pure-white": {
+        "value": "#FFFFFF",
+        "type": "color"
+      }
     }
   }
 }

@@ -1,8 +1,14 @@
 {
   "color": {
     "form": {
-      "field-background": { "value": "#F0EFEE", "type": "color" },
-      "error": { "value": "#C51321", "type": "color" }
+      "field-background": {
+        "value": "#F0EFEE",
+        "type": "color"
+      },
+      "error": {
+        "value": "#C51321",
+        "type": "color"
+      }
     }
   }
 }

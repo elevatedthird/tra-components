@@ -1,10 +1,22 @@
 {
   "color": {
     "vibrant": {
-      "fresh-lime": { "value": "#E7FF00", "type": "color" },
-      "grass-green": { "value": "#4CD300", "type": "color" },
-      "hot-pink": { "value": "#FA69FF", "type": "color" },
-      "sky-blue": { "value": "#63B6FF", "type": "color" }
+      "fresh-lime": {
+        "value": "#E7FF00",
+        "type": "color"
+      },
+      "grass-green": {
+        "value": "#4CD300",
+        "type": "color"
+      },
+      "hot-pink": {
+        "value": "#FA69FF",
+        "type": "color"
+      },
+      "sky-blue": {
+        "value": "#63B6FF",
+        "type": "color"
+      }
     }
   }
 }
