@@ -184,3 +184,102 @@ npm run build
 ```
 
 All generated outputs (SCSS variables, CSS custom properties, JSON) update automatically.
+
+## Figma Variables Sync
+
+Design tokens sync bidirectionally with Figma Variables via two scripts. Both require
+a Figma personal access token and the file key from your Figma file URL.
+
+### Environment Variables
+
+| Variable | Description |
+|---|---|
+| `FIGMA_ACCESS_TOKEN` | Personal access token (Settings → Personal access tokens). Needs `file_variables:read` and `file_variables:write` scopes. |
+| `FIGMA_FILE_KEY` | The key from the Figma file URL: `https://figma.com/design/<FILE_KEY>/...` |
+
+### Push: Code → Figma
+
+Reads all token JSON files and creates/updates Figma Variables via the REST API.
+
+```bash
+# Preview what will be sent (no API calls)
+npm run sync:figma:dry
+
+# Push tokens to Figma
+FIGMA_ACCESS_TOKEN=xxx FIGMA_FILE_KEY=yyy npm run sync:figma
+```
+
+The script (`scripts/sync-figma-variables.mjs`):
+1. Reads and flattens all `tokens/**/*.json` files
+2. Fetches existing Figma variables to diff against
+3. Creates any missing variable collections (Color, Typography, Spacing, Breakpoint, Shadow)
+4. Creates/updates variables with values via `variableModeValues`
+5. Resolves token references (e.g. `{typography.font-family.heading}`) as Figma variable aliases
+
+### Pull: Figma → Code
+
+Reads all Figma Variables and writes them back to the local token JSON files.
+
+```bash
+# Preview what would be written (no file changes)
+FIGMA_ACCESS_TOKEN=xxx FIGMA_FILE_KEY=yyy npm run pull:figma:dry
+
+# Pull from Figma and overwrite token files
+FIGMA_ACCESS_TOKEN=xxx FIGMA_FILE_KEY=yyy npm run pull:figma
+
+# Then regenerate SCSS/CSS from the updated tokens
+npm run tokens
+```
+
+The script (`scripts/pull-figma-variables.mjs`):
+1. Fetches all local variables from the Figma file
+2. Maps collection names back to token categories (Color → `color/`, etc.)
+3. Converts Title Case variable names back to kebab-case token paths
+4. Converts Figma values (COLOR rgba → hex, FLOAT → px/rem/%, aliases → `{references}`)
+5. Writes each token group to its corresponding JSON file under `tokens/`
+
+### Naming Conventions
+
+Token JSON files use **kebab-case** (`warm-black`, `font-size`). Figma Variables use
+**Title Case** (`Warm Black`, `Font Size`) with `/` as the group separator. The top-level
+category is stripped from the variable name since it matches the collection name:
+
+| Token path | Figma variable name | Collection |
+|---|---|---|
+| `color.base.warm-black` | `Base/Warm Black` | Color |
+| `color.contrasting.lavender-purple` | `Contrasting/Lavender Purple` | Color |
+| `typography.size.heading-xl.desktop-font-size` | `Size/Heading Xl/Desktop Font Size` | Typography |
+| `typography.font-family.body` | `Font Family/Body` | Typography |
+| `spacing.scale.4` | `Scale/4` | Spacing |
+
+### Token → SCSS Variable Mapping
+
+Style Dictionary transforms preserve legacy SCSS variable names regardless of the
+token JSON structure:
+
+| Token path | SCSS variable |
+|---|---|
+| `color.base.warm-black` | `$color--base--warm-black` |
+| `color.contrasting.lavender-purple` | `$color--brand--contrasting--lavender-purple` |
+| `typography.size.heading-xl.desktop-font-size` | `$heading-xl-font-size` |
+| `typography.size.heading-xl.mobile-font-size` | `$heading-xl-smallscreen-font-size` |
+| `typography.size.heading-xl.line-height` | `$heading-xl-line-height` |
+| `typography.font-family.body` | `$body-font-family` |
+| `spacing.scale.4` | `$spacing-4` |
+
+### Typical Workflow
+
+**Designer updates a color in Figma:**
+```bash
+FIGMA_ACCESS_TOKEN=xxx FIGMA_FILE_KEY=yyy npm run pull:figma
+npm run build
+git diff tokens/   # review changes
+git add -A && git commit -m "sync: pull color updates from Figma"
+```
+
+**Developer adds a new token in code:**
+```bash
+# Edit tokens/color/brand.json, then:
+npm run build
+FIGMA_ACCESS_TOKEN=xxx FIGMA_FILE_KEY=yyy npm run sync:figma
+```
