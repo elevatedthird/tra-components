@@ -1,6 +1,6 @@
 {
-  "name": "@transamerica/sequoia-styles",
-  "version": "1.0.2",
+  "name": "tra-components",
+  "version": "2.0.8",
   "description": "Sequoia CSS library with global styles, components, and assets",
   "main": "dist/css/global.css",
   "files": [
