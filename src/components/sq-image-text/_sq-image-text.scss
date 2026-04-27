@@ -1,4 +1,8 @@
 .organism--sq-image-text {
+  .img-txt-icon-wrapper {
+    width: 6rem;
+  }
+
   &--media {
     @include breakpoint(large) {
       aspect-ratio: initial;
