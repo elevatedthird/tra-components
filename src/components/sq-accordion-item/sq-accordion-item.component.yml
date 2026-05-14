@@ -32,9 +32,27 @@ props:
       title: Disclosure Text
       description: Optional legal or disclaimer text shown in small type.
       default: 'Nulla eros tempor dignissim ex nostrud sunt ultricies sint, ultricies velit ullamco eu ullamco exercitation doming.'
+    subtitle:
+      type: ['string', 'null']
+      control: text
+      title: Subtitle
+      description: Optional subtitle displayed below the title in the accordion header.
+      default: ''
     id:
       type: ['string', 'null']
       control: text
       title: Accordion Item ID
       description: Randomly generated ID for the accordion item element.
+      default: ''
+    icon_color:
+      type: ['string', 'null']
+      control: text
+      title: Icon Color
+      description: CSS color class suffix applied to the icon wrapper.
+      default: ''
+    text_color:
+      type: ['string', 'null']
+      control: text
+      title: Text Color
+      description: CSS color class suffix applied to the title text.
       default: ''

@@ -4,10 +4,22 @@
   {# Accordion Item Header #}
   {% if title %}
     <a href="#acc--{{ accordion_item_id }}"
-       class="molecule--accordion-item--header flex-container align-middle position-relative trim-bottom-margin material-symbols-outlined expand-more text-decoration--none py-5">
-      <h3 class="molecule--accordion-item--title {{ title_typography }}">
-        {{ title }}
-      </h3>
+       class="molecule--accordion-item--header flex-container align-middle position-relative trim-bottom-margin material-symbols-outlined expand-more text-decoration--none">
+      {% if icon|render %}
+        <div class="molecule--accordion-item--icon {{ icon_color ? 'icon-color--' ~ icon_color }}">
+          {{ icon }}
+        </div>
+      {% endif %}
+      <div class="molecule--accordion-item--title-wrapper">
+        <h3 class="molecule--accordion-item--title {{ title_typography }} {{ text_color ? 'text-color-' ~ text_color }}">
+          {{ title }}
+        </h3>
+        {% if subtitle|render %}
+          <p class="molecule--accordion-item--subtitle">
+            {{ subtitle }}
+          </p>
+        {% endif %}
+      </div>
     </a>
   {% endif %}
 
