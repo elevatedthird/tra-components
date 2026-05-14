@@ -1,0 +1,18 @@
+{
+  "color": {
+    "icon": {
+      "dark-grass-green": {
+        "value": "#278904",
+        "type": "color"
+      },
+      "dark-sky-blue": {
+        "value": "#187AC9",
+        "type": "color"
+      },
+      "dark-hot-pink": {
+        "value": "#CC1AD4",
+        "type": "color"
+      }
+    }
+  }
+}

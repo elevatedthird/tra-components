@@ -4,6 +4,13 @@
 $color--white: $color--neutral--white !default;
 $color--black: $color--neutral--black !default;
 
+// Icon colors map
+$icon-colors: (
+  "dark-grass-green": $color--icon--dark-grass-green,
+  "dark-sky-blue": $color--icon--dark-sky-blue,
+  "dark-hot-pink": $color--icon--dark-hot-pink,
+) !default;
+
 // Contrasting colors map
 $contrasting-colors: (
   "lavender-purple": $color--brand--contrasting--lavender-purple,

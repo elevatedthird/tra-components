@@ -234,6 +234,24 @@ StyleDictionary.registerFormat({
       );
     }
 
+    // --- Icon colors map ---
+    lines.push('');
+    lines.push('// Icon colors map');
+    const icons = dictionary.allTokens.filter(
+      (t) =>
+        t.path[0] === 'color' &&
+        t.path[1] === 'icon'
+    );
+    const iconEntries = icons.map(
+      (t) =>
+        `  "${t.path[2]}": $color--icon--${t.path[2]},`
+    );
+    lines.push(
+      '$icon-colors: (',
+      ...iconEntries,
+      ') !default;',
+    );
+
     // --- Contrasting colors map ---
     lines.push('');
     lines.push('// Contrasting colors map');

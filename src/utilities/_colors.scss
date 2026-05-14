@@ -57,3 +57,10 @@
   }
 }
 
+@each $name, $color in $icon-colors {
+  .icon-color--#{$name} {
+    svg {
+      fill: $color;
+    }
+  }
+}
