@@ -1,3 +1,4 @@
+// Base styles shared by both accordion and disclaimer.
 .molecule--sq-accordion-item.molecule--sq-accordion-item {
   a {
     &:hover, &:focus {
@@ -5,18 +6,17 @@
     }
   }
 
-  border-bottom: 1px solid $color--base--warm-black;
-
-  &:last-of-type {
-    border-bottom: 3px solid $color--base--warm-black;
+  &:after {
+    background: $color--neutral--neutral-200;
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    width: 100%;
   }
 
-  .molecule--accordion-item--header {
-    padding: 20px 0;
-
-    @include breakpoint(medium) {
-      padding: 24px 16px;
-    }
+  &:first-of-type:before {
+    height: 1px;
   }
 
   .accordion-content {
@@ -31,16 +31,12 @@
     margin: auto;
     position: absolute;
     transition: all ease-in-out 0.4s;
-    font-size: $label-xl-font-size;
-    height: 26px;
-
-    @include breakpoint(medium) {
-      right: 16px;
-    }
+    font-size: 30px;
+    height: 30px;
   }
 
   &.is-active {
-    border-color: $color--neutral--neutral-200;
+    border-color: $color--neutral--neutral-150;
 
     .expand-more:after {
       transform: rotate(180deg);
@@ -52,78 +48,15 @@
     border: none;
   }
 
-  .molecule--accordion-item--icon {
-    width: 3rem;
-    height: 3rem;
-    flex-shrink: 0;
-    margin-right: $spacing-4;
-    display: none;
-
-    @include breakpoint(medium) {
-      display: block;
-    }
-
-    img,
-    svg {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    // Override inline fill attributes on SVG child elements when icon-color is set
-    &[class*="icon-color--"] svg path,
-    &[class*="icon-color--"] svg circle,
-    &[class*="icon-color--"] svg rect,
-    &[class*="icon-color--"] svg polygon {
-      fill: inherit;
-    }
-  }
-
   .molecule--accordion-item--title {
     font-weight: $global-weight-medium;
-    font-size: $heading-xs-font-size;
-    line-height: $label-lg-line-height;
-
-    @include breakpoint(medium) {
-      font-size: $heading-sm-font-size;
-      line-height: $label-lg-line-height;
-    }
-    @include breakpoint(large) {
-      font-size: $heading-sm-font-size;
-      line-height: $label-lg-line-height;
-    }
-  }
-
-  .molecule--accordion-item--title-wrapper {
-    flex: 1;
-    min-width: 0;
-    padding-right: 2rem;
-  }
-
-  .molecule--accordion-item--subtitle {    
-    font-style: italic;
-    font-weight: $global-weight-normal;
-    font-size: $label-md-font-size;
-    line-height: $label-lg-line-height;
-    margin: 0;
-    
-    @include breakpoint(medium) {
-      font-size: $body-md-smallscreen-font-size;
-      line-height: $label-lg-line-height;
-    }
-    @include breakpoint(large) {
-      font-size: $label-lg-font-size;
-      line-height: $label-lg-line-height;
-    }
+    padding-right: 0.5rem;
   }
 
   .molecule--accordion-item--title,
   .molecule--accordion-item--description  {
     word-wrap: break-word;
     white-space: normal;
-  }
-
-  .molecule--accordion-item--description {
     @include breakpoint(small) {
       font-size: $body-lg-smallscreen-font-size;
       line-height: $body-lg-line-height;
@@ -146,9 +79,129 @@
   }
 }
 
+// Enhanced accordion styles - scoped to the accordion organism only.
+.organism--sq-accordion {
+  .molecule--sq-accordion-item.molecule--sq-accordion-item {
+    border-bottom: 1px solid $color--base--warm-black;
+
+    &:after {
+      display: none;
+    }
+
+    &:first-of-type:before {
+      display: none;
+    }
+
+    &:last-of-type {
+      border-bottom: 3px solid $color--base--warm-black;
+    }
+
+    .molecule--accordion-item--header {
+      padding: 20px 0;
+
+      @include breakpoint(medium) {
+        padding: 24px 16px;
+      }
+    }
+
+    .expand-more:after {
+      font-size: $body-xl-font-size;
+      height: 24px;
+
+      @include breakpoint(medium) {
+        right: 16px;
+      }
+    }
+
+    &.is-active {
+      border-color: $color--base--warm-black;
+    }
+
+    .molecule--accordion-item--icon {
+      width: 3rem;
+      height: 3rem;
+      flex-shrink: 0;
+      margin-right: $spacing-4;
+      display: none;
+
+      @include breakpoint(medium) {
+        display: block;
+      }
+
+      img,
+      svg {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      &[class*="icon-color--"] svg path,
+      &[class*="icon-color--"] svg circle,
+      &[class*="icon-color--"] svg rect,
+      &[class*="icon-color--"] svg polygon {
+        fill: inherit;
+      }
+    }
+
+    .molecule--accordion-item--title {
+      font-size: $heading-xs-font-size;
+      line-height: $label-lg-line-height;
+      margin: 0;
+      padding-right: 0;
+
+      @include breakpoint(medium) {
+        font-size: $heading-sm-font-size;
+        line-height: $label-lg-line-height;
+      }
+    }
+
+    .molecule--accordion-item--title-wrapper {
+      flex: 1;
+      min-width: 0;
+      padding-right: 3rem;
+      font-family: "Forever Forma Body", "Arial", sans-serif;
+
+      @include breakpoint(medium) {
+        padding-right: 2rem;
+      }
+    }
+
+    .molecule--accordion-item--subtitle {
+      font-style: italic;
+      font-weight: $global-weight-normal;
+      font-size: $label-md-font-size;
+      line-height: $label-lg-line-height;
+      margin: 0;
+      text-transform: none;
+      letter-spacing: normal;
+
+      @include breakpoint(medium) {
+        font-size: $body-md-smallscreen-font-size;
+        line-height: $label-lg-line-height;
+      }
+      @include breakpoint(large) {
+        font-size: $label-lg-font-size;
+        line-height: $label-lg-line-height;
+      }
+    }
+
+    .molecule--accordion-item--title,
+    .molecule--accordion-item--subtitle,
+    .molecule--accordion-item--description {
+      word-wrap: break-word;
+      white-space: normal;
+    }
+
+    .molecule--accordion-item--description {
+      @include breakpoint(small) {
+        font-size: $body-lg-smallscreen-font-size;
+        line-height: $body-lg-line-height;
+      }
+    }
+  }
+}
+
 // Top border above first accordion item.
-// Uses organism--accordion--copy border-bottom since Drupal field wrappers
-// prevent targeting the first accordion-item directly.
 .organism--accordion--copy {
   border-bottom: 1px solid $color--base--warm-black;
 }

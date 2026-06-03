@@ -11,7 +11,7 @@
     <{{ microTitle_tag|default('h4') }} class="micro-title {{ microTitle_font_size|default('h4')}}">{{ microTitle }}</{{ microTitle_tag|default('h4') }}>
   {% endif %}
   {% if heading %}
-    <{{ heading_tag|default('h2') }} class="heading {{ heading_font_size|default('h2')}}"
+    <{{ heading_tag|default('h2') }} class="heading {{ heading_font_size|default('h2')}}{{ heading_text_color ? ' text-color-' ~ heading_text_color }}"
       {% if heading_id %}
         id="{{ heading_id }}"
       {% endif %}
@@ -32,7 +32,7 @@
     </div>
   {% endif %}
   {% if disclosure %}
-    {% include '{{sequoia}}:sq-tooltip' with {
+    {% include 'aries:sq-tooltip' with {
       text: disclosure,
       classes: ['mt-4']
     } %}

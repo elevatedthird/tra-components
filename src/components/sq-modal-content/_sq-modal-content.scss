@@ -12,14 +12,10 @@
     top: 0;
     right: 10px;
     padding: 10px;
-    font-size: 32px;
-    cursor: pointer;
-
-    .icon-close:after {
-      display: block;
-      content: "\00d7";
-      color: $color--black;
+    .material-symbols-outlined {
+      font-size: 24px !important;
     }
+    cursor: pointer;
   }
 
   // @todo do we need these last two rules?

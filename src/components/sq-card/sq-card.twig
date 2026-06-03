@@ -16,7 +16,7 @@
   {% elseif media | render %}
     {{ media }}
     {% if video %}
-      {% include 'aries:sq-video-modal' with {
+      {% include '{{sequoia}}:sq-video-modal' with {
         modal_content: video,
         trigger_label: 'Play',
         play_icon: 1,
@@ -49,7 +49,7 @@
        <div class="description {{ description_classes|default(['mb-4'])|join(' ') }} nmblc  {{ description_font_size|default('body-m')}}">{{ description }}</div>
       {% endif %}
       {% if disclosure %}
-        {% include 'aries:sq-tooltip' with {
+        {% include '{{sequoia}}:sq-tooltip' with {
           text: disclosure,
           classes: ['mb-auto', 'pt-4', 'flex-container', 'flex-wrap--wrap', 'align-top', 'flex-dir-column']
         } %}
@@ -62,3 +62,4 @@
     </div>
   </div>
 </div>
+

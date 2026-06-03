@@ -4,7 +4,7 @@
   }
 
   border-collapse: collapse;
-  border: 1px solid $color--light-grey-5;
+  border: 1px solid $color--neutral--neutral-150;
   margin: 24px 0;
   width: 100%;
   font-size: rem-calc(16);
@@ -56,12 +56,12 @@
 
   thead {
     background-color: $color--brand--contrasting--night-blue;
-    color: $color--white;
+    color: $color--neutral--white;
 
     th {
       font-weight: $global-weight-bold;
-      color: $color--white;
-      border-right: 1px solid $color--light-grey-5;
+      color: $color--neutral--white;
+      border-right: 1px solid $color--neutral--neutral-150;
 
       strong {
         font-weight: inherit;
@@ -83,18 +83,18 @@
 
   tbody {
     th {
-      border-right: 1px solid $color--light-grey-5;
+      border-right: 1px solid $color--neutral--neutral-150;
     }
 
     tr {
       &:nth-child(even) {
-        background: $color--light-grey-7;
+        background: $color--neutral--neutral-150;
       }
     }
 
     td {
-      color: $color--black;
-      border-right: 1px solid $color--light-grey-5;
+      color: $color--neutral--black;
+      border-right: 1px solid $color--neutral--neutral-150;
     }
   }
 
