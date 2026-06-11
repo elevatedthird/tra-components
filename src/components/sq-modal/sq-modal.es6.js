@@ -27,11 +27,16 @@
           $.ajax({
             url: formWrapper.data('ajax-url'),
             type: 'GET',
+            dataType: 'html',
             success: function (response) {
-              var newForm = $(response).find('#webform-submission-email-selected-form-wizard-items-block-content-16731-form-ajax').html();
-              Drupal.detachBehaviors(formWrapper.get(0), Drupal.settings);
-              formWrapper.html(newForm);
-              Drupal.attachBehaviors(formWrapper.get(0), Drupal.settings);
+              var parser = new DOMParser();
+              var doc = parser.parseFromString(response, 'text/html');
+              var sourceEl = doc.getElementById('webform-submission-email-selected-form-wizard-items-block-content-16731-form-ajax');
+              if (sourceEl) {
+                Drupal.detachBehaviors(formWrapper.get(0), Drupal.settings);
+                formWrapper.empty().append(document.adoptNode(sourceEl).childNodes);
+                Drupal.attachBehaviors(formWrapper.get(0), Drupal.settings);
+              }
             },
             error: function() {
               console.error('Form reload failed');

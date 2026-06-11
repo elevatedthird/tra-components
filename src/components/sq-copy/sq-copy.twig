@@ -32,7 +32,7 @@
     </div>
   {% endif %}
   {% if disclosure %}
-    {% include 'aries:sq-tooltip' with {
+    {% include '{{sequoia}}:sq-tooltip' with {
       text: disclosure,
       classes: ['mt-4']
     } %}

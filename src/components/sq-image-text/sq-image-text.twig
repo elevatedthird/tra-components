@@ -32,13 +32,13 @@
       {{ media }}
     </div>
     {% else %}
-      {% include 'aries:sq-background-media' with {
+      {% include '{{sequoia}}:sq-background-media' with {
         media: media,
         additionalClasses: [(shape ? 'shape'), (shape_position ? shape ~ '--' ~  shape_position : shape), (media ? 'has-media' : 'no-media'), (shape_color ? 'bg-color-' ~ shape_color)]
       } %}
     {% endif %}
     {% if video %}
-      {% include 'aries:sq-video-modal' with {
+      {% include '{{sequoia}}:sq-video-modal' with {
         modal_content: video,
         trigger_label: 'Play',
         play_icon: 1,
@@ -56,7 +56,7 @@
     {{ icon_logo }}
   </div>
   {% endif %}
-  {% include 'aries:sq-copy' with {
+  {% include '{{sequoia}}:sq-copy' with {
     heading: heading,
     heading_tag: heading_tag,
     classes: [is_2_col],
