@@ -51,8 +51,31 @@
   }
 }
 
+// Tooltip text color fix for vibrant and tag-based background colors.
+// The sq-tooltip JS copies the parent's bg-color-* class onto the Foundation
+// .tooltip element via templateClasses. When the parent has a vibrant or
+// tag-based background color, the utility/global rules set dark text color
+// on all descendant p elements, making tooltip text invisible against its
+// dark background.
+div.tooltip[class*="bg-color-vibrant-"],
+div.tooltip[class*="bg-color-tag-"],
+div[class*="bg-color-vibrant-"] .tooltip-admin,
+div[class*="bg-color-tag-"] .tooltip-admin {
+  color: $color--base--pure-white;
+
+  p, p span {
+    color: $color--base--pure-white;
+  }
+}
+
+// On contrasting (dark) backgrounds, the tooltip inverts to white background
+// with dark text for readability. This must come AFTER the vibrant/tag rules
+// above so it wins by source order when a class matches both patterns
+// (e.g. bg-color-tag-contrasting-night-blue).
 div.tooltip[class*="bg-color-contrasting-"],
-div[class*="bg-color-contrasting-"] .tooltip-admin {
+div.tooltip[class*="bg-color-tag-contrasting-"],
+div[class*="bg-color-contrasting-"] .tooltip-admin,
+div[class*="bg-color-tag-contrasting-"] .tooltip-admin {
   background-color: $color--base--pure-white;
   color: $color--base--warm-black;
 
