@@ -1,6 +1,6 @@
 {
   "name": "tra-components",
-  "version": "2.0.18",
+  "version": "2.0.19",
   "description": "Sequoia CSS library with global styles, components, and assets",
   "main": "dist/css/global.css",
   "files": [
