@@ -205,7 +205,7 @@
           "type": "dimension"
         },
         "mobile-font-size": {
-          "value": "20px",
+          "value": "18px",
           "type": "dimension"
         },
         "line-height": {
@@ -223,7 +223,7 @@
           "type": "dimension"
         },
         "mobile-font-size": {
-          "value": "18px",
+          "value": "16px",
           "type": "dimension"
         },
         "line-height": {
