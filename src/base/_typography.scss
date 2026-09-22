@@ -130,3 +130,24 @@ p.text__small {
   font-size: $body-sm-smallscreen-font-size;
   line-height: $body-sm-line-height;
 }
+
+// Allow the small body-text size on a span inside a heading, so content editors
+// can keep semantic h2–h6 markup (correct document outline / screen-reader
+// behavior) while rendering the text at the small size. The :has() rule also
+// collapses the heading's tall line box so it doesn't leave a large vertical gap.
+h2,
+h3,
+h4,
+h5,
+h6 {
+  &:has(span.text__small) {
+    font-size: $body-sm-smallscreen-font-size;
+    line-height: $body-sm-line-height;
+  }
+
+  span.text__small {
+    font-size: $body-sm-smallscreen-font-size;
+    line-height: $body-sm-line-height;
+  }
+}
+
