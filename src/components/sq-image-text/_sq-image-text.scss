@@ -1,6 +1,7 @@
 .organism--sq-image-text {
   .img-txt-icon-wrapper {
-    width: 6rem;
+    max-height: 12rem;
+    min-height: 6rem;
 
     lottie-player {
       width: 6rem;
